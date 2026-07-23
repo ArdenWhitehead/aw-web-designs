@@ -11,7 +11,7 @@
 body {
     margin: 0;
     font-family: "Nunito", "sans-serif";
-    background-image: url("images/night.jpg");
+    background-image: url("Images/night.jpg");
     background-size: 130%;
     background-position: center;
     background-repeat: no-repeat;
@@ -506,25 +506,25 @@ body {
 .web-design {
     font-family:Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("images/web-design.jpg");
+    background-image: url("Images/web-design.jpg");
 }
 
 .seo {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("images/SEO.jpg");
+    background-image: url("Images/SEO.jpg");
 }
 
 .maintenence {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("images/maintenence.jpg");
+    background-image: url("Images/maintenence.jpg");
 }
 
 .Ongoing-Technical-Support {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("images/Ongoing-Technical-Support.jpg");
+    background-image: url("Images/Ongoing-Technical-Support.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
