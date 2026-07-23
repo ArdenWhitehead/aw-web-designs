@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.W Web Designs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<section class="hero">
+
+    <header class="hero-header">
+        <a href="#" class="hero-logo">
+            A.W Web Designs
+        </a>
+
+        <nav class="hero-nav" aria-label="Main navigation">
+            <a href="#services">
+                Services
+            </a>
+
+            <button
+                type="button"
+                class="nav-link-button"
+                id="nav-portfolio-button"
+            >
+                Portfolio
+            </button>
+
+            <button
+                type="button"
+                class="nav-link-button"
+                id="nav-contact-button"
+            >
+                Contact
+            </button>
+        </nav>
+    </header>
+
+    <div class="hero-content">
+        <p class="hero-eyebrow">
+            MODERN WEBSITE DESIGN & SUPPORT
+        </p>
+
+        <h1 class="hero-title">
+            Professional Websites That Help Your Business Grow
+        </h1>
+
+        <p class="hero-description">
+            Responsive websites designed to build trust,
+            generate enquiries and help your business stand out online.
+        </p>
+
+<div class="hero-buttons">
+
+    <button
+        type="button"
+        class="hero-button quote-style"
+        id="quote-button"
+    >
+        <span class="button-icon">💬</span>
+
+        <span class="button-divider"></span>
+
+        <span class="button-text">
+            Receive a Free Quote
+        </span>
+
+        <span class="button-arrow">›</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="hero-button portfolio-style"
+        id="portfolio-button"
+    >
+        <span class="button-icon">💼</span>
+
+        <span class="button-divider"></span>
+
+        <span class="button-text">
+            Website Portfolio
+        </span>
+
+        <span class="button-arrow">›</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="hero-button contact-style"
+        id="contact-button"
+    >
+        <span class="button-icon">✉️</span>
+
+        <span class="button-divider"></span>
+
+        <span class="button-text">
+            Contact Us
+        </span>
+
+        <span class="button-arrow">›</span>
+    </button>
+
+</div>
+
+<p id="hero-message"></p>
+
+    </div>
+
+<div class="hero-contact-details">
+    <p><span class="contact-icon">☎</span>Phone: (123) 456-7890</p>
+    <p><span class="contact-icon">✉</span>Email: aw@gmail.com.au</p>
+    <p><span class="contact-icon">⌖</span>Address: 123 Main Street, Anytown, USA</p>
+</div>
+
+</section>
+
+<div class="modal" id="quote-modal">
+    <div class="modal-content">
+        <button
+            type="button"
+            class="close-button"
+            data-close="quote-modal"
+            aria-label="Close quote form"
+        >
+            &times;
+        </button>
+
+        <h2>Receive a Free Quote</h2>
+
+        <p class="form-introduction">
+            Tell us about your website project and we will contact you.
+        </p>
+
+        <form id="quote-form">
+            <div class="form-group">
+                <label for="quote-name">Full Name</label>
+                <input
+                    type="text"
+                    id="quote-name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="quote-email">Email Address</label>
+                <input
+                    type="email"
+                    id="quote-email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="business-name">Business Name</label>
+                <input
+                    type="text"
+                    id="business-name"
+                    name="businessName"
+                    placeholder="Enter your business name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service Required</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="web-design">Web Design</option>
+                    <option value="seo">SEO</option>
+                    <option value="maintenance">Website Maintenance</option>
+                    <option value="support">Technical Support</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Estimated Budget</label>
+                <select id="budget" name="budget">
+                    <option value="">Select a budget</option>
+                    <option value="under-1000">Under $1,000</option>
+                    <option value="1000-2500">$1,000-$2,500</option>
+                    <option value="2500-5000">$2,500-$5,000</option>
+                    <option value="over-5000">Over $5,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="project-details">Project Details</label>
+                <textarea
+                    id="project-details"
+                    name="projectDetails"
+                    rows="5"
+                    placeholder="Tell us about your website project"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+                Submit Quote Request
+            </button>
+
+            <p class="form-message" id="quote-message"></p>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="portfolio-modal">
+    <div class="modal-content portfolio-modal-content">
+        <button
+            type="button"
+            class="close-button"
+            data-close="portfolio-modal"
+            aria-label="Close portfolio"
+        >
+            &times;
+        </button>
+
+        <h2>Website Portfolio</h2>
+
+        <p class="form-introduction">
+            Recent Projects by A.W Web Designs!
+        </p>
+
+        <div class="portfolio-grid">
+            <article class="portfolio-item">
+
+                <img
+                    src="images/localtrade.jpg"
+                    alt="Local trade website"
+                    class="portfolio-image"
+                >
+                <h3>Local Trade Website</h3>
+                <p>
+                    A modern website for a local trade business,
+                    including services and contact sections.
+                </p>
+
+                <a href="#" class="portfolio-view">
+                    View Project →
+                </a>
+
+            </article>
+
+            <article class="portfolio-item">
+                <img
+                    src="images/smallbuisness.jpg"
+                    alt="Small busisness website"
+                    class="portfolio-image"
+                >
+                <h3>Small Business Website</h3>
+                <p>
+                    A responsive business website designed to build
+                    trust and generate customer enquiries.
+                </p>
+                <a href="#" class="portfolio-view">
+                    View Project →
+                </a>
+
+            </article>
+
+            <article class="portfolio-item">
+                <img
+                    src="images/serviceprovider.jpg"
+                    alt="Service provider website"
+                    class="portfolio-image"
+                >
+                <h3>Service Provider Website</h3>
+                <p>
+                    A clean service-based website with quote buttons,
+                    reviews and mobile-friendly navigation.
+                </p>
+                <a href="#" class="portfolio-view">
+                    View Project →
+                </a>
+
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="contact-modal">
+    <div class="modal-content">
+        <button
+            type="button"
+            class="close-button"
+            data-close="contact-modal"
+            aria-label="Close contact form"
+        >
+            &times;
+        </button>
+
+        <h2>Contact Us</h2>
+
+        <p class="form-introduction">
+            Send us a message and we will get back to you.
+        </p>
+
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="contact-name">Full Name</label>
+                <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    placeholder="How can we help?"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+                Send Message
+            </button>
+
+            <p class="form-message" id="contact-message-result"></p>
+        </form>
+    </div>
+</div>
+
+<section class="services" id="services">
+
+    <p class="section-label">What we do</p>
+    <h2>Our Services</h2>
+    <p class="section-intro">
+        Clear, modern website support for small businesses that want to look trustworthy online.
+    </p>
+
+    <div class="service-container">
+
+        <div class="service-item">
+            <div class="card web-design" onclick="showServiceMessage('Web Design')">
+
+              <h3>Web Design</h3>
+
+              <p>
+                Clean, responsive websites designed to make your business standout.
+              </p>      
+            
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="card seo" onclick="showServiceMessage('SEO')">
+
+                <h3>SEO</h3>
+                <p>
+                    Optimising your website to rank higher in search engines and attract more visitors.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="card maintenence" onclick="showServiceMessage('Website Maintenance')">
+
+                <h3>Website Maintenance</h3>
+                <p>
+                    Keeping your website up-to-date, secure and running smoothly.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="card Ongoing-Technical-Support" onclick="showServiceMessage('Ongoing Technical Support')">
+
+                <h3>Ongoing Technical Support</h3>
+                <p>
+                    Providing ongoing technical support to ensure your website is always performing optimally.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+     <p id="service-message"></p>
+   
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+:root {
+    --background-dark: #101214;
+    --text-white: #ffffff;
+    --text-muted: #d5d9df;
+    --accent-gold: #F4A623;
+    --primary-blue: #1F6FEB;
+    --secondary-dark: #20242A;
+    --contact-teal: #168C96;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", "sans-serif";
+    background-image: url("images/night.jpg");
+    background-size: 130%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero {
+    background: transparent;
+
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+
+    color: whitesmoke;
+    
+    font-family: "Playfair Display", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 96px 24px 120px;
+}
+
+#hero-message {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 24px;
+    z-index: 2;
+}
+
+.hero-header {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    right: 24px;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.hero-logo {
+    color: #E6A23C;
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.hero-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.hero-nav a,
+.nav-link-button {
+    border: 0;
+    background: transparent;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-nav a:hover,
+.nav-link-button:hover {
+    color: #f4a623;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-eyebrow {
+    margin: 0 0 16px;
+    color: #f4a623;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 20px;
+    color: whitesmoke;
+    font-family: "Nunito", sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.05;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.hero-description {
+    margin: 0;
+    max-width: 680px;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-shadow: 2px 2px 8px black;
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+
+    width: 100%;
+    margin: 30px 0;
+
+}
+
+.hero-button {
+    width: 100%;
+    max-width: 350px;
+    min-height: 68px;
+
+    display: grid;
+    grid-template-columns: 60px 1px minmax(0, 1fr) 40px;
+    align-items: center;
+
+    padding: 0 18px;
+    border-radius: 20px;
+
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+.button-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.button-divider {
+    width: 1px;
+    height: 34px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.button-text {
+    padding: 0 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.button-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: 300;
+
+    transition: transform 0.3s ease;
+}
+
+#quote-button {
+    background:
+        linear-gradient(
+            135deg,
+            #2f80ff,
+            #0057d9
+        );
+}
+
+#portfolio-button {
+     background:
+        linear-gradient(
+            135deg,
+           #2b3138,
+           #111418
+        );
+}
+
+#contact-button {
+    background:
+        linear-gradient(
+            135deg,
+            #1597a3,
+            #0b6670
+        );    
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.01);
+
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5);
+    inset: 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.hero-button:hover .button-arrow {
+    transform: translateX(6px);
+}
+
+.quote-style:hover {
+    box-shadow: 0 20px 42px rgba(35, 117, 255, 0.4);
+    inset: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.portfolio-style:hover {
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.65);
+    inset: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.contact-style:hover {
+    box-shadow: 0 20px 42px rgba(20, 154, 167, 0.2);
+    inset: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.hero-button:active {
+    transform: translateY(-1px) scale(0.99);
+}    
+
+.hero-button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+ /* Dark overlay */   
+.hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+}
+
+.hero-contact-details {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hero-contact-details p {
+    position: relative;
+    z-index: 3;
+
+    margin: 0;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.contact-icon {
+    position: relative;
+    z-index: 3;
+
+    display: inline-block;
+    margin-right: 6px;
+    color: #f4a623;
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.services-text {
+    color: white;
+} 
+
+.contact-text {
+    color: white;
+}
+
+.services {
+    padding: 90px 24px;
+    background: transparent;
+    text-align: center;
+}
+
+.section-label {
+    margin: 0 0 10px;
+    color: #f4a623;
+    font-size: 16px;
+    font-style: bold;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px rgba(243, 163, 105, 0.976);
+}
+
+.services h2 {
+    margin: 0 0 18px;
+    font-size: 36px;
+    color: white;
+}
+
+.services h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #0b84ff;
+    margin: 14px auto 0;
+    border-radius: 999px;
+}
+
+.section-intro {
+    max-width: 1000px;
+    white-space: nowrap;
+    margin: 22px auto 46px;
+    color: #f4a623;
+    font-style : italic;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.service-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+.service-item {
+    text-align: left;
+    width: 100%;
+}
+
+.card {
+    box-sizing: border-box;
+    height: 420px;
+    width: 100%;
+    padding: 30px;
+    object-fit: cover;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+
+    color: #f4f8ff;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    text-shadow:
+    2px 2px 6px rgb(11, 11, 11),
+    -2px 2px 6px rgb(12, 12, 12),
+    2px -2px 6px rgb(4, 4, 4),
+    -2px -2px 6px rgb(1, 1, 1);
+}
+
+.card h3 {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: white;
+    font-size: 35px;
+    line-height: 1.2;
+    max-width: 280px;
+}
+
+
+.card p {
+    margin-top: 15px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}    
+
+.active-card {
+     outline: 3px solid aqua;
+     transform: translateY(-10px);
+}
+
+.service-item p {
+    margin: 18px 4px 0;
+    color: whitesmoke;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+#service-message {
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Different for each card */
+.web-design {
+    font-family:Arial, sans-serif;
+    color: whitesmoke;
+    background-image: url("images/web-design.jpg");
+}
+
+.seo {
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+    background-image: url("images/SEO.jpg");
+}
+
+.maintenence {
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+    background-image: url("images/maintenence.jpg");
+}
+
+.Ongoing-Technical-Support {
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+    background-image: url("images/Ongoing-Technical-Support.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 250px;
+}
+
+.modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    padding: 30px 15px;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    overflow-y: auto;
+}
+
+.modal.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+
+    max-width: 600px;
+    width: 100%;
+
+    margin: auto;
+
+    padding: 35px;
+
+    background-color: white;
+    color: #222;
+    
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    animation: modalAppear 0.3s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    font-size: 30px;
+    font-family: "Nunito", sans-serif;
+}
+
+.form-introduction {
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.close-button {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    border: none;
+    background: transparent;
+
+    color: #555;
+
+    font-size: 34px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: 3px solid rgba(0, 123, 255, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #007bff;
+    color: white;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #005ec4;
+    transform: translateY(-2px);
+}
+
+.form-message {
+    min-height: 24px;
+    margin-top: 18px;
+    margin-bottom: 0;
+
+    text-align: center;
+    font-weight: 700;
+}
+
+.success-message {
+    color: #16833d;
+}
+
+.error-message {
+    color: #c62828;
+}
+
+.portfolio-modal-content {
+    width: calc(100% - 32px);
+    max-width: 850px;
+    max-height: 985vh;
+    overflow-y: auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.portfolio-item {
+    padding: 22px;
+
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    background-color: #f7f7f7;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+    border-color: #2f80ff;
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+    font-family: "Nunito", sans-serif;
+}
+
+.portfolio-item p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.portfolio-image {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 190px;
+
+    margin-bottom: 18px;
+    border-radius: 12px;
+
+    transition: transform 0.4s ease;
+
+    object-fit: cover;
+}
+
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.03);
+}
+
+@media (max-width: 700px) {
+    .hero-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-nav {
+        gap: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-button {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 18px;
+    }
+
+    .hero-contact-details {
+        bottom: 16px;
+        gap: 6px 14px;
+        font-size: 13px;
+    }
+
+    .hero-contact-details p {
+        font-size: 13px;
+    }
+
+    .services {
+        padding: 64px 18px;
+    }
+
+    .services h2 {
+        font-size: 30px;
+    }
+
+    .section-intro {
+        font-size: 16px;
+    }
+
+    .card {
+        min-height: 230px;
+    }
+}
