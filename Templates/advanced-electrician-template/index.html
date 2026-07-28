@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Electrician Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="commerce-header">
+        <div class="promo-bar">
+            <p>24/7 emergency electrical support available</p>
+            <p>Licensed and insured technicians</p>
+            <p>Service area: Residential and commercial</p>
+        </div>
+
+        <div class="main-nav">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">E</span>
+                VoltWorks
+            </a>
+
+            <nav class="primary-links" aria-label="Main navigation">
+                <a href="#pets">Jobs</a>
+                <a href="#products">Services</a>
+                <a href="#services">Safety</a>
+                <a href="#advice">Advice</a>
+            </nav>
+
+            <label class="search-box" for="product-search">
+                <span>Search</span>
+                <input
+                    type="search"
+                    id="product-search"
+                    placeholder="Search switchboards, lighting, faults..."
+                >
+            </label>
+
+            <div class="nav-actions">
+                <button type="button" id="profile-button" aria-label="Open job profile">Job Profile</button>
+                <button type="button" id="cart-button" aria-label="Open quote list">
+                    Quote List <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="category-nav" aria-label="Service categories">
+            <a href="#urgent">Urgent Faults</a>
+            <a href="#lighting">Lighting</a>
+            <a href="#switchboards">Switchboards</a>
+            <a href="#safety">Safety Checks</a>
+            <a href="#data">Data and Power</a>
+            <a href="#services">Maintenance</a>
+            <button type="button" id="shop-by-pet-button">Plan by Job</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div>
+                <p class="eyebrow">Advanced trade template</p>
+                <h1>Electrical services with clear booking pathways</h1>
+                <p>
+                    Built for electricians who need urgent job flows, searchable services,
+                    quote lists, compliance messaging and customer job profiles.
+                </p>
+                <a href="#products" class="hero-cta">Explore Services</a>
+            </div>
+
+            <div class="hero-product">
+                <span class="product-badge">Priority</span>
+                <h2>Safety Upgrade Package</h2>
+                <p>Switchboard checks, safety switches, smoke alarms and fault finding in one guided flow.</p>
+            </div>
+        </section>
+
+        <section class="pet-panels" id="pets">
+            <article class="pet-panel active-panel" data-pet="dog">
+                <button type="button" class="pet-tab active-tab" data-filter="dog">
+                    <span class="pet-icon">Job</span>
+                    Home
+                </button>
+                <button type="button" class="pet-tab" data-filter="puppy">
+                    <span class="pet-icon">Job</span>
+                    Urgent
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Lighting</a>
+                    <a href="#products" data-quick-filter="treats">Power Points</a>
+                    <a href="#products" data-quick-filter="health">Safety</a>
+                    <a href="#products" data-quick-filter="toys">Faults</a>
+                </div>
+            </article>
+
+            <article class="pet-panel" data-pet="cat">
+                <button type="button" class="pet-tab" data-filter="cat">
+                    <span class="pet-icon">Job</span>
+                    Business
+                </button>
+                <button type="button" class="pet-tab" data-filter="kitten">
+                    <span class="pet-icon">Job</span>
+                    Project
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Fitouts</a>
+                    <a href="#products" data-quick-filter="treats">Data</a>
+                    <a href="#products" data-quick-filter="toys">Switchboards</a>
+                    <a href="#products" data-quick-filter="services">Maintenance</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="shortcut-grid" aria-label="Service shortcuts">
+            <button type="button" class="shortcut active-shortcut" data-category="all">Priority Jobs</button>
+            <button type="button" class="shortcut" data-category="food">Lighting</button>
+            <button type="button" class="shortcut" data-category="treats">Power</button>
+            <button type="button" class="shortcut" data-category="health">Safety</button>
+            <button type="button" class="shortcut" data-category="toys">Faults</button>
+            <button type="button" class="shortcut" data-category="services">Maintenance</button>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Build your quote</p>
+                    <h2>Featured Electrical Services</h2>
+                </div>
+                <p id="result-count">Showing all services</p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card" data-name="led lighting installation" data-category="food" data-pet="dog cat">
+                    <div class="product-image dog-food"></div>
+                    <p class="product-label">Lighting</p>
+                    <h3>LED Lighting Upgrade</h3>
+                    <p class="price">From $280</p>
+                    <button type="button" class="add-cart-button" data-product="LED Lighting Upgrade">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="power point installation" data-category="treats" data-pet="dog cat">
+                    <div class="product-image treats"></div>
+                    <p class="product-label">Power</p>
+                    <h3>Power Point Install</h3>
+                    <p class="price">From $180</p>
+                    <button type="button" class="add-cart-button" data-product="Power Point Install">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="electrical safety inspection" data-category="health" data-pet="dog cat">
+                    <div class="product-image health"></div>
+                    <p class="product-label">Safety</p>
+                    <h3>Safety Inspection</h3>
+                    <p class="price">From $220</p>
+                    <button type="button" class="add-cart-button" data-product="Safety Inspection">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="fault finding repair" data-category="toys" data-pet="puppy dog">
+                    <div class="product-image toys"></div>
+                    <p class="product-label">Faults</p>
+                    <h3>Fault Finding</h3>
+                    <p class="price">From $160</p>
+                    <button type="button" class="add-cart-button" data-product="Fault Finding">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="switchboard upgrade safety switch" data-category="health" data-pet="dog cat">
+                    <div class="product-image cat-food"></div>
+                    <p class="product-label">Switchboards</p>
+                    <h3>Switchboard Upgrade</h3>
+                    <p class="price">Quoted</p>
+                    <button type="button" class="add-cart-button" data-product="Switchboard Upgrade">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="scheduled electrical maintenance" data-category="services" data-pet="cat kitten">
+                    <div class="product-image services-card"></div>
+                    <p class="product-label">Maintenance</p>
+                    <h3>Scheduled Maintenance</h3>
+                    <p class="price">From $190</p>
+                    <button type="button" class="add-cart-button" data-product="Scheduled Maintenance">Add to Quote</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="advice-strip" id="advice">
+            <article>
+                <h2>Make urgent decisions simple</h2>
+                <p>
+                    Use this area for safety notices, emergency steps, compliance information,
+                    inspection checklists or preparation before a technician arrives.
+                </p>
+            </article>
+            <article>
+                <h2>Built for service and compliance</h2>
+                <p>
+                    This template suits electricians who need to separate urgent repairs,
+                    project work, safety inspections and maintenance contracts.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Quote list">
+        <div class="drawer-header">
+            <h2>Your Quote List</h2>
+            <button type="button" id="close-cart-button" aria-label="Close quote list">Close</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <p class="cart-empty" id="cart-empty">Your quote list is empty.</p>
+        <button type="button" class="checkout-button">Request Quote</button>
+    </aside>
+
+    <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+        <div class="profile-card">
+            <button type="button" id="close-profile-button" aria-label="Close profile">Close</button>
+            <p class="eyebrow">Job profile</p>
+            <h2 id="profile-title">Personalise the electrical journey</h2>
+            <p>
+                This area can become saved property details, safety history,
+                preferred appointment times or repeat maintenance bookings.
+            </p>
+        </div>
+    </div>
+
+    <button type="button" class="buy-again-button" id="buy-again-button">
+        Rebook
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Carpentry Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="commerce-header">
+        <div class="promo-bar">
+            <p>Free measure and quote for local projects</p>
+            <p>Workshop: Northside</p>
+            <p>Service area: Homes, shops and renovations</p>
+        </div>
+
+        <div class="main-nav">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">C</span>
+                CraftedCo
+            </a>
+
+            <nav class="primary-links" aria-label="Main navigation">
+                <a href="#pets">Projects</a>
+                <a href="#products">Services</a>
+                <a href="#services">Materials</a>
+                <a href="#advice">Advice</a>
+            </nav>
+
+            <label class="search-box" for="product-search">
+                <span>Search</span>
+                <input
+                    type="search"
+                    id="product-search"
+                    placeholder="Search decks, cabinetry, repairs..."
+                >
+            </label>
+
+            <div class="nav-actions">
+                <button type="button" id="profile-button" aria-label="Open project profile">Project Profile</button>
+                <button type="button" id="cart-button" aria-label="Open quote list">
+                    Quote List <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="category-nav" aria-label="Service categories">
+            <a href="#offers">Current Offers</a>
+            <a href="#decking">Decking</a>
+            <a href="#cabinetry">Cabinetry</a>
+            <a href="#repairs">Repairs</a>
+            <a href="#fitouts">Fitouts</a>
+            <a href="#services">Maintenance</a>
+            <button type="button" id="shop-by-pet-button">Plan by Project</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div>
+                <p class="eyebrow">Advanced trade template</p>
+                <h1>Custom carpentry projects made easy to plan</h1>
+                <p>
+                    Built for trade businesses that need searchable services, guided project
+                    pathways, quote lists, customer profiles and high-value enquiry flows.
+                </p>
+                <a href="#products" class="hero-cta">Explore Services</a>
+            </div>
+
+            <div class="hero-product">
+                <span class="product-badge">Featured</span>
+                <h2>Outdoor Living Package</h2>
+                <p>Decking, screening, stairs and timber finishes presented as one guided quote journey.</p>
+            </div>
+        </section>
+
+        <section class="pet-panels" id="pets">
+            <article class="pet-panel active-panel" data-pet="dog">
+                <button type="button" class="pet-tab active-tab" data-filter="dog">
+                    <span class="pet-icon">Project</span>
+                    Renovation
+                </button>
+                <button type="button" class="pet-tab" data-filter="puppy">
+                    <span class="pet-icon">Project</span>
+                    New Build
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Decking</a>
+                    <a href="#products" data-quick-filter="treats">Cabinetry</a>
+                    <a href="#products" data-quick-filter="health">Repairs</a>
+                    <a href="#products" data-quick-filter="toys">Fitouts</a>
+                </div>
+            </article>
+
+            <article class="pet-panel" data-pet="cat">
+                <button type="button" class="pet-tab" data-filter="cat">
+                    <span class="pet-icon">Client</span>
+                    Homeowner
+                </button>
+                <button type="button" class="pet-tab" data-filter="kitten">
+                    <span class="pet-icon">Client</span>
+                    Business
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Timber Work</a>
+                    <a href="#products" data-quick-filter="treats">Storage</a>
+                    <a href="#products" data-quick-filter="toys">Displays</a>
+                    <a href="#products" data-quick-filter="services">Maintenance</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="shortcut-grid" aria-label="Service shortcuts">
+            <button type="button" class="shortcut active-shortcut" data-category="all">Popular Projects</button>
+            <button type="button" class="shortcut" data-category="food">Decking</button>
+            <button type="button" class="shortcut" data-category="treats">Cabinetry</button>
+            <button type="button" class="shortcut" data-category="health">Repairs</button>
+            <button type="button" class="shortcut" data-category="toys">Fitouts</button>
+            <button type="button" class="shortcut" data-category="services">Maintenance</button>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Build your quote</p>
+                    <h2>Featured Carpentry Services</h2>
+                </div>
+                <p id="result-count">Showing all services</p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card" data-name="custom timber decking" data-category="food" data-pet="dog cat">
+                    <div class="product-image dog-food"></div>
+                    <p class="product-label">Decking</p>
+                    <h3>Custom Timber Decking</h3>
+                    <p class="price">From $4,800</p>
+                    <button type="button" class="add-cart-button" data-product="Custom Timber Decking">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="built in cabinetry storage" data-category="treats" data-pet="dog cat">
+                    <div class="product-image treats"></div>
+                    <p class="product-label">Cabinetry</p>
+                    <h3>Built-in Cabinetry</h3>
+                    <p class="price">From $3,200</p>
+                    <button type="button" class="add-cart-button" data-product="Built-in Cabinetry">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="timber repair and restoration" data-category="health" data-pet="dog">
+                    <div class="product-image health"></div>
+                    <p class="product-label">Repairs</p>
+                    <h3>Timber Repair Work</h3>
+                    <p class="price">From $450</p>
+                    <button type="button" class="add-cart-button" data-product="Timber Repair Work">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="commercial shop fitout displays" data-category="toys" data-pet="cat kitten">
+                    <div class="product-image toys"></div>
+                    <p class="product-label">Fitouts</p>
+                    <h3>Shop Fitout Features</h3>
+                    <p class="price">Quoted</p>
+                    <button type="button" class="add-cart-button" data-product="Shop Fitout Features">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="stair balustrade handrail" data-category="food" data-pet="dog">
+                    <div class="product-image cat-food"></div>
+                    <p class="product-label">Structural</p>
+                    <h3>Stairs and Handrails</h3>
+                    <p class="price">From $2,600</p>
+                    <button type="button" class="add-cart-button" data-product="Stairs and Handrails">Add to Quote</button>
+                </article>
+
+                <article class="product-card" data-name="maintenance booking carpentry" data-category="services" data-pet="dog cat">
+                    <div class="product-image services-card"></div>
+                    <p class="product-label">Maintenance</p>
+                    <h3>Carpentry Maintenance</h3>
+                    <p class="price">From $180</p>
+                    <button type="button" class="add-cart-button" data-product="Carpentry Maintenance">Add to Quote</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="advice-strip" id="advice">
+            <article>
+                <h2>Guided project planning</h2>
+                <p>
+                    Use this area for timber guides, finish selectors, measurement checklists,
+                    build timelines or renovation preparation advice.
+                </p>
+            </article>
+            <article>
+                <h2>Built for higher-value enquiries</h2>
+                <p>
+                    This template suits carpenters who want customers to explore project types,
+                    collect ideas and submit clearer quote requests.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Quote list">
+        <div class="drawer-header">
+            <h2>Your Quote List</h2>
+            <button type="button" id="close-cart-button" aria-label="Close quote list">Close</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <p class="cart-empty" id="cart-empty">Your quote list is empty.</p>
+        <button type="button" class="checkout-button">Request Quote</button>
+    </aside>
+
+    <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+        <div class="profile-card">
+            <button type="button" id="close-profile-button" aria-label="Close profile">Close</button>
+            <p class="eyebrow">Project profile</p>
+            <h2 id="profile-title">Personalise the carpentry journey</h2>
+            <p>
+                This area can become saved measurements, preferred timber finishes,
+                project photos, renovation stages or repeat maintenance requests.
+            </p>
+        </div>
+    </div>
+
+    <button type="button" class="buy-again-button" id="buy-again-button">
+        Repeat Job
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

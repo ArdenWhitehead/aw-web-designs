@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Plumber Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="commerce-header">
+        <div class="promo-bar">
+            <p>Emergency plumbing bookings available</p>
+            <p>Licensed plumbers and gas fitters</p>
+            <p>Service area: Homes, rentals and businesses</p>
+        </div>
+
+        <div class="main-nav">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">P</span>
+                FlowFix
+            </a>
+
+            <nav class="primary-links" aria-label="Main navigation">
+                <a href="#pets">Jobs</a>
+                <a href="#products">Services</a>
+                <a href="#services">Repairs</a>
+                <a href="#advice">Advice</a>
+            </nav>
+
+            <label class="search-box" for="product-search">
+                <span>Search</span>
+                <input
+                    type="search"
+                    id="product-search"
+                    placeholder="Search leaks, drains, hot water..."
+                >
+            </label>
+
+            <div class="nav-actions">
+                <button type="button" id="profile-button" aria-label="Open property profile">Property Profile</button>
+                <button type="button" id="cart-button" aria-label="Open booking list">
+                    Booking List <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="category-nav" aria-label="Service categories">
+            <a href="#urgent">Emergency</a>
+            <a href="#leaks">Leaks</a>
+            <a href="#drains">Blocked Drains</a>
+            <a href="#hot-water">Hot Water</a>
+            <a href="#gas">Gas</a>
+            <a href="#services">Maintenance</a>
+            <button type="button" id="shop-by-pet-button">Plan by Property</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div>
+                <p class="eyebrow">Advanced trade template</p>
+                <h1>Plumbing bookings that guide customers fast</h1>
+                <p>
+                    Built for plumbers who need urgent booking flows, searchable services,
+                    property profiles, service bundles and clear quote pathways.
+                </p>
+                <a href="#products" class="hero-cta">Explore Services</a>
+            </div>
+
+            <div class="hero-product">
+                <span class="product-badge">Emergency</span>
+                <h2>Leak Response Package</h2>
+                <p>Leak checks, urgent callouts, pipe repairs and prevention advice in one guided flow.</p>
+            </div>
+        </section>
+
+        <section class="pet-panels" id="pets">
+            <article class="pet-panel active-panel" data-pet="dog">
+                <button type="button" class="pet-tab active-tab" data-filter="dog">
+                    <span class="pet-icon">Property</span>
+                    Home
+                </button>
+                <button type="button" class="pet-tab" data-filter="puppy">
+                    <span class="pet-icon">Job</span>
+                    Urgent
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Leaks</a>
+                    <a href="#products" data-quick-filter="treats">Drains</a>
+                    <a href="#products" data-quick-filter="health">Hot Water</a>
+                    <a href="#products" data-quick-filter="toys">Gas</a>
+                </div>
+            </article>
+
+            <article class="pet-panel" data-pet="cat">
+                <button type="button" class="pet-tab" data-filter="cat">
+                    <span class="pet-icon">Property</span>
+                    Business
+                </button>
+                <button type="button" class="pet-tab" data-filter="kitten">
+                    <span class="pet-icon">Property</span>
+                    Rental
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Repairs</a>
+                    <a href="#products" data-quick-filter="treats">Inspection</a>
+                    <a href="#products" data-quick-filter="toys">Installation</a>
+                    <a href="#products" data-quick-filter="services">Maintenance</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="shortcut-grid" aria-label="Service shortcuts">
+            <button type="button" class="shortcut active-shortcut" data-category="all">Urgent Jobs</button>
+            <button type="button" class="shortcut" data-category="food">Leaks</button>
+            <button type="button" class="shortcut" data-category="treats">Drains</button>
+            <button type="button" class="shortcut" data-category="health">Hot Water</button>
+            <button type="button" class="shortcut" data-category="toys">Gas</button>
+            <button type="button" class="shortcut" data-category="services">Maintenance</button>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Build your booking</p>
+                    <h2>Featured Plumbing Services</h2>
+                </div>
+                <p id="result-count">Showing all services</p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card" data-name="leak detection pipe repair" data-category="food" data-pet="dog cat kitten">
+                    <div class="product-image dog-food"></div>
+                    <p class="product-label">Leaks</p>
+                    <h3>Leak Detection</h3>
+                    <p class="price">From $180</p>
+                    <button type="button" class="add-cart-button" data-product="Leak Detection">Add to Booking</button>
+                </article>
+
+                <article class="product-card" data-name="blocked drain clearing" data-category="treats" data-pet="dog cat">
+                    <div class="product-image treats"></div>
+                    <p class="product-label">Drains</p>
+                    <h3>Blocked Drain Clearing</h3>
+                    <p class="price">From $220</p>
+                    <button type="button" class="add-cart-button" data-product="Blocked Drain Clearing">Add to Booking</button>
+                </article>
+
+                <article class="product-card" data-name="hot water system service" data-category="health" data-pet="dog cat">
+                    <div class="product-image health"></div>
+                    <p class="product-label">Hot water</p>
+                    <h3>Hot Water Service</h3>
+                    <p class="price">From $240</p>
+                    <button type="button" class="add-cart-button" data-product="Hot Water Service">Add to Booking</button>
+                </article>
+
+                <article class="product-card" data-name="gas fitting appliance install" data-category="toys" data-pet="dog cat">
+                    <div class="product-image toys"></div>
+                    <p class="product-label">Gas</p>
+                    <h3>Gas Fitting</h3>
+                    <p class="price">Quoted</p>
+                    <button type="button" class="add-cart-button" data-product="Gas Fitting">Add to Booking</button>
+                </article>
+
+                <article class="product-card" data-name="toilet tap repair install" data-category="food" data-pet="dog kitten">
+                    <div class="product-image cat-food"></div>
+                    <p class="product-label">Repairs</p>
+                    <h3>Fixture Repairs</h3>
+                    <p class="price">From $160</p>
+                    <button type="button" class="add-cart-button" data-product="Fixture Repairs">Add to Booking</button>
+                </article>
+
+                <article class="product-card" data-name="scheduled plumbing maintenance" data-category="services" data-pet="cat kitten">
+                    <div class="product-image services-card"></div>
+                    <p class="product-label">Maintenance</p>
+                    <h3>Plumbing Maintenance</h3>
+                    <p class="price">From $190</p>
+                    <button type="button" class="add-cart-button" data-product="Plumbing Maintenance">Add to Booking</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="advice-strip" id="advice">
+            <article>
+                <h2>Help customers act quickly</h2>
+                <p>
+                    Use this area for emergency steps, water shutoff guidance,
+                    maintenance checklists or before-and-after service explanations.
+                </p>
+            </article>
+            <article>
+                <h2>Built for urgent service businesses</h2>
+                <p>
+                    This template suits plumbers who need fast booking paths,
+                    searchable services, property profiles and repeat maintenance.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Booking list">
+        <div class="drawer-header">
+            <h2>Your Booking List</h2>
+            <button type="button" id="close-cart-button" aria-label="Close booking list">Close</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <p class="cart-empty" id="cart-empty">Your booking list is empty.</p>
+        <button type="button" class="checkout-button">Request Booking</button>
+    </aside>
+
+    <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+        <div class="profile-card">
+            <button type="button" id="close-profile-button" aria-label="Close profile">Close</button>
+            <p class="eyebrow">Property profile</p>
+            <h2 id="profile-title">Personalise the plumbing journey</h2>
+            <p>
+                This area can become saved property details, previous service history,
+                access notes, tenant details or repeat maintenance bookings.
+            </p>
+        </div>
+    </div>
+
+    <button type="button" class="buy-again-button" id="buy-again-button">
+        Rebook
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
