@@ -603,10 +603,11 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 28px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .service-item {
+    display: flex;
     text-align: left;
     width: 100%;
 }
@@ -615,6 +616,7 @@ html {
     appearance: none;
     border: 0;
     box-sizing: border-box;
+    height: 420px;
     min-height: 420px;
     width: 100%;
     padding: 30px;
@@ -744,6 +746,8 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 420px;
+    min-height: 420px;
 }
 
 .modal {
@@ -1078,6 +1082,12 @@ html {
     }
 
     .card {
+        height: 300px;
+        min-height: 230px;
+    }
+
+    .Ongoing-Technical-Support {
+        height: 300px;
         min-height: 230px;
     }
 
