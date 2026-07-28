@@ -3,5 +3,20 @@
         {
             "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "explorer.compactFolders": false,
+        "files.exclude": {
+            "**/.DS_Store": true
+        },
+        "search.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true
+        },
+        "files.associations": {
+            "*.html": "html",
+            "*.css": "css",
+            "*.js": "javascript"
+        }
+    }
 }
