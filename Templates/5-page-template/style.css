@@ -487,6 +487,11 @@ html {
     flex-direction: column;
 }
 
+.packages .section-intro {
+    font-style: italic;
+    font-weight: 700;
+}
+
 .featured-package {
     border-color: rgba(244, 166, 35, 0.75);
     transform: translateY(-8px);
