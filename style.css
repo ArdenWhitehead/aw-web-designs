@@ -504,6 +504,138 @@ html {
     font-style: italic;
 }
 
+.why-choose-us,
+.testimonials {
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.why-choose-us .section-label,
+.testimonials .section-label {
+    color: #5f6f52;
+    text-shadow: none;
+}
+
+.why-choose-us h2,
+.testimonials h2 {
+    color: #111827;
+    font-size: 42px;
+    letter-spacing: 0;
+}
+
+.benefit-grid,
+.testimonial-grid {
+    gap: 20px;
+}
+
+.benefit-item,
+.testimonial-card {
+    position: relative;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    background: #ffffff;
+    color: #111827;
+    text-align: left;
+
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.benefit-item:hover,
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: #c8d7bd;
+    box-shadow: 0 22px 50px rgba(17, 24, 39, 0.12);
+}
+
+.benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    margin-bottom: 22px;
+
+    border-radius: 50%;
+    background: #eaf4e4;
+    color: #2f5d3a;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.benefit-item h3,
+.testimonial-card h3 {
+    color: #111827;
+    font-size: 21px;
+    line-height: 1.25;
+}
+
+.benefit-item p,
+.testimonial-card p {
+    color: #4b5563;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+}
+
+.testimonial-rating {
+    margin: 0 0 18px;
+    color: #95bf47;
+    font-size: 15px;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.testimonial-quote {
+    margin: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.testimonial-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.testimonial-author h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.testimonial-author p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    font-style: normal;
+}
+
 .final-cta {
     background: rgba(0, 0, 0, 0.34);
 }
