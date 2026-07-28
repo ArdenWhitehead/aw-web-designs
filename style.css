@@ -506,20 +506,21 @@ html {
 
 .why-choose-us,
 .testimonials {
-    background: rgba(255, 255, 255, 0.96);
+    background: transparent;
 }
 
 .why-choose-us .section-label,
 .testimonials .section-label {
-    color: #5f6f52;
-    text-shadow: none;
+    color: var(--accent-gold);
+    text-shadow: 0 0 6px rgba(243, 163, 105, 0.976);
 }
 
 .why-choose-us h2,
 .testimonials h2 {
-    color: #111827;
+    color: white;
     font-size: 42px;
     letter-spacing: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
 }
 
 .benefit-grid,
@@ -531,46 +532,46 @@ html {
 .testimonial-card {
     position: relative;
     padding: 30px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(244, 166, 35, 0.36);
     border-radius: 14px;
 
-    background: #ffffff;
-    color: #111827;
+    background: rgba(16, 18, 20, 0.88);
+    color: white;
     text-align: left;
 
-    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .benefit-item {
     padding-top: 34px;
-    border-top: 6px solid #95bf47;
+    border-top: 6px solid var(--accent-gold);
     background:
-        linear-gradient(180deg, #f7fbf4 0%, #ffffff 42%);
+        linear-gradient(180deg, rgba(244, 166, 35, 0.18) 0%, rgba(16, 18, 20, 0.9) 42%);
 }
 
 .benefit-item:hover,
 .testimonial-card:hover {
     transform: translateY(-4px);
-    border-color: #95bf47;
-    box-shadow: 0 22px 50px rgba(17, 24, 39, 0.12);
+    border-color: var(--accent-gold);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.48);
 }
 
 .benefit-item h3,
 .testimonial-card h3 {
-    color: #111827;
+    color: white;
     font-size: 21px;
     line-height: 1.25;
 }
 
 .benefit-item h3 {
-    color: #16351d;
+    color: #fff3d5;
     font-size: 23px;
 }
 
 .benefit-item p,
 .testimonial-card p {
-    color: #4b5563;
+    color: var(--text-muted);
 }
 
 .testimonial-card {
