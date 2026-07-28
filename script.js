@@ -17,6 +17,12 @@ const contactModal = document.getElementById("contact-modal");
 const closeButtons = document.querySelectorAll(".close-button");
 const allModals = document.querySelectorAll(".modal");
 
+function addClickHandler(element, handler) {
+    if (!element) return;
+
+    element.addEventListener("click", handler);
+}
+
 function openModal(modal) {
     if (!modal) return;
 
@@ -31,31 +37,31 @@ function closeModal(modal) {
     document.body.style.overflow = "";
 }
 
-quoteButton.addEventListener("click", function () {
+addClickHandler(quoteButton, function () {
     openModal(quoteModal);
 });
 
-portfolioButton.addEventListener("click", function () {
+addClickHandler(portfolioButton, function () {
     openModal(portfolioModal);
 });
 
-contactButton.addEventListener("click", function () {
+addClickHandler(contactButton, function () {
     openModal(contactModal);
 });
 
-navPortfolioButton.addEventListener("click", function () {
+addClickHandler(navPortfolioButton, function () {
     openModal(portfolioModal);
 });
 
-navContactButton.addEventListener("click", function () {
+addClickHandler(navContactButton, function () {
     openModal(contactModal);
 });
 
-footerQuoteButton.addEventListener("click", function () {
+addClickHandler(footerQuoteButton, function () {
     openModal(quoteModal);
 });
 
-footerContactButton.addEventListener("click", function () {
+addClickHandler(footerContactButton, function () {
     openModal(contactModal);
 });
 
@@ -64,8 +70,13 @@ packageButtons.forEach(function (button) {
         const selectedPackage = button.dataset.package;
         const projectDetails = document.getElementById("project-details");
 
-        projectDetails.value = "I am interested in the " + selectedPackage + ".";
-        openModal(quoteModal);
+        if (projectDetails && quoteModal) {
+            projectDetails.value = "I am interested in the " + selectedPackage + ".";
+            openModal(quoteModal);
+            return;
+        }
+
+        window.location.href = "contact.html";
     });
 });
 
@@ -95,6 +106,8 @@ document.addEventListener("keydown", function (event) {
 });
 
 function showFormMessage(messageElement, message, messageType) {
+    if (!messageElement) return;
+
     messageElement.className = "form-message";
     messageElement.textContent = message;
     messageElement.classList.add(messageType);
@@ -103,88 +116,95 @@ function showFormMessage(messageElement, message, messageType) {
 const quoteForm = document.getElementById("quote-form");
 const quoteMessage = document.getElementById("quote-message");
 
-quoteForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (quoteForm) {
+    quoteForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    const name = document.getElementById("quote-name").value.trim();
-    const email = document.getElementById("quote-email").value.trim();
-    const service = document.getElementById("service").value;
-    const details = document.getElementById("project-details").value.trim();
+        const name = document.getElementById("quote-name").value.trim();
+        const email = document.getElementById("quote-email").value.trim();
+        const service = document.getElementById("service").value;
+        const details = document.getElementById("project-details").value.trim();
 
-    if (name.length < 2) {
-        showFormMessage(quoteMessage, "Please enter your full name.", "error-message");
-        return;
-    }
+        if (name.length < 2) {
+            showFormMessage(quoteMessage, "Please enter your full name.", "error-message");
+            return;
+        }
 
-    if (!email.includes("@")) {
-        showFormMessage(quoteMessage, "Please enter a valid email address.", "error-message");
-        return;
-    }
+        if (!email.includes("@")) {
+            showFormMessage(quoteMessage, "Please enter a valid email address.", "error-message");
+            return;
+        }
 
-    if (service === "") {
-        showFormMessage(quoteMessage, "Please select a service.", "error-message");
-        return;
-    }
+        if (service === "") {
+            showFormMessage(quoteMessage, "Please select a service.", "error-message");
+            return;
+        }
 
-    if (details.length < 10) {
+        if (details.length < 10) {
+            showFormMessage(
+                quoteMessage,
+                "Please provide more information about your project.",
+                "error-message"
+            );
+            return;
+        }
+
         showFormMessage(
             quoteMessage,
-            "Please provide more information about your project.",
-            "error-message"
+            `Thank you, ${name}. Your quote request has been received.`,
+            "success-message"
         );
-        return;
-    }
 
-    showFormMessage(
-        quoteMessage,
-        `Thank you, ${name}. Your quote request has been received.`,
-        "success-message"
-    );
-
-    quoteForm.reset();
-});
+        quoteForm.reset();
+    });
+}
 
 const contactForm = document.getElementById("contact-form");
 const contactMessageResult = document.getElementById("contact-message-result");
 
-contactForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    const name = document.getElementById("contact-name").value.trim();
-    const email = document.getElementById("contact-email").value.trim();
-    const message = document.getElementById("contact-message").value.trim();
+        const name = document.getElementById("contact-name").value.trim();
+        const email = document.getElementById("contact-email").value.trim();
+        const message = document.getElementById("contact-message").value.trim();
 
-    if (name.length < 2) {
-        showFormMessage(contactMessageResult, "Please enter your full name.", "error-message");
-        return;
-    }
+        if (name.length < 2) {
+            showFormMessage(contactMessageResult, "Please enter your full name.", "error-message");
+            return;
+        }
 
-    if (!email.includes("@")) {
-        showFormMessage(contactMessageResult, "Please enter a valid email address.", "error-message");
-        return;
-    }
+        if (!email.includes("@")) {
+            showFormMessage(contactMessageResult, "Please enter a valid email address.", "error-message");
+            return;
+        }
 
-    if (message.length < 10) {
+        if (message.length < 10) {
+            showFormMessage(
+                contactMessageResult,
+                "Please enter a more detailed message.",
+                "error-message"
+            );
+            return;
+        }
+
         showFormMessage(
             contactMessageResult,
-            "Please enter a more detailed message.",
-            "error-message"
+            `Thank you, ${name}. Your message has been sent.`,
+            "success-message"
         );
-        return;
-    }
 
-    showFormMessage(
-        contactMessageResult,
-        `Thank you, ${name}. Your message has been sent.`,
-        "success-message"
-    );
-
-    contactForm.reset();
-});
+        contactForm.reset();
+    });
+}
 
 function showServiceMessage(serviceName) {
-    document.getElementById("service-message").textContent =
-        serviceName + ". Contact us to learn more about this service.";
+    const serviceMessage = document.getElementById("service-message");
+
+    if (!serviceMessage) return;
+
+    serviceMessage.textContent = serviceName + ". Contact us to learn more about this service.";
 }
 
 const cards = document.querySelectorAll(".card");

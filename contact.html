@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | A.W Web Designs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="site-logo">A.W Web Designs</a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html" class="active-page">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <p class="section-label">Contact</p>
+            <h1>Tell Us About Your Website</h1>
+            <p>
+                Send a message or request a quote and we will help you choose
+                the right next step for your business website.
+            </p>
+        </section>
+
+        <section class="page-section">
+            <div class="contact-layout">
+                <article class="form-panel">
+                    <h2>Receive a Free Quote</h2>
+                    <p class="form-introduction">
+                        Tell us about your website project and we will contact you.
+                    </p>
+
+                    <form id="quote-form">
+                        <div class="form-group">
+                            <label for="quote-name">Full Name</label>
+                            <input
+                                type="text"
+                                id="quote-name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quote-email">Email Address</label>
+                            <input
+                                type="email"
+                                id="quote-email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business-name">Business Name</label>
+                            <input
+                                type="text"
+                                id="business-name"
+                                name="businessName"
+                                placeholder="Enter your business name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="web-design">Web Design</option>
+                                <option value="seo">SEO</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="support">Technical Support</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select a budget</option>
+                                <option value="under-1000">Under $1,000</option>
+                                <option value="1000-2500">$1,000-$2,500</option>
+                                <option value="2500-5000">$2,500-$5,000</option>
+                                <option value="over-5000">Over $5,000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-details">Project Details</label>
+                            <textarea
+                                id="project-details"
+                                name="projectDetails"
+                                rows="5"
+                                placeholder="Tell us about your website project"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            Submit Quote Request
+                        </button>
+
+                        <p class="form-message" id="quote-message"></p>
+                    </form>
+                </article>
+
+                <article class="form-panel">
+                    <h2>Send a Message</h2>
+                    <p class="form-introduction">
+                        For general questions, send a quick message below.
+                    </p>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input
+                                type="text"
+                                id="contact-name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input
+                                type="email"
+                                id="contact-email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                rows="5"
+                                placeholder="How can we help?"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            Send Message
+                        </button>
+
+                        <p class="form-message" id="contact-message-result"></p>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <h2>A.W Web Designs</h2>
+            <p>Modern website design and support for small businesses.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <p class="footer-meta">
+            © 2026 A.W Web Designs. Based in Australia.
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
