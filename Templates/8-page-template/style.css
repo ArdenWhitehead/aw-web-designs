@@ -1,22 +1,23 @@
 :root {
-    --background-dark: #101214;
+    --background-dark: #f4f8fb;
     --text-white: #ffffff;
-    --text-muted: #d5d9df;
-    --accent-gold: #F4A623;
-    --primary-blue: #1F6FEB;
-    --secondary-dark: #20242A;
-    --contact-teal: #168C96;
-    --panel-dark: rgba(16, 18, 20, 0.78);
-    --panel-border: rgba(255, 255, 255, 0.16);
+    --text-muted: #5c6b7a;
+    --accent-gold: #00a676;
+    --primary-blue: #2563eb;
+    --secondary-dark: #e9f0f6;
+    --contact-teal: #00a6a6;
+    --panel-dark: rgba(255, 255, 255, 0.94);
+    --panel-border: rgba(37, 99, 235, 0.14);
 }
 
 body {
     margin: 0;
     font-family: "Nunito", "sans-serif";
-    background-image: url("Images/night.jpg");
-    background-size: 130%;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: #102033;
+    background:
+        radial-gradient(circle at top left, rgba(0, 166, 118, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 30%),
+        linear-gradient(180deg, #f4f8fb 0%, #ffffff 46%, #eef6f2 100%);
     background-attachment: fixed;
 }
 
@@ -25,7 +26,9 @@ html {
 }
 
 .hero {
-    background: transparent;
+    background:
+        linear-gradient(135deg, rgba(16, 32, 51, 0.9), rgba(37, 99, 235, 0.52)),
+        linear-gradient(135deg, #102033, #00a676);
 
     background-size: cover;
     background-position: center;
@@ -71,7 +74,7 @@ html {
 }
 
 .hero-logo {
-    color: #E6A23C;
+    color: #ffffff;
     font-family: "Nunito", sans-serif;
     font-size: 20px;
     font-weight: 900;
@@ -100,7 +103,7 @@ html {
 
 .hero-nav a:hover,
 .nav-link-button:hover {
-    color: #f4a623;
+    color: #9ff5d7;
 }
 
 .site-header {
@@ -112,13 +115,13 @@ html {
     justify-content: space-between;
     gap: 20px;
     padding: 18px 24px;
-    background: rgba(16, 18, 20, 0.86);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.14);
     backdrop-filter: blur(14px);
 }
 
 .site-logo {
-    color: #E6A23C;
+    color: #102033;
     font-family: "Nunito", sans-serif;
     font-size: 20px;
     font-weight: 900;
@@ -132,7 +135,7 @@ html {
 }
 
 .site-nav a {
-    color: white;
+    color: #102033;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -1005,25 +1008,25 @@ html {
 .web-design {
     font-family:Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("Images/web-design.jpg");
+    background-image: linear-gradient(135deg, rgba(16, 32, 51, 0.88), rgba(37, 99, 235, 0.72));
 }
 
 .seo {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("Images/SEO.jpg");
+    background-image: linear-gradient(135deg, rgba(0, 166, 118, 0.9), rgba(37, 99, 235, 0.7));
 }
 
 .maintenence {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("Images/maintenence.jpg");
+    background-image: linear-gradient(135deg, rgba(0, 166, 166, 0.9), rgba(16, 32, 51, 0.76));
 }
 
 .Ongoing-Technical-Support {
     font-family: Arial, sans-serif;
     color: whitesmoke;
-    background-image: url("Images/Ongoing-Technical-Support.jpg");
+    background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.88), rgba(0, 166, 118, 0.72));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1414,4 +1417,121 @@ html {
     .footer-nav {
         justify-content: center;
     }
+}
+
+/* Client template showcase theme */
+.why-choose-us,
+.packages,
+.testimonials,
+.services,
+.final-cta,
+.page-section {
+    background: transparent;
+}
+
+.why-choose-us h2,
+.packages h2,
+.testimonials h2,
+.final-cta h2,
+.services h2 {
+    color: #102033;
+    text-shadow: none;
+}
+
+.section-label,
+.why-choose-us .section-label,
+.testimonials .section-label {
+    color: #00a676;
+    text-shadow: none;
+}
+
+.section-intro {
+    color: #2563eb;
+}
+
+.benefit-item,
+.package-card,
+.testimonial-card {
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    background: rgba(255, 255, 255, 0.96);
+    color: #102033;
+    box-shadow: 0 18px 48px rgba(16, 32, 51, 0.12);
+}
+
+.benefit-item {
+    border-top: 6px solid #00a676;
+    background: linear-gradient(180deg, rgba(0, 166, 118, 0.12), rgba(255, 255, 255, 0.96) 42%);
+}
+
+.benefit-item h3,
+.package-card h3,
+.testimonial-card h3 {
+    color: #102033;
+}
+
+.package-price {
+    color: #2563eb;
+}
+
+.package-card ul,
+.benefit-item p,
+.package-card p,
+.testimonial-card p {
+    color: #5c6b7a;
+}
+
+.featured-package {
+    border-color: rgba(0, 166, 118, 0.55);
+}
+
+.testimonial-avatar {
+    background: #2563eb;
+}
+
+.final-cta {
+    background: linear-gradient(135deg, #102033, #2563eb);
+}
+
+.final-cta h2,
+.final-cta p {
+    color: #ffffff;
+}
+
+.site-footer {
+    background: #102033;
+}
+
+.site-footer h2 {
+    color: #9ff5d7;
+}
+
+.page-hero {
+    background: linear-gradient(135deg, #102033, #2563eb);
+}
+
+.page-hero p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+#service-message {
+    color: #102033;
+}
+
+.web-design,
+.seo,
+.maintenence,
+.Ongoing-Technical-Support {
+    background-image: linear-gradient(135deg, rgba(16, 32, 51, 0.88), rgba(37, 99, 235, 0.72));
+}
+
+.seo {
+    background-image: linear-gradient(135deg, rgba(0, 166, 118, 0.9), rgba(37, 99, 235, 0.7));
+}
+
+.maintenence {
+    background-image: linear-gradient(135deg, rgba(0, 166, 166, 0.9), rgba(16, 32, 51, 0.76));
+}
+
+.Ongoing-Technical-Support {
+    background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.88), rgba(0, 166, 118, 0.72));
 }
