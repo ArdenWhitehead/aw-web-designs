@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Commerce Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="commerce-header">
+        <div class="promo-bar">
+            <p>Spend $99 to unlock free next day delivery</p>
+            <p>Pickup from: Local Store</p>
+            <p>Deliver to: Your Suburb</p>
+        </div>
+
+        <div class="main-nav">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">P</span>
+                PawMart
+            </a>
+
+            <nav class="primary-links" aria-label="Main navigation">
+                <a href="#pets">Pets</a>
+                <a href="#products">Products</a>
+                <a href="#services">Services</a>
+                <a href="#advice">Advice</a>
+            </nav>
+
+            <label class="search-box" for="product-search">
+                <span>Search</span>
+                <input
+                    type="search"
+                    id="product-search"
+                    placeholder="Search food, treats, toys..."
+                >
+            </label>
+
+            <div class="nav-actions">
+                <button type="button" id="profile-button" aria-label="Open pet profile">Profile</button>
+                <button type="button" id="cart-button" aria-label="Open cart">
+                    Cart <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="category-nav" aria-label="Product categories">
+            <a href="#offers">Special Offers</a>
+            <a href="#dog">Dog Food</a>
+            <a href="#cat">Cat Food</a>
+            <a href="#health">Health</a>
+            <a href="#toys">Toys</a>
+            <a href="#services">Services</a>
+            <button type="button" id="shop-by-pet-button">Shop by Pet</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div>
+                <p class="eyebrow">Advanced retail template</p>
+                <h1>Build a high-interaction online store experience</h1>
+                <p>
+                    Designed for businesses that need search, categories, product cards,
+                    customer actions, cart behaviour and service pathways.
+                </p>
+                <a href="#products" class="hero-cta">Explore Products</a>
+            </div>
+
+            <div class="hero-product">
+                <span class="product-badge">New</span>
+                <h2>Complete Care Bundle</h2>
+                <p>Food, treats, toys and health essentials in one guided shopping flow.</p>
+            </div>
+        </section>
+
+        <section class="pet-panels" id="pets">
+            <article class="pet-panel active-panel" data-pet="dog">
+                <button type="button" class="pet-tab active-tab" data-filter="dog">
+                    <span class="pet-icon">Dog</span>
+                    Dog
+                </button>
+                <button type="button" class="pet-tab" data-filter="puppy">
+                    <span class="pet-icon">Puppy</span>
+                    Puppy
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Dog Food</a>
+                    <a href="#products" data-quick-filter="treats">Treats</a>
+                    <a href="#products" data-quick-filter="health">Health</a>
+                    <a href="#products" data-quick-filter="toys">Dog Toys</a>
+                </div>
+            </article>
+
+            <article class="pet-panel" data-pet="cat">
+                <button type="button" class="pet-tab" data-filter="cat">
+                    <span class="pet-icon">Cat</span>
+                    Cat
+                </button>
+                <button type="button" class="pet-tab" data-filter="kitten">
+                    <span class="pet-icon">Kitten</span>
+                    Kitten
+                </button>
+                <div class="quick-links">
+                    <a href="#products" data-quick-filter="food">Cat Food</a>
+                    <a href="#products" data-quick-filter="treats">Treats</a>
+                    <a href="#products" data-quick-filter="toys">Cat Toys</a>
+                    <a href="#products" data-quick-filter="litter">Litter</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="shortcut-grid" aria-label="Shop shortcuts">
+            <button type="button" class="shortcut active-shortcut" data-category="all">Special Offers</button>
+            <button type="button" class="shortcut" data-category="food">Food</button>
+            <button type="button" class="shortcut" data-category="treats">Treats</button>
+            <button type="button" class="shortcut" data-category="health">Health</button>
+            <button type="button" class="shortcut" data-category="toys">Toys</button>
+            <button type="button" class="shortcut" data-category="services">Services</button>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Shop the range</p>
+                    <h2>Featured Products</h2>
+                </div>
+                <p id="result-count">Showing all products</p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card" data-name="premium dog food" data-category="food" data-pet="dog">
+                    <div class="product-image dog-food"></div>
+                    <p class="product-label">Dog food</p>
+                    <h3>Premium Dog Food</h3>
+                    <p class="price">$42.00</p>
+                    <button type="button" class="add-cart-button" data-product="Premium Dog Food">Add to Cart</button>
+                </article>
+
+                <article class="product-card" data-name="training treats" data-category="treats" data-pet="dog">
+                    <div class="product-image treats"></div>
+                    <p class="product-label">Treats</p>
+                    <h3>Training Treats</h3>
+                    <p class="price">$14.00</p>
+                    <button type="button" class="add-cart-button" data-product="Training Treats">Add to Cart</button>
+                </article>
+
+                <article class="product-card" data-name="health care bundle" data-category="health" data-pet="dog cat">
+                    <div class="product-image health"></div>
+                    <p class="product-label">Health</p>
+                    <h3>Health Care Bundle</h3>
+                    <p class="price">$36.00</p>
+                    <button type="button" class="add-cart-button" data-product="Health Care Bundle">Add to Cart</button>
+                </article>
+
+                <article class="product-card" data-name="interactive toy" data-category="toys" data-pet="dog cat">
+                    <div class="product-image toys"></div>
+                    <p class="product-label">Toys</p>
+                    <h3>Interactive Toy</h3>
+                    <p class="price">$22.00</p>
+                    <button type="button" class="add-cart-button" data-product="Interactive Toy">Add to Cart</button>
+                </article>
+
+                <article class="product-card" data-name="cat food selection" data-category="food" data-pet="cat">
+                    <div class="product-image cat-food"></div>
+                    <p class="product-label">Cat food</p>
+                    <h3>Cat Food Selection</h3>
+                    <p class="price">$31.00</p>
+                    <button type="button" class="add-cart-button" data-product="Cat Food Selection">Add to Cart</button>
+                </article>
+
+                <article class="product-card" data-name="grooming service" data-category="services" data-pet="dog cat">
+                    <div class="product-image services-card"></div>
+                    <p class="product-label">Service</p>
+                    <h3>Grooming Booking</h3>
+                    <p class="price">From $55.00</p>
+                    <button type="button" class="add-cart-button" data-product="Grooming Booking">Add to Cart</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="advice-strip" id="advice">
+            <article>
+                <h2>Helpful buying journeys</h2>
+                <p>
+                    Use this area for guides, bundles, calculators, service booking,
+                    loyalty prompts or customer education.
+                </p>
+            </article>
+            <article>
+                <h2>Built for more complex businesses</h2>
+                <p>
+                    This template suits retail, hospitality, clinics, hire businesses,
+                    service marketplaces or any business with searchable options.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+        <div class="drawer-header">
+            <h2>Your Cart</h2>
+            <button type="button" id="close-cart-button" aria-label="Close cart">Close</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <p class="cart-empty" id="cart-empty">Your cart is empty.</p>
+        <button type="button" class="checkout-button">Checkout</button>
+    </aside>
+
+    <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+        <div class="profile-card">
+            <button type="button" id="close-profile-button" aria-label="Close profile">Close</button>
+            <p class="eyebrow">Shop by profile</p>
+            <h2 id="profile-title">Personalise the customer journey</h2>
+            <p>
+                This area can become customer accounts, pet profiles, saved vehicles,
+                bookings, loyalty rewards or repeat orders depending on the business.
+            </p>
+        </div>
+    </div>
+
+    <button type="button" class="buy-again-button" id="buy-again-button">
+        Buy Again
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
