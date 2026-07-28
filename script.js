@@ -4,6 +4,9 @@ const portfolioButton = document.getElementById("portfolio-button");
 const contactButton = document.getElementById("contact-button");
 const navPortfolioButton = document.getElementById("nav-portfolio-button");
 const navContactButton = document.getElementById("nav-contact-button");
+const footerQuoteButton = document.getElementById("footer-quote-button");
+const footerContactButton = document.getElementById("footer-contact-button");
+const packageButtons = document.querySelectorAll(".package-button");
 
 // Select the modal windows
 const quoteModal = document.getElementById("quote-modal");
@@ -46,6 +49,24 @@ navPortfolioButton.addEventListener("click", function () {
 
 navContactButton.addEventListener("click", function () {
     openModal(contactModal);
+});
+
+footerQuoteButton.addEventListener("click", function () {
+    openModal(quoteModal);
+});
+
+footerContactButton.addEventListener("click", function () {
+    openModal(contactModal);
+});
+
+packageButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        const selectedPackage = button.dataset.package;
+        const projectDetails = document.getElementById("project-details");
+
+        projectDetails.value = "I am interested in the " + selectedPackage + ".";
+        openModal(quoteModal);
+    });
 });
 
 closeButtons.forEach(function (button) {
