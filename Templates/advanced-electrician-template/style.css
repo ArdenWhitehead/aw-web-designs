@@ -493,26 +493,24 @@ input {
     display: none;
 }
 
-@media (max-width: 900px) {
-    .promo-bar,
-    .main-nav,
-    .section-heading {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .promo-bar {
-        display: none;
-    }
-
+@media (max-width: 1100px) {
     .main-nav {
-        display: flex;
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .brand {
+        justify-content: center;
     }
 
     .primary-links,
-    .category-nav,
     .nav-actions {
+        justify-content: center;
         flex-wrap: wrap;
+    }
+
+    .search-box input {
+        min-height: 50px;
     }
 
     .hero-banner,
@@ -520,8 +518,175 @@ input {
     .advice-strip {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 760px) {
+    .promo-bar {
+        display: none;
+    }
+
+    .commerce-header {
+        position: static;
+    }
+
+    .main-nav {
+        padding: 14px 18px;
+    }
+
+    .brand {
+        font-size: 28px;
+    }
+
+    .brand-mark {
+        width: 42px;
+        height: 42px;
+    }
+
+    .primary-links {
+        gap: 12px;
+    }
+
+    .primary-links a,
+    .category-nav a,
+    .category-nav button {
+        font-size: 15px;
+    }
+
+    .category-nav {
+        padding: 10px 18px;
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .category-nav a,
+    .category-nav button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .nav-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .nav-actions button {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .hero-banner {
+        min-height: auto;
+    }
+
+    .hero-banner > div {
+        padding: 42px 20px;
+    }
+
+    .hero-banner h1 {
+        font-size: 40px;
+    }
+
+    .hero-banner p {
+        font-size: 17px;
+    }
+
+    .hero-product {
+        min-height: 240px;
+    }
+
+    .pet-panels,
+    .shortcut-grid,
+    .product-grid {
+        gap: 16px;
+        margin-bottom: 32px;
+        padding: 0 18px;
+    }
+
+    .pet-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-tab {
+        min-height: 86px;
+        font-size: 23px;
+    }
 
     .quick-links {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-links a {
+        padding: 18px 10px;
+        font-size: 16px;
+    }
+
+    .shortcut {
+        min-height: 96px;
+        font-size: 18px;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        padding: 0 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .product-card {
+        min-height: 340px;
+    }
+
+    .product-image {
+        min-height: 125px;
+    }
+
+    .advice-strip {
+        padding: 42px 18px;
+    }
+
+    .cart-drawer {
+        width: 100vw;
+        padding: 22px;
+    }
+
+    .buy-again-button {
+        right: 14px;
+        top: auto;
+        bottom: 16px;
+        border-radius: 999px;
+        padding: 12px 16px;
+        writing-mode: horizontal-tb;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+}
+
+@media (max-width: 520px) {
+    .primary-links {
+        display: none;
+    }
+
+    .search-box input {
+        min-height: 48px;
+        padding: 0 18px;
+        font-size: 16px;
+    }
+
+    .hero-banner h1 {
+        font-size: 34px;
+    }
+
+    .quick-links,
+    .shortcut-grid,
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card h3 {
+        font-size: 22px;
     }
 }
