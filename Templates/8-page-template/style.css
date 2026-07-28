@@ -1535,3 +1535,467 @@ html {
 .Ongoing-Technical-Support {
     background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.88), rgba(0, 166, 118, 0.72));
 }
+
+/* Squarespace / Shopify inspired presentation layer */
+.hero {
+    min-height: 86vh;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 120px 7vw 92px;
+    text-align: left;
+}
+
+.hero::before {
+    background: rgba(16, 32, 51, 0.08);
+}
+
+.hero::after {
+    content: "Program pathway";
+    position: absolute;
+    right: 7vw;
+    bottom: 110px;
+    z-index: 1;
+    width: min(360px, 28vw);
+    min-height: 260px;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 8px;
+    color: #102033;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.94)),
+        radial-gradient(circle at top right, rgba(159, 245, 215, 0.9), transparent 45%);
+    box-shadow: 0 30px 80px rgba(16, 32, 51, 0.22);
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.hero-header {
+    top: 22px;
+    left: 7vw;
+    right: 7vw;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-content {
+    align-items: flex-start;
+    max-width: 680px;
+}
+
+.hero-title {
+    max-width: 720px;
+    font-size: clamp(48px, 7vw, 92px);
+    letter-spacing: -1px;
+    text-shadow: none;
+}
+
+.hero-description {
+    max-width: 560px;
+    color: rgba(255, 255, 255, 0.84);
+    text-shadow: none;
+}
+
+.hero-proof {
+    justify-content: flex-start;
+}
+
+.hero-proof span {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-buttons {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    width: auto;
+}
+
+.hero-button,
+.final-cta-button,
+.package-button,
+.submit-button,
+.portfolio-view {
+    min-height: 0;
+    border-radius: 999px;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.hero-button {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    min-height: 48px;
+    padding: 0 22px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0;
+}
+
+#quote-button {
+    background: #ffffff;
+    color: #102033;
+}
+
+#portfolio-button,
+#contact-button {
+    background: transparent;
+}
+
+.button-icon,
+.button-divider,
+.button-arrow {
+    display: none;
+}
+
+.button-text {
+    padding: 0;
+    text-align: center;
+}
+
+.hero-button:hover,
+.package-button:hover,
+.final-cta-button:hover,
+.portfolio-view:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(16, 32, 51, 0.16);
+    text-decoration: none;
+}
+
+.services,
+.why-choose-us,
+.packages,
+.testimonials,
+.final-cta,
+.page-section {
+    padding: 86px 7vw;
+}
+
+.service-container,
+.benefit-grid,
+.package-grid,
+.testimonial-grid,
+.portfolio-grid {
+    max-width: 1180px;
+    gap: 18px;
+}
+
+.card {
+    min-height: 260px;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: left;
+    text-shadow: none;
+}
+
+.card h3,
+.card p {
+    max-width: none;
+    text-align: left;
+    text-shadow: none;
+}
+
+.card h3 {
+    font-size: 28px;
+}
+
+.card p {
+    font-size: 16px;
+}
+
+.benefit-item,
+.package-card,
+.testimonial-card,
+.portfolio-item,
+.form-panel,
+.faq-item {
+    border-radius: 8px;
+}
+
+.package-card {
+    padding: 32px;
+}
+
+.package-button,
+.final-cta-button,
+.submit-button {
+    background: #102033;
+    color: #ffffff;
+}
+
+.package-button:hover,
+.final-cta-button:hover,
+.submit-button:hover {
+    background: #00a676;
+}
+
+.modal-content,
+.profile-card {
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding: 118px 22px 70px;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-header {
+        left: 22px;
+        right: 22px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-button {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .services,
+    .why-choose-us,
+    .packages,
+    .testimonials,
+    .final-cta,
+    .page-section {
+        padding: 64px 20px;
+    }
+}
+
+/* Client showcase layer: cleaner Squarespace/Shopify-style template presentation */
+body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #17202a;
+    background: #f5f7fb;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    column-gap: 7vw;
+    align-items: center;
+    min-height: 88vh;
+    padding: 132px 7vw 82px;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hero-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 96px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: 0;
+}
+
+.hero-description {
+    max-width: 520px;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.hero-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 620px;
+    gap: 0;
+    margin-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.hero-proof span {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 14px 16px 14px 0;
+}
+
+.hero-buttons {
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-button,
+.package-button,
+.final-cta-button,
+.submit-button,
+.portfolio-view {
+    min-height: 46px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-button {
+    width: auto;
+    min-height: 46px;
+    padding: 0 19px;
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#quote-button {
+    background: #ffffff;
+    color: #17202a;
+}
+
+#portfolio-button,
+#contact-button {
+    background: transparent;
+    color: #ffffff;
+}
+
+.hero::after {
+    position: relative;
+    inset: auto;
+    display: block;
+    content: "Client journey\A Intro consultation\A Personal program\A Reviews and support";
+    white-space: pre-line;
+    min-height: 360px;
+    padding: 34px;
+    align-self: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 10px;
+    color: #17202a;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 244, 253, 0.96)),
+        radial-gradient(circle at top right, rgba(90, 137, 206, 0.34), transparent 42%);
+    box-shadow: 0 30px 70px rgba(25, 43, 68, 0.22);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(31px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.34;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.services,
+.why-choose-us,
+.packages,
+.testimonials,
+.final-cta,
+.page-section {
+    background: #f5f7fb;
+    color: #17202a;
+}
+
+.section-title,
+.page-title,
+.final-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: #17202a;
+}
+
+.service-container {
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+}
+
+.card {
+    min-height: 230px;
+    border: 1px solid #dce4ef;
+    border-radius: 10px;
+    background: #ffffff !important;
+    color: #17202a;
+    box-shadow: none;
+}
+
+.card::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    margin-bottom: auto;
+    border-radius: 50%;
+    background: #5a89ce;
+}
+
+.card h3,
+.card p {
+    color: #17202a;
+}
+
+.card p,
+.benefit-item p,
+.package-card p,
+.testimonial-card p {
+    color: #5e6470;
+}
+
+.package-card,
+.benefit-item,
+.testimonial-card,
+.portfolio-item,
+.form-panel,
+.faq-item {
+    border: 1px solid #dce4ef;
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.package-button,
+.final-cta-button,
+.submit-button,
+.portfolio-view {
+    border: 1px solid #17202a;
+    background: #17202a;
+    color: #ffffff;
+}
+
+.package-button:hover,
+.final-cta-button:hover,
+.submit-button:hover,
+.portfolio-view:hover {
+    border-color: #5a89ce;
+    background: #5a89ce;
+    color: #17202a;
+}
+
+@media (max-width: 980px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-proof {
+        grid-template-columns: 1fr;
+    }
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+}
