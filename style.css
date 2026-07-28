@@ -252,8 +252,9 @@ body {
     transform: translateY(-5px);
     filter: brightness(1.01);
 
-    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5);
-    inset: 0 1px 0 rgba(255, 255, 255, 0.28);
+    box-shadow:
+        0 22px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .hero-button:hover .button-arrow {
@@ -261,18 +262,21 @@ body {
 }
 
 .quote-style:hover {
-    box-shadow: 0 20px 42px rgba(35, 117, 255, 0.4);
-    inset: 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 20px 42px rgba(35, 117, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .portfolio-style:hover {
-    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.65);
-    inset: 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 20px 42px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .contact-style:hover {
-    box-shadow: 0 20px 42px rgba(20, 154, 167, 0.2);
-    inset: 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 20px 42px rgba(20, 154, 167, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .hero-button:active {
@@ -354,7 +358,6 @@ body {
     margin: 0 0 10px;
     color: #f4a623;
     font-size: 16px;
-    font-style: bold;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -379,11 +382,10 @@ body {
 
 .section-intro {
     max-width: 1000px;
-    white-space: nowrap;
     margin: 22px auto 46px;
     color: #f4a623;
     font-style : italic;
-    font-style: bold;
+    font-weight: 700;
     font-size: 20px;
     line-height: 1.2;
 }
@@ -404,8 +406,10 @@ body {
 }
 
 .card {
+    appearance: none;
+    border: 0;
     box-sizing: border-box;
-    height: 420px;
+    min-height: 420px;
     width: 100%;
     padding: 30px;
     object-fit: cover;
@@ -428,6 +432,7 @@ body {
     color: #f4f8ff;
     font-size: 18px;
     font-weight: bold;
+    font-family: Arial, sans-serif;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     text-shadow:
     2px 2px 6px rgb(11, 11, 11),
@@ -479,6 +484,11 @@ body {
 .card:hover {
     transform: translateY(-10px);
 }    
+
+.card:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
 
 .active-card {
      outline: 3px solid aqua;
@@ -744,6 +754,27 @@ body {
 .portfolio-item p {
     line-height: 1.6;
     color: #555;
+}
+
+.portfolio-view {
+    align-self: flex-start;
+    margin-top: auto;
+
+    border: 0;
+    background: transparent;
+    color: #1f6feb;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.portfolio-view:hover,
+.portfolio-view:focus-visible {
+    color: #0057d9;
+    text-decoration: underline;
 }
 
 .portfolio-image {

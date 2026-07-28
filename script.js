@@ -170,7 +170,11 @@ const cards = document.querySelectorAll(".card");
 
 cards.forEach(function (card) {
     card.addEventListener("click", function () {
+        const serviceName = card.dataset.service;
+
         cards.forEach(c => c.classList.remove("active-card"));
         card.classList.add("active-card");
+
+        showServiceMessage(serviceName);
     });
 });
