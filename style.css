@@ -542,28 +542,18 @@ html {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
+.benefit-item {
+    padding-top: 34px;
+    border-top: 6px solid #95bf47;
+    background:
+        linear-gradient(180deg, #f7fbf4 0%, #ffffff 42%);
+}
+
 .benefit-item:hover,
 .testimonial-card:hover {
     transform: translateY(-4px);
-    border-color: #c8d7bd;
+    border-color: #95bf47;
     box-shadow: 0 22px 50px rgba(17, 24, 39, 0.12);
-}
-
-.benefit-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-    margin-bottom: 22px;
-
-    border-radius: 50%;
-    background: #eaf4e4;
-    color: #2f5d3a;
-
-    font-size: 14px;
-    font-weight: 900;
 }
 
 .benefit-item h3,
@@ -571,6 +561,11 @@ html {
     color: #111827;
     font-size: 21px;
     line-height: 1.25;
+}
+
+.benefit-item h3 {
+    color: #16351d;
+    font-size: 23px;
 }
 
 .benefit-item p,
