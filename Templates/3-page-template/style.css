@@ -2082,3 +2082,31 @@ body {
         width: 100%;
     }
 }
+
+/* Accessibility and performance helpers */
+:focus-visible {
+    outline: 3px solid var(--template-accent);
+    outline-offset: 4px;
+}
+
+.modal[aria-hidden="true"] {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+}

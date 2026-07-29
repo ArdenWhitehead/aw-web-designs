@@ -1,4 +1,3 @@
-// Select the hero buttons
 const quoteButton = document.getElementById("quote-button");
 const portfolioButton = document.getElementById("portfolio-button");
 const contactButton = document.getElementById("contact-button");
@@ -8,14 +7,22 @@ const footerQuoteButton = document.getElementById("footer-quote-button");
 const footerContactButton = document.getElementById("footer-contact-button");
 const packageButtons = document.querySelectorAll(".package-button");
 
-// Select the modal windows
 const quoteModal = document.getElementById("quote-modal");
 const portfolioModal = document.getElementById("portfolio-modal");
 const contactModal = document.getElementById("contact-modal");
 
-// Select all close buttons and modals
 const closeButtons = document.querySelectorAll(".close-button");
 const allModals = document.querySelectorAll(".modal");
+let lastFocusedElement = null;
+
+const focusableSelector = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "[tabindex]:not([tabindex='-1'])"
+].join(",");
 
 function addClickHandler(element, handler) {
     if (!element) return;
@@ -23,19 +30,51 @@ function addClickHandler(element, handler) {
     element.addEventListener("click", handler);
 }
 
+function getFocusableElements(modal) {
+    return Array.from(modal.querySelectorAll(focusableSelector));
+}
+
 function openModal(modal) {
     if (!modal) return;
 
+    lastFocusedElement = document.activeElement;
     modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+
+    const focusableElements = getFocusableElements(modal);
+    const firstFocusableElement = focusableElements[0];
+
+    if (firstFocusableElement) {
+        firstFocusableElement.focus();
+    }
 }
 
-function closeModal(modal) {
-    if (!modal) return;
+function closeModal(modal, shouldRestoreFocus = true) {
+    if (!modal || !modal.classList.contains("open")) return;
 
     modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+
+    if (shouldRestoreFocus && lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
 }
+
+function closeAllModals() {
+    allModals.forEach(function (modal) {
+        closeModal(modal, false);
+    });
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+}
+
+allModals.forEach(function (modal) {
+    modal.setAttribute("aria-hidden", "true");
+});
 
 addClickHandler(quoteButton, function () {
     openModal(quoteModal);
@@ -95,13 +134,31 @@ allModals.forEach(function (modal) {
             closeModal(modal);
         }
     });
+
+    modal.addEventListener("keydown", function (event) {
+        if (event.key !== "Tab") return;
+
+        const focusableElements = getFocusableElements(modal);
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        if (!firstFocusableElement || !lastFocusableElement) return;
+
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+            event.preventDefault();
+            lastFocusableElement.focus();
+        }
+
+        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+            event.preventDefault();
+            firstFocusableElement.focus();
+        }
+    });
 });
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-        allModals.forEach(function (modal) {
-            closeModal(modal);
-        });
+        closeAllModals();
     }
 });
 
@@ -213,9 +270,11 @@ cards.forEach(function (card) {
     card.addEventListener("click", function () {
         const serviceName = card.dataset.service;
 
-        cards.forEach(c => c.classList.remove("active-card"));
-        card.classList.add("active-card");
+        cards.forEach(function (item) {
+            item.classList.remove("active-card");
+        });
 
+        card.classList.add("active-card");
         showServiceMessage(serviceName);
     });
 });

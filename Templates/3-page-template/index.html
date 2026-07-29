@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A polished 3-page lawn care website template with clear services, trust-building copy and simple enquiry paths for local property businesses.">
     <title>Bayside Lawn Care</title>
+    <link rel="canonical" href="https://ardenwhitehead.github.io/aw-web-designs/Templates/3-page-template/">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,6 +155,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -164,6 +167,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -174,6 +178,7 @@
                     id="business-name"
                     name="businessName"
                     placeholder="Enter your business name"
+                    autocomplete="organization"
                 >
             </div>
 
@@ -184,6 +189,7 @@
                     id="phone"
                     name="phone"
                     placeholder="Enter your phone number"
+                    autocomplete="tel"
                 >
             </div>
 
@@ -224,7 +230,7 @@
                 Submit Estimate Request
             </button>
 
-            <p class="form-message" id="quote-message"></p>
+            <p class="form-message" id="quote-message" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -257,9 +263,9 @@
 
                 <img
                     src="Images/localtrade.jpg"
-                    alt="Project example"
+                    alt="Local lawn care service project preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Front Yard Refresh</h3>
                 <p>
                     Problem: The front yard had become overgrown before an inspection.
@@ -276,9 +282,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/smallbuisness.jpg"
-                    alt="Client example"
+                    alt="Small property maintenance business preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Small Ongoing Care</h3>
                 <p>
                     Problem: The property needed to look tenant-ready quickly.
@@ -294,9 +300,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/serviceprovider.jpg"
-                    alt="Service example"
+                    alt="Outdoor service provider project preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Small Business Grounds</h3>
                 <p>
                     Problem: The business frontage needed regular, low-fuss maintenance.
@@ -344,6 +350,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -355,6 +362,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -373,7 +381,7 @@
                 Send Message
             </button>
 
-            <p class="form-message" id="contact-message-result"></p>
+            <p class="form-message" id="contact-message-result" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -451,7 +459,7 @@
 
     </div>
 
-     <p id="service-message"></p>
+     <p id="service-message" aria-live="polite"></p>
    
 </section>
 
@@ -636,7 +644,7 @@
     </p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </body>
 </html>

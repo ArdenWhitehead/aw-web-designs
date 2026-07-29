@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact page template for Bayside Lawn Care with enquiry forms, service details and simple customer contact options.">
     <title>Contact | Bayside Lawn Care</title>
+    <link rel="canonical" href="https://ardenwhitehead.github.io/aw-web-designs/Templates/3-page-template/contact.html">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +50,7 @@
                                 name="name"
                                 placeholder="Enter your full name"
                                 required
+                    autocomplete="name"
                             >
                         </div>
 
@@ -59,6 +62,7 @@
                                 name="email"
                                 placeholder="Enter your email address"
                                 required
+                    autocomplete="email"
                             >
                         </div>
 
@@ -69,6 +73,7 @@
                                 id="business-name"
                                 name="businessName"
                                 placeholder="Enter your business name"
+                    autocomplete="organization"
                             >
                         </div>
 
@@ -79,6 +84,7 @@
                                 id="phone"
                                 name="phone"
                                 placeholder="Enter your phone number"
+                    autocomplete="tel"
                             >
                         </div>
 
@@ -119,7 +125,7 @@
                             Submit Estimate Request
                         </button>
 
-                        <p class="form-message" id="quote-message"></p>
+                        <p class="form-message" id="quote-message" aria-live="polite"></p>
                     </form>
                 </article>
 
@@ -138,6 +144,7 @@
                                 name="name"
                                 placeholder="Enter your full name"
                                 required
+                    autocomplete="name"
                             >
                         </div>
 
@@ -149,6 +156,7 @@
                                 name="email"
                                 placeholder="Enter your email address"
                                 required
+                    autocomplete="email"
                             >
                         </div>
 
@@ -167,7 +175,7 @@
                             Send Message
                         </button>
 
-                        <p class="form-message" id="contact-message-result"></p>
+                        <p class="form-message" id="contact-message-result" aria-live="polite"></p>
                     </form>
                 </article>
             </div>
@@ -191,6 +199,6 @@
         </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

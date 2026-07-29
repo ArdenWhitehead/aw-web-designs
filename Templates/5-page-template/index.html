@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A refined 5-page renovation business website template with services, portfolio, trust sections and clear consultation pathways.">
     <title>Harbour & Stone Renovations</title>
+    <link rel="canonical" href="https://ardenwhitehead.github.io/aw-web-designs/Templates/5-page-template/">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +163,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -172,6 +175,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -182,6 +186,7 @@
                     id="business-name"
                     name="businessName"
                     placeholder="Enter your business name"
+                    autocomplete="organization"
                 >
             </div>
 
@@ -192,6 +197,7 @@
                     id="phone"
                     name="phone"
                     placeholder="Enter your phone number"
+                    autocomplete="tel"
                 >
             </div>
 
@@ -232,7 +238,7 @@
                 Submit Project Request
             </button>
 
-            <p class="form-message" id="quote-message"></p>
+            <p class="form-message" id="quote-message" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -265,9 +271,9 @@
 
                 <img
                     src="Images/localtrade.jpg"
-                    alt="Project example"
+                    alt="Renovation trade project preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Coastal Kitchen Refresh</h3>
                 <p>
                     Problem: The kitchen felt tired and lacked storage.
@@ -284,9 +290,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/smallbuisness.jpg"
-                    alt="Client example"
+                    alt="Small renovation business project preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Small Kitchen or Bathroom</h3>
                 <p>
                     Problem: The bathroom needed a cleaner, more durable finish.
@@ -302,9 +308,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/serviceprovider.jpg"
-                    alt="Service example"
+                    alt="Renovation service provider gallery preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Retail Fitout Detail</h3>
                 <p>
                     Problem: The shop needed display areas that looked more intentional.
@@ -352,6 +358,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -363,6 +370,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -381,7 +389,7 @@
                 Send Message
             </button>
 
-            <p class="form-message" id="contact-message-result"></p>
+            <p class="form-message" id="contact-message-result" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -459,7 +467,7 @@
 
     </div>
 
-     <p id="service-message"></p>
+     <p id="service-message" aria-live="polite"></p>
    
 </section>
 
@@ -646,7 +654,7 @@
     </p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </body>
 </html>

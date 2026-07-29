@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An expanded 8-page wellness clinic website template with programs, packages, reviews, FAQs and clear booking pathways.">
     <title>Summit Wellness Clinic</title>
+    <link rel="canonical" href="https://ardenwhitehead.github.io/aw-web-designs/Templates/8-page-template/">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +175,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -184,6 +187,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -194,6 +198,7 @@
                     id="business-name"
                     name="businessName"
                     placeholder="Enter your business name"
+                    autocomplete="organization"
                 >
             </div>
 
@@ -204,6 +209,7 @@
                     id="phone"
                     name="phone"
                     placeholder="Enter your phone number"
+                    autocomplete="tel"
                 >
             </div>
 
@@ -244,7 +250,7 @@
                 Submit Intro Request
             </button>
 
-            <p class="form-message" id="quote-message"></p>
+            <p class="form-message" id="quote-message" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -277,9 +283,9 @@
 
                 <img
                     src="Images/localtrade.jpg"
-                    alt="Project example"
+                    alt="Wellness client progress story preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Strength Restart</h3>
                 <p>
                     Goal: Build confidence returning to structured training.
@@ -296,9 +302,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/smallbuisness.jpg"
-                    alt="Client example"
+                    alt="Wellness clinic client example preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Small Weekly Coaching</h3>
                 <p>
                     Goal: Improve energy and make healthier routines easier.
@@ -314,9 +320,9 @@
             <article class="portfolio-item">
                 <img
                     src="Images/serviceprovider.jpg"
-                    alt="Service example"
+                    alt="Wellness service provider project preview"
                     class="portfolio-image"
-                >
+                 loading="lazy" decoding="async">
                 <h3>Recovery Support</h3>
                 <p>
                     Goal: Reduce stiffness and support ongoing training.
@@ -364,6 +370,7 @@
                     name="name"
                     placeholder="Enter your full name"
                     required
+                    autocomplete="name"
                 >
             </div>
 
@@ -375,6 +382,7 @@
                     name="email"
                     placeholder="Enter your email address"
                     required
+                    autocomplete="email"
                 >
             </div>
 
@@ -393,7 +401,7 @@
                 Send Message
             </button>
 
-            <p class="form-message" id="contact-message-result"></p>
+            <p class="form-message" id="contact-message-result" aria-live="polite"></p>
         </form>
     </div>
 </div>
@@ -471,7 +479,7 @@
 
     </div>
 
-     <p id="service-message"></p>
+     <p id="service-message" aria-live="polite"></p>
    
 </section>
 
@@ -661,7 +669,7 @@
     </p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
