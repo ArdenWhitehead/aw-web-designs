@@ -1969,3 +1969,116 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Button theme: boutique storefront controls */
+:root {
+    --template-ink: #182028;
+    --template-accent: #bd945b;
+    --template-accent-dark: #8f6b3e;
+    --template-paper: #ffffff;
+}
+
+.hero-button,
+.package-button,
+.final-cta-button,
+.submit-button,
+.portfolio-view,
+.close-button {
+    border-radius: 2px;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.hero-button,
+.package-button,
+.final-cta-button,
+.submit-button,
+.portfolio-view {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 0 22px;
+    border: 1px solid currentColor;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-button::after,
+.package-button::after,
+.final-cta-button::after,
+.submit-button::after,
+.portfolio-view::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.hero-button:hover::after,
+.package-button:hover::after,
+.final-cta-button:hover::after,
+.submit-button:hover::after,
+.portfolio-view:hover::after {
+    transform: translateX(4px) rotate(45deg);
+}
+
+#quote-button,
+.package-button,
+.final-cta-button,
+.submit-button,
+.portfolio-view {
+    background: var(--template-ink);
+    color: var(--template-paper);
+}
+
+#portfolio-button,
+#contact-button {
+    background: transparent;
+    color: var(--template-paper);
+}
+
+.hero-button:hover,
+.package-button:hover,
+.final-cta-button:hover,
+.submit-button:hover,
+.portfolio-view:hover {
+    transform: translateY(-1px);
+    border-color: var(--template-accent);
+    background: var(--template-accent);
+    color: var(--template-ink);
+}
+
+#portfolio-button:hover,
+#contact-button:hover {
+    background: var(--template-paper);
+    color: var(--template-ink);
+}
+
+.close-button {
+    background: var(--template-paper);
+    color: var(--template-ink);
+}
+
+.close-button:hover {
+    background: var(--template-accent);
+    color: var(--template-ink);
+}
+
+@media (max-width: 700px) {
+    .hero-button,
+    .package-button,
+    .final-cta-button,
+    .submit-button,
+    .portfolio-view {
+        width: 100%;
+    }
+}
