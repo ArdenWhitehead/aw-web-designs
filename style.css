@@ -842,6 +842,132 @@ html {
     line-height: 1.2;
 }
 
+.custom-difference,
+.process-section,
+.comparison-section,
+.audience-section,
+.founder-section {
+    padding: 88px 24px;
+    color: white;
+    background: rgba(16, 18, 20, 0.72);
+}
+
+.custom-difference h2,
+.process-section h2,
+.comparison-section h2,
+.audience-section h2,
+.founder-section h2 {
+    max-width: 980px;
+    margin: 0 auto 18px;
+    color: white;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.02;
+    text-align: center;
+}
+
+.difference-grid,
+.process-grid,
+.comparison-grid,
+.audience-grid {
+    display: grid;
+    gap: 24px;
+    max-width: 1180px;
+    margin: 44px auto 0;
+}
+
+.difference-grid,
+.process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.comparison-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.audience-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.difference-card,
+.process-card,
+.comparison-card,
+.audience-grid article {
+    padding: 30px;
+    border: 1px solid rgba(244, 166, 35, 0.28);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+}
+
+.difference-card h3,
+.process-card h3,
+.comparison-card h3,
+.audience-grid h3 {
+    margin: 0 0 12px;
+    color: white;
+    font-size: 24px;
+}
+
+.difference-card p,
+.process-card p,
+.audience-grid p,
+.founder-section p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.process-card span {
+    display: inline-flex;
+    margin-bottom: 30px;
+    color: var(--accent-gold);
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.comparison-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.featured-comparison {
+    border-color: rgba(11, 132, 255, 0.55);
+    background: linear-gradient(135deg, rgba(11, 132, 255, 0.22), rgba(244, 166, 35, 0.1));
+}
+
+.muted-comparison {
+    opacity: 0.9;
+}
+
+.package-note {
+    max-width: 780px;
+    margin: 34px auto 0;
+    color: var(--accent-gold);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.founder-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) auto;
+    align-items: center;
+    gap: 28px;
+    border-top: 1px solid rgba(244, 166, 35, 0.24);
+    border-bottom: 1px solid rgba(244, 166, 35, 0.24);
+}
+
+.founder-section h2 {
+    margin: 0;
+    text-align: left;
+}
+
 .service-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1328,8 +1454,25 @@ html {
     .why-choose-us,
     .packages,
     .testimonials,
+    .custom-difference,
+    .process-section,
+    .comparison-section,
+    .audience-section,
+    .founder-section,
     .final-cta {
         padding: 64px 18px;
+    }
+
+    .difference-grid,
+    .process-grid,
+    .comparison-grid,
+    .audience-grid,
+    .founder-section {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-section h2 {
+        text-align: center;
     }
 
     .services h2 {

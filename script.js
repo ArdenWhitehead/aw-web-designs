@@ -5,6 +5,7 @@ const contactButton = document.getElementById("contact-button");
 const navPortfolioButton = document.getElementById("nav-portfolio-button");
 const navContactButton = document.getElementById("nav-contact-button");
 const footerQuoteButton = document.getElementById("footer-quote-button");
+const founderQuoteButton = document.getElementById("founder-quote-button");
 const footerContactButton = document.getElementById("footer-contact-button");
 const packageButtons = document.querySelectorAll(".package-button");
 
@@ -58,6 +59,10 @@ addClickHandler(navContactButton, function () {
 });
 
 addClickHandler(footerQuoteButton, function () {
+    openModal(quoteModal);
+});
+
+addClickHandler(founderQuoteButton, function () {
     openModal(quoteModal);
 });
 
