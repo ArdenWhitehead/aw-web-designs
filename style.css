@@ -175,9 +175,9 @@ html {
     margin: 0 0 20px;
     color: whitesmoke;
     font-family: "Nunito", sans-serif;
-    font-size: 56px;
+    font-size: clamp(38px, 5vw, 48px);
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.08;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
 }
 
@@ -1436,7 +1436,7 @@ html {
     }
 
     .hero-title {
-        font-size: 34px;
+        font-size: 30px;
     }
 
     .hero-description {
