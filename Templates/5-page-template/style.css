@@ -2104,6 +2104,119 @@ body {
     }
 }
 
+/* Client-flow sections */
+.section-cta,
+.process-section,
+.audience-section {
+    padding: 86px 7vw;
+    background: #f8f6f0;
+    color: #182028;
+}
+
+.section-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    border-top: 1px solid #e2dbcf;
+    border-bottom: 1px solid #e2dbcf;
+    background: #ffffff;
+}
+
+.section-cta div {
+    max-width: 680px;
+}
+
+.section-cta h2,
+.process-section h2,
+.audience-section h2 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.section-cta p,
+.process-card p,
+.audience-grid p {
+    color: #5e6470;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.process-grid,
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1180px;
+    margin: 36px auto 0;
+}
+
+.process-card,
+.audience-grid article {
+    min-height: 230px;
+    padding: 28px;
+    border: 1px solid #e2dbcf;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.process-card span {
+    display: inline-flex;
+    margin-bottom: 34px;
+    color: #bd945b;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.process-card h3,
+.audience-grid h3 {
+    margin: 0 0 12px;
+    color: #182028;
+    font-size: 24px;
+}
+
+.package-card strong {
+    color: #182028;
+}
+
+.form-next-steps {
+    margin: 18px 0 24px;
+    padding: 18px;
+    border: 1px solid #e2dbcf;
+    border-radius: 8px;
+    background: rgba(248, 246, 240, 0.9);
+}
+
+.form-next-steps h3 {
+    margin: 0 0 10px;
+    color: #182028;
+    font-size: 18px;
+}
+
+.form-next-steps ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #5e6470;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .section-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .process-grid,
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Accessibility and performance helpers */
 :focus-visible {
     outline: 3px solid var(--template-accent);
