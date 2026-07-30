@@ -1129,6 +1129,27 @@ html {
     resize: vertical;
 }
 
+.file-upload-group {
+    padding: 18px;
+    border: 1px dashed rgba(24, 32, 40, 0.28);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.file-upload-group input[type="file"] {
+    padding: 14px;
+    border-style: dashed;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.form-help {
+    margin: 8px 0 0;
+    color: #5e6470;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 .submit-button {
     width: 100%;
 

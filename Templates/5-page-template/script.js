@@ -170,6 +170,17 @@ function showFormMessage(messageElement, message, messageType) {
     messageElement.classList.add(messageType);
 }
 
+function getInvalidRenovationFiles(fileInput) {
+    if (!fileInput) return [];
+
+    const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+    const maxFileSize = 10 * 1024 * 1024;
+
+    return Array.from(fileInput.files).filter(function (file) {
+        return !allowedTypes.includes(file.type) || file.size > maxFileSize;
+    });
+}
+
 const quoteForm = document.getElementById("quote-form");
 const quoteMessage = document.getElementById("quote-message");
 
@@ -181,6 +192,8 @@ if (quoteForm) {
         const email = document.getElementById("quote-email").value.trim();
         const service = document.getElementById("service").value;
         const details = document.getElementById("project-details").value.trim();
+        const renovationFiles = document.getElementById("renovation-files");
+        const invalidFiles = getInvalidRenovationFiles(renovationFiles);
 
         if (name.length < 2) {
             showFormMessage(quoteMessage, "Please enter your full name.", "error-message");
@@ -201,6 +214,15 @@ if (quoteForm) {
             showFormMessage(
                 quoteMessage,
                 "Please provide more information about your project.",
+                "error-message"
+            );
+            return;
+        }
+
+        if (invalidFiles.length > 0) {
+            showFormMessage(
+                quoteMessage,
+                "Please upload only JPG, PNG or PDF files under 10MB each.",
                 "error-message"
             );
             return;
