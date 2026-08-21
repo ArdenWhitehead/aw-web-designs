@@ -168,20 +168,29 @@ const contactForm = document.getElementById("contact-form");
 const contactMessageResult = document.getElementById("contact-message-result");
 
 if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         const name = document.getElementById("contact-name").value.trim();
         const email = document.getElementById("contact-email").value.trim();
         const message = document.getElementById("contact-message").value.trim();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
 
         if (name.length < 2) {
-            showFormMessage(contactMessageResult, "Please enter your full name.", "error-message");
+            showFormMessage(
+                contactMessageResult,
+                "Please enter your full name.",
+                "error-message"
+            );
             return;
         }
 
         if (!email.includes("@")) {
-            showFormMessage(contactMessageResult, "Please enter a valid email address.", "error-message");
+            showFormMessage(
+                contactMessageResult,
+                "Please enter a valid email address.",
+                "error-message"
+            );
             return;
         }
 
@@ -194,13 +203,52 @@ if (contactForm) {
             return;
         }
 
-        showFormMessage(
-            contactMessageResult,
-            `Thank you, ${name}. Your message has been sent.`,
-            "success-message"
-        );
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
-        contactForm.reset();
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                showFormMessage(
+                    contactMessageResult,
+                    result.message || "Your message could not be sent.",
+                    "error-message"
+                );
+                return;
+            }
+
+            showFormMessage(
+                contactMessageResult,
+                `Thank you, ${name}. Your message has been sent.`,
+                "success-message"
+            );
+
+            contactForm.reset();
+        } catch (error) {
+            console.error("Form submission error:", error);
+
+            showFormMessage(
+                contactMessageResult,
+                "We could not connect to the server. Please try again.",
+                "error-message"
+            );
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+        }
     });
 }
 
