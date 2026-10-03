@@ -1,274 +1,209 @@
-// Select the hero buttons
-const quoteButton = document.getElementById("quote-button");
-const portfolioButton = document.getElementById("portfolio-button");
-const contactButton = document.getElementById("contact-button");
-const navPortfolioButton = document.getElementById("nav-portfolio-button");
-const navContactButton = document.getElementById("nav-contact-button");
-const footerQuoteButton = document.getElementById("footer-quote-button");
-const founderQuoteButton = document.getElementById("founder-quote-button");
-const footerContactButton = document.getElementById("footer-contact-button");
-const packageButtons = document.querySelectorAll(".package-button");
+(() => {
+    "use strict";
+    document.documentElement.classList.add("js-enabled");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (window.lucide) window.lucide.createIcons();
 
-// Select the modal windows
-const quoteModal = document.getElementById("quote-modal");
-const portfolioModal = document.getElementById("portfolio-modal");
-const contactModal = document.getElementById("contact-modal");
-
-// Select all close buttons and modals
-const closeButtons = document.querySelectorAll(".close-button");
-const allModals = document.querySelectorAll(".modal");
-
-function addClickHandler(element, handler) {
-    if (!element) return;
-
-    element.addEventListener("click", handler);
-}
-
-function openModal(modal) {
-    if (!modal) return;
-
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
-}
-
-function closeModal(modal) {
-    if (!modal) return;
-
-    modal.classList.remove("open");
-    document.body.style.overflow = "";
-}
-
-addClickHandler(quoteButton, function () {
-    openModal(quoteModal);
-});
-
-addClickHandler(portfolioButton, function () {
-    openModal(portfolioModal);
-});
-
-addClickHandler(contactButton, function () {
-    openModal(contactModal);
-});
-
-addClickHandler(navPortfolioButton, function () {
-    openModal(portfolioModal);
-});
-
-addClickHandler(navContactButton, function () {
-    openModal(contactModal);
-});
-
-addClickHandler(footerQuoteButton, function () {
-    openModal(quoteModal);
-});
-
-addClickHandler(founderQuoteButton, function () {
-    openModal(quoteModal);
-});
-
-addClickHandler(footerContactButton, function () {
-    openModal(contactModal);
-});
-
-packageButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        const selectedPackage = button.dataset.package;
-        const projectDetails = document.getElementById("project-details");
-
-        if (projectDetails && quoteModal) {
-            projectDetails.value = "I am interested in the " + selectedPackage + ".";
-            openModal(quoteModal);
-            return;
-        }
-
-        window.location.href = "contact.html";
-    });
-});
-
-closeButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        const modalId = button.dataset.close;
-        const modal = document.getElementById(modalId);
-
-        closeModal(modal);
-    });
-});
-
-allModals.forEach(function (modal) {
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeModal(modal);
-        }
-    });
-});
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        allModals.forEach(function (modal) {
-            closeModal(modal);
-        });
+    const nav = document.getElementById("main-nav");
+    const menuButton = document.querySelector(".menu-toggle");
+    function closeMenu() {
+        nav?.classList.remove("is-open");
+        menuButton?.setAttribute("aria-expanded", "false");
+        menuButton?.setAttribute("aria-label", "Open navigation");
     }
-});
-
-function showFormMessage(messageElement, message, messageType) {
-    if (!messageElement) return;
-
-    messageElement.className = "form-message";
-    messageElement.textContent = message;
-    messageElement.classList.add(messageType);
-}
-
-const quoteForm = document.getElementById("quote-form");
-const quoteMessage = document.getElementById("quote-message");
-
-if (quoteForm) {
-    quoteForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById("quote-name").value.trim();
-        const email = document.getElementById("quote-email").value.trim();
-        const service = document.getElementById("service").value;
-        const details = document.getElementById("project-details").value.trim();
-
-        if (name.length < 2) {
-            showFormMessage(quoteMessage, "Please enter your full name.", "error-message");
-            return;
-        }
-
-        if (!email.includes("@")) {
-            showFormMessage(quoteMessage, "Please enter a valid email address.", "error-message");
-            return;
-        }
-
-        if (service === "") {
-            showFormMessage(quoteMessage, "Please select a service.", "error-message");
-            return;
-        }
-
-        if (details.length < 10) {
-            showFormMessage(
-                quoteMessage,
-                "Please provide more information about your project.",
-                "error-message"
-            );
-            return;
-        }
-
-        showFormMessage(
-            quoteMessage,
-            `Thank you, ${name}. Your quote request has been received.`,
-            "success-message"
-        );
-
-        quoteForm.reset();
+    menuButton?.addEventListener("click", () => {
+        const open = menuButton.getAttribute("aria-expanded") !== "true";
+        nav.classList.toggle("is-open", open);
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     });
-}
+    nav?.addEventListener("click", event => {
+        if (event.target.closest("a")) closeMenu();
+    });
+    document.addEventListener("click", event => {
+        if (!event.target.closest(".site-header")) closeMenu();
+    });
+    window.matchMedia("(min-width: 801px)").addEventListener("change", closeMenu);
 
-const contactForm = document.getElementById("contact-form");
-const contactMessageResult = document.getElementById("contact-message-result");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById("contact-name").value.trim();
-        const email = document.getElementById("contact-email").value.trim();
-        const message = document.getElementById("contact-message").value.trim();
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-
-        if (name.length < 2) {
-            showFormMessage(
-                contactMessageResult,
-                "Please enter your full name.",
-                "error-message"
-            );
-            return;
+    let activeModal = null;
+    let modalTrigger = null;
+    const background = [...document.querySelectorAll("header, main, footer, .skip-link")];
+    const previousInert = new Map();
+    const focusSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex="0"]';
+    function closeModal() {
+        if (!activeModal) return;
+        activeModal.hidden = true;
+        activeModal.classList.remove("open");
+        document.body.classList.remove("modal-open");
+        for (const node of background) node.inert = previousInert.get(node) || false;
+        previousInert.clear();
+        activeModal = null;
+        modalTrigger?.focus({ preventScroll: true });
+    }
+    function openModal(id, trigger) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        if (activeModal) closeModal();
+        modalTrigger = trigger;
+        activeModal = modal;
+        for (const node of background) {
+            previousInert.set(node, node.inert);
+            node.inert = true;
         }
-
-        if (!email.includes("@")) {
-            showFormMessage(
-                contactMessageResult,
-                "Please enter a valid email address.",
-                "error-message"
-            );
-            return;
+        modal.hidden = false;
+        modal.classList.add("open");
+        document.body.classList.add("modal-open");
+        (modal.querySelector(focusSelector) || modal).focus({ preventScroll: true });
+    }
+    document.querySelectorAll("[data-open]").forEach(button => {
+        button.addEventListener("click", () => openModal(button.dataset.open, button));
+    });
+    document.querySelectorAll("[data-close]").forEach(button => button.addEventListener("click", closeModal));
+    document.querySelectorAll(".modal").forEach(modal => modal.addEventListener("click", event => {
+        if (event.target === modal) closeModal();
+    }));
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeModal();
+            closeMenu();
         }
-
-        if (message.length < 10) {
-            showFormMessage(
-                contactMessageResult,
-                "Please enter a more detailed message.",
-                "error-message"
-            );
-            return;
+        if (event.key === "Tab" && activeModal) {
+            const targets = [...activeModal.querySelectorAll(focusSelector)].filter(node => node.getClientRects().length);
+            const first = targets[0];
+            const last = targets[targets.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
         }
+    });
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+    document.querySelectorAll(".package-button").forEach(button => {
+        button.addEventListener("click", event => {
+            if (!document.getElementById("quote-modal")) return;
+            event.preventDefault();
+            document.getElementById("project-details").value = "I am interested in the " + button.dataset.package + ".";
+            openModal("quote-modal", button);
+        });
+    });
+    const parameters = new URLSearchParams(window.location.search);
+    const serviceSelect = document.getElementById("service");
+    if (serviceSelect && [...serviceSelect.options].some(option => option.value === parameters.get("service"))) {
+        serviceSelect.value = parameters.get("service");
+    }
+    const requestedPackage = parameters.get("package");
+    if (["Starter Presence", "Custom Business Site", "Growth Website"].includes(requestedPackage)) {
+        const details = document.getElementById("project-details");
+        if (details && !details.value) details.value = "I am interested in the " + requestedPackage + ".";
+    }
 
-        try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    message: message
-                })
-            });
+    document.querySelectorAll(".card[data-service]").forEach(card => {
+        card.addEventListener("click", () => {
+            const open = card.getAttribute("aria-expanded") !== "true";
+            const panel = document.getElementById(card.getAttribute("aria-controls"));
+            card.setAttribute("aria-expanded", String(open));
+            panel.hidden = !open;
+            card.classList.toggle("active-card", open);
+            const message = document.getElementById("service-message");
+            if (message) message.textContent = open ? card.dataset.service + " details expanded." : "";
+        });
+    });
 
-            const result = await response.json();
-
-            if (!response.ok) {
-                showFormMessage(
-                    contactMessageResult,
-                    result.message || "Your message could not be sent.",
-                    "error-message"
-                );
+    function showFormMessage(element, message, type) {
+        element.className = "form-message " + type;
+        element.textContent = message;
+    }
+    function connectForm(formId, resultId, quote = false) {
+        const form = document.getElementById(formId);
+        const result = document.getElementById(resultId);
+        if (!form || !result) return;
+        let submitting = false;
+        form.addEventListener("submit", async event => {
+            event.preventDefault();
+            if (submitting || !form.reportValidity()) return;
+            const data = new FormData(form);
+            const name = String(data.get("name") || "").trim();
+            const email = String(data.get("email") || "").trim();
+            const details = String(data.get(quote ? "projectDetails" : "message") || "").trim();
+            if (name.length < 2 || details.length < 10) {
+                showFormMessage(result, "Please enter your full name and at least 10 characters about your enquiry.", "error-message");
                 return;
             }
+            const message = quote ? [
+                "Custom website quote request",
+                "Business: " + (String(data.get("businessName") || "").trim() || "Not provided"),
+                "Phone: " + (String(data.get("phone") || "").trim() || "Not provided"),
+                "Service: " + form.querySelector("#service").selectedOptions[0].textContent,
+                "Budget: " + (data.get("budget") ? form.querySelector("#budget").selectedOptions[0].textContent : "Not specified"),
+                "",
+                details
+            ].join("\n") : details;
+            if (message.length > 2000) {
+                showFormMessage(result, "Please shorten your project details slightly and try again.", "error-message");
+                return;
+            }
+            const button = form.querySelector('[type="submit"]');
+            const original = button.innerHTML;
+            submitting = true;
+            button.disabled = true;
+            button.textContent = "Sending...";
+            form.setAttribute("aria-busy", "true");
+            const controller = new AbortController();
+            const timeout = window.setTimeout(() => controller.abort(), 20000);
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, message }),
+                    signal: controller.signal
+                });
+                const contentType = response.headers.get("content-type") || "";
+                const payload = contentType.includes("application/json") ? await response.json() : {};
+                if (!response.ok) throw new Error(payload.message || "The enquiry service is unavailable. Please email aw@gmail.com.au.");
+                if (payload.preview) {
+                    showFormMessage(result, "Preview only: your form is valid. No email was sent.", "success-message");
+                } else {
+                    showFormMessage(result, "Thank you, " + name + ". Your " + (quote ? "quote request" : "message") + " has been sent.", "success-message");
+                    form.reset();
+                }
+            } catch (error) {
+                showFormMessage(result, error.name === "AbortError" ? "The request timed out. Please try again or email aw@gmail.com.au." : error.message, "error-message");
+            } finally {
+                clearTimeout(timeout);
+                submitting = false;
+                button.disabled = false;
+                button.innerHTML = original;
+                form.removeAttribute("aria-busy");
+            }
+        });
+    }
+    connectForm("quote-form", "quote-message", true);
+    connectForm("contact-form", "contact-message-result");
 
-            showFormMessage(
-                contactMessageResult,
-                `Thank you, ${name}. Your message has been sent.`,
-                "success-message"
-            );
-
-            contactForm.reset();
-        } catch (error) {
-            console.error("Form submission error:", error);
-
-            showFormMessage(
-                contactMessageResult,
-                "We could not connect to the server. Please try again.",
-                "error-message"
-            );
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
+    const revealNodes = [...document.querySelectorAll("[data-reveal]")];
+    let observer;
+    if ("IntersectionObserver" in window && !reducedMotion.matches) {
+        observer = new IntersectionObserver(entries => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                entry.target.classList.add("is-visible");
+                entry.target.classList.remove("reveal-pending");
+                observer.unobserve(entry.target);
+            }
+        }, { threshold: 0.08 });
+        for (const node of revealNodes) {
+            if (node.closest(".modal")) continue;
+            node.classList.add("reveal-pending");
+            observer.observe(node);
         }
-    });
-}
-
-function showServiceMessage(serviceName) {
-    const serviceMessage = document.getElementById("service-message");
-
-    if (!serviceMessage) return;
-
-    serviceMessage.textContent = serviceName + ". Contact us to learn more about this service.";
-}
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(function (card) {
-    card.addEventListener("click", function () {
-        const serviceName = card.dataset.service;
-
-        cards.forEach(c => c.classList.remove("active-card"));
-        card.classList.add("active-card");
-
-        showServiceMessage(serviceName);
-    });
-});
+        reducedMotion.addEventListener("change", event => {
+            if (!event.matches) return;
+            observer.disconnect();
+            revealNodes.forEach(node => node.classList.remove("reveal-pending"));
+        });
+    }
+    window.addEventListener("pagehide", closeModal);
+})();

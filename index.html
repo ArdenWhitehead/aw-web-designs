@@ -1,789 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A.W Web Designs creates custom, mobile-friendly websites for small businesses that want to look trustworthy, personal and different online.">
-    <title>A.W Web Designs</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-<section class="hero">
-
-    <header class="hero-header">
-        <a href="index.html" class="hero-logo">
-            A.W Web Designs
-        </a>
-
-        <nav class="hero-nav" aria-label="Main navigation">
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a href="portfolio.html">
-                Portfolio
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-        </nav>
-    </header>
-
-    <div class="hero-content">
-        <p class="hero-eyebrow">
-            CUSTOM WEBSITE DESIGN & SUPPORT
-        </p>
-
-        <h1 class="hero-title">
-            Custom Websites That Feel Like Your Business
-        </h1>
-
-        <p class="hero-description">
-            Thoughtful, mobile-friendly websites shaped around your business,
-            your customers and the trust you want to build online.
-        </p>
-
-        <div class="hero-proof">
-            <span>Custom page structure</span>
-            <span>Personal visual direction</span>
-            <span>Support after launch</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Custom, mobile-friendly websites shaped around your small business. Web design, SEO foundations and personal support from A.W Web Designs.">
+        <meta name="theme-color" content="#111818">
+        <title>Custom Website Design | A.W Web Designs</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+        <script defer src="script.js"></script>
+        <script type="module" src="hero-scene.js"></script>
+    </head>
+    <body class="home-page">
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <header class="site-header">
+            <a href="index.html" class="site-logo" aria-label="A.W Web Designs home"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+            <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+            <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header-cta" href="contact.html#quote-form">Let's talk <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </header>
+        <main id="main-content">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-scene" id="hero-scene" aria-hidden="true">
+                    <div class="terrain-fallback"></div>
+                    <canvas id="terrain-canvas" tabindex="-1"></canvas>
+                </div>
+                <div class="hero-inner">
+                    <p class="hero-eyebrow"><span class="small-rule"></span>Independent web design &amp; support</p>
+                    <h1 id="hero-title">A.W<br>Web Designs<span class="gold-dot">.</span></h1>
+                    <p class="hero-tagline">Distinct by design.<br>Built around <em>you.</em></p>
+                    <p class="hero-description">Thoughtful, mobile-friendly websites shaped around your business, your customers and the trust you want to build online.</p>
+                    <div class="hero-buttons">
+                        <button type="button" class="button button-primary hero-button" id="quote-button" data-open="quote-modal">Get a Quote <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+                        <button type="button" class="button button-ghost hero-button" id="portfolio-button" data-open="portfolio-modal">View Our Work <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="hero-bottom">
+                    <a href="#services" class="scroll-cue"><i data-lucide="arrow-down" aria-hidden="true"></i><span>Discover the difference</span></a>
+                    <div class="hero-contact-details">
+                        <span>Based in Australia. Built for your business.</span>
+                        <a href="mailto:aw@gmail.com.au">aw@gmail.com.au</a>
+                    </div>
+                    <button type="button" class="scene-toggle icon-button" id="scene-toggle" aria-label="Pause background animation" aria-pressed="false" title="Pause background animation" hidden="hidden"><i data-lucide="pause" aria-hidden="true"></i></button>
+                </div>
+            </section>
+            <div class="principle-strip"><span>Custom page structure</span><span>Personal visual direction</span><span>Support after launch</span></div>
+            <section class="section services " id="services">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">What we do</p>
+                        <h2>Good design.<br><em>Better connections.</em></h2>
+                    </div>
+                    <p class="section-intro">Flexible website design and support for small businesses that want to look trustworthy without looking like everyone else.</p>
+                    <div class="service-container">
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="Web Design" data-service-value="web-design" aria-expanded="false" aria-controls="service-detail-1"><span class="service-icon"><i data-lucide="panels-top-left" aria-hidden="true"></i></span><span class="service-title">Custom web design</span><span class="service-description">Responsive websites shaped around your brand, message and customer journey.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-1" hidden="hidden">
+                                <p>Your pages, visual direction and calls to action are planned around what your customers need to understand.</p>
+                                <a class="text-link" href="contact.html?service=web-design#quote-form">Discuss this service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="SEO" data-service-value="seo" aria-expanded="false" aria-controls="service-detail-2"><span class="service-icon"><i data-lucide="search" aria-hidden="true"></i></span><span class="service-title">SEO foundations</span><span class="service-description">Clean page structure, headings and content guidance so customers can find and understand you.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-2" hidden="hidden">
+                                <p>A practical foundation for discoverability: clear headings, useful content and well-structured pages.</p>
+                                <a class="text-link" href="contact.html?service=seo#quote-form">Discuss this service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="Website Maintenance" data-service-value="maintenance" aria-expanded="false" aria-controls="service-detail-3"><span class="service-icon"><i data-lucide="sliders-horizontal" aria-hidden="true"></i></span><span class="service-title">Website refinement</span><span class="service-description">Adjustments, section changes and content updates as your business grows.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-3" hidden="hidden">
+                                <p>Keep your information current with content updates, new sections and considered improvements.</p>
+                                <a class="text-link" href="contact.html?service=maintenance#quote-form">Discuss this service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="Ongoing Technical Support" data-service-value="support" aria-expanded="false" aria-controls="service-detail-4"><span class="service-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span><span class="service-title">Ongoing support</span><span class="service-description">Plain-English help after launch so your website keeps feeling current and useful.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-4" hidden="hidden">
+                                <p>Personal help with updates, fixes and improvements after your website goes live.</p>
+                                <a class="text-link" href="contact.html?service=support#quote-form">Discuss this service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="service-message" class="sr-only" role="status"></p>
+                </div>
+            </section>
+            <section class="section custom-difference section-light" id="custom-difference">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">A considered approach</p>
+                        <h2>Your business has personality.<br>Your website should, too.</h2>
+                    </div>
+                    <div class="difference-layout">
+                        <p class="large-copy">We shape the pages, the message and the customer journey around what makes your business <em>yours.</em></p>
+                        <div class="difference-grid">
+                            <article>
+                                <h3>Built around your business</h3>
+                                <p>Your pages, sections and calls to action are planned around what your customers need to understand.</p>
+                            </article>
+                            <article>
+                                <h3>Designed for your customers</h3>
+                                <p>A clear path from first impression to enquiry, without unnecessary confusion.</p>
+                            </article>
+                            <article>
+                                <h3>Flexible as you grow</h3>
+                                <p>Start simple and expand with extra pages, forms, galleries or content later.</p>
+                            </article>
+                        </div>
+                    </div>
+                    <a class="text-link" href="about.html">Meet A.W Web Designs <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                </div>
+            </section>
+            <section class="section selected-work " id="work">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Selected concepts</p>
+                        <h2>Different businesses.<br><em>Different possibilities.</em></h2>
+                    </div>
+                    <div class="section-lead">
+                        <p>Website examples shaped around different business needs, with clear layouts, trust signals and practical enquiry paths.</p>
+                        <a class="text-link" href="portfolio.html">All project examples <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="portfolio-grid">
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/advanced-carpentry-template/index.html" aria-label="Explore Local Trade Website example">
+                                <img src="Images/portfolio-trade.jpg" alt="Construction cranes at sunset" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Local trades</span><span>Website concept / 01</span></div>
+                            <h3>Local Trade Website</h3>
+                            <p>A clear service website with mobile quote actions. Customers can understand the offer and enquire faster.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/advanced-carpentry-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/3-page-template/index.html" aria-label="Explore Custom Small Business Website example">
+                                <img src="Images/portfolio-business.jpg" alt="Support small businesses sign" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Small business</span><span>Website concept / 02</span></div>
+                            <h3>Custom Small Business Website</h3>
+                            <p>A responsive website with a stronger first impression and useful trust signals.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/3-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/8-page-template/index.html" aria-label="Explore Service Provider Website example">
+                                <img src="Images/portfolio-service.jpg" alt="Service technician at work" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Service businesses</span><span>Website concept / 03</span></div>
+                            <h3>Service Provider Website</h3>
+                            <p>Services, clear contact options and a smoother journey from browsing to enquiry.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/8-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section process-section section-light" id="process">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">From idea to online</p>
+                        <h2>A clear process.<br>No overwhelm.</h2>
+                    </div>
+                    <div class="process-grid">
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>01</span>
+                            <h3>Understand</h3>
+                            <p>We talk through your services, customers, goals and the trust signals your website needs.</p>
+                        </article>
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>02</span>
+                            <h3>Shape</h3>
+                            <p>The page structure, wording and visual direction are planned around your business.</p>
+                        </article>
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>03</span>
+                            <h3>Build &amp; refine</h3>
+                            <p>Your website is built, reviewed, adjusted and supported so it feels clear before it goes live.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section why-choose-us " id="why-choose-us">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Why choose us</p>
+                        <h2>Thoughtfully made.<br><em>Personally supported.</em></h2>
+                    </div>
+                    <div class="benefit-grid">
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="smartphone" aria-hidden="true"></i>
+                            <h3>Mobile-first design</h3>
+                            <p>Your site is designed for the phones your customers are already using.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="messages-square" aria-hidden="true"></i>
+                            <h3>Clear communication</h3>
+                            <p>Simple updates, plain-English explanations and a clear project path.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="pen-tool" aria-hidden="true"></i>
+                            <h3>Personal design direction</h3>
+                            <p>Colours, sections and content shaped to suit your business.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="life-buoy" aria-hidden="true"></i>
+                            <h3>Ongoing support</h3>
+                            <p>Help with updates, fixes and improvements after your website goes live.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section packages section-light" id="packages">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Starting points</p>
+                        <h2>The right fit for<br>where you are today.</h2>
+                    </div>
+                    <p class="section-intro">Choose a starting point, then shape the pages, content and features around your business.</p>
+                    <div class="package-grid">
+                        <article class="package-card" data-reveal="data-reveal">
+                            <p class="package-label">Starter</p>
+                            <h3>Starter Presence</h3>
+                            <p class="package-price">$900-$1,400</p>
+                            <p>A clear, professional first version online.</p>
+                            <ul>
+                                <li>1-3 pages</li>
+                                <li>Mobile design</li>
+                                <li>Enquiry form</li>
+                                <li>Custom homepage flow</li>
+                                <li>Basic SEO setup</li>
+                            </ul>
+                            <a href="contact.html?package=Starter%20Presence#quote-form" class="button button-outline package-button" data-package="Starter Presence">Ask About Starter <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </article>
+                        <article class="package-card featured-package" data-reveal="data-reveal">
+                            <p class="package-label">Popular</p>
+                            <h3>Custom Business Site</h3>
+                            <p class="package-price">$1,500-$2,500</p>
+                            <p>Stronger trust, clearer information and more enquiry paths.</p>
+                            <ul>
+                                <li>Up to 5 pages</li>
+                                <li>Contact form</li>
+                                <li>Portfolio or gallery</li>
+                                <li>Custom service sections</li>
+                                <li>Google Maps or extra trust sections</li>
+                            </ul>
+                            <a href="contact.html?package=Custom%20Business%20Site#quote-form" class="button button-outline package-button" data-package="Custom Business Site">Ask About Business <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </article>
+                        <article class="package-card" data-reveal="data-reveal">
+                            <p class="package-label">Advanced</p>
+                            <h3>Growth Website</h3>
+                            <p class="package-price">$2,500-$4,000</p>
+                            <p>More pages, more guidance and room to grow.</p>
+                            <ul>
+                                <li>Up to 8 pages</li>
+                                <li>Additional forms</li>
+                                <li>Blog setup</li>
+                                <li>More content assistance</li>
+                                <li>Integrations</li>
+                            </ul>
+                            <a href="contact.html?package=Growth%20Website#quote-form" class="button button-outline package-button" data-package="Growth Website">Ask About Plus <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </article>
+                    </div>
+                    <p class="package-note">Every package can be adjusted around your goals, content and customer journey.</p>
+                </div>
+            </section>
+            <section class="section testimonials " id="testimonials">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Client perspectives</p>
+                        <h2>Clarity makes a difference.</h2>
+                    </div>
+                    <div class="testimonial-grid">
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>The website finally explains what we do clearly and looks professional on mobile.</blockquote>
+                            <figcaption><strong>Local Trade Client</strong><span>Service business website</span></figcaption>
+                        </figure>
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>The process was simple, the communication was clear and the finished site feels trustworthy.</blockquote>
+                            <figcaption><strong>Small Business Owner</strong><span>Business website refresh</span></figcaption>
+                        </figure>
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>We needed a clean site customers could understand quickly, and that is exactly what we got.</blockquote>
+                            <figcaption><strong>Service Provider</strong><span>Lead-generation landing page</span></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section class="section founder-section section-light">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Personal support</p>
+                        <h2>Designed with patience,<br><em>clarity and care.</em></h2>
+                    </div>
+                    <div class="founder-copy">
+                        <p>A.W Web Designs is built for small business owners who want a website that feels professional without feeling overwhelming.</p>
+                        <p>You get clear communication, practical guidance and a website shaped around what your customers need to see.</p>
+                        <button type="button" class="text-link" id="contact-button" data-open="contact-modal">Talk Through My Idea <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </section>
+            <section class="final-cta section">
+                <div class="section-inner">
+                    <p class="section-label">Your next chapter</p>
+                    <h2>Let's make something<br>that feels like <em>you.</em></h2>
+                    <p>Tell us what you do, who you help and what you want your website to communicate.</p>
+                    <a class="button button-light" href="contact.html#quote-form">Get a Quote <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                </div>
+            </section>
+        </main>
+        <div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" tabindex="-1" hidden="hidden">
+            <div class="modal-content ">
+                <button type="button" class="close-button icon-button" data-close="quote-modal" aria-label="Close quote"><i data-lucide="x" aria-hidden="true"></i></button>
+                <p class="section-label">Let's talk</p>
+                <h2 id="quote-modal-title">Start a custom website.</h2>
+                <p class="form-introduction">Tell us about your business, your goals and what you want your website to feel like.</p>
+                <form id="quote-form" action="/api/contact" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quote-name">Full name <span>(required)</span></label>
+                            <input type="text" id="quote-name" name="name" autocomplete="name" minlength="2" maxlength="80" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quote-email">Email address <span>(required)</span></label>
+                            <input type="email" id="quote-email" name="email" autocomplete="email" maxlength="254" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-name">Business name</label>
+                            <input type="text" id="business-name" name="businessName" autocomplete="organization" maxlength="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Service required <span>(required)</span></label>
+                            <select id="service" name="service" required="required">
+                                <option value="">Choose a service</option>
+                                <option value="web-design">Web Design</option>
+                                <option value="seo">SEO</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="support">Technical Support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimated budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Choose a budget</option>
+                                <option value="under-1000">Under $1,000</option>
+                                <option value="1000-2500">$1,000-$2,500</option>
+                                <option value="2500-5000">$2,500-$5,000</option>
+                                <option value="over-5000">Over $5,000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-details">Tell us about your project <span>(required)</span></label>
+                        <textarea id="project-details" name="projectDetails" rows="4" minlength="10" maxlength="1400" placeholder="Your business, your ideas, and what you would like your website to do." required="required"></textarea>
+                    </div>
+                    <button type="submit" class="button button-primary submit-button">Submit Quote Request <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+                    <p class="form-message" id="quote-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                </form>
+            </div>
         </div>
-
-<div class="hero-buttons">
-
-    <button
-        type="button"
-        class="hero-button quote-style"
-        id="quote-button"
-    >
-        <span class="button-icon">💬</span>
-
-        <span class="button-divider"></span>
-
-        <span class="button-text">
-            Start a Custom Website
-        </span>
-
-        <span class="button-arrow">›</span>
-    </button>
-
-
-    <button
-        type="button"
-        class="hero-button portfolio-style"
-        id="portfolio-button"
-    >
-        <span class="button-icon">💼</span>
-
-        <span class="button-divider"></span>
-
-        <span class="button-text">
-            View Custom Work
-        </span>
-
-        <span class="button-arrow">›</span>
-    </button>
-
-
-    <button
-        type="button"
-        class="hero-button contact-style"
-        id="contact-button"
-    >
-        <span class="button-icon">✉️</span>
-
-        <span class="button-divider"></span>
-
-        <span class="button-text">
-            Talk Through My Idea
-        </span>
-
-        <span class="button-arrow">›</span>
-    </button>
-
-</div>
-
-<p id="hero-message"></p>
-
-    </div>
-
-<div class="hero-contact-details">
-    <p><span class="contact-icon">☎</span>Phone: Available on request</p>
-    <p><span class="contact-icon">✉</span>Email: aw@gmail.com.au</p>
-    <p><span class="contact-icon">⌖</span>Based in Australia. Supporting small businesses remotely.</p>
-</div>
-
-</section>
-
-<div
-    class="modal"
-    id="quote-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="quote-modal-title"
->
-    <div class="modal-content">
-        <button
-            type="button"
-            class="close-button"
-            data-close="quote-modal"
-            aria-label="Close quote form"
-        >
-            &times;
-        </button>
-
-        <h2 id="quote-modal-title">Start a Custom Website</h2>
-
-        <p class="form-introduction">
-            Tell us about your business, your goals and what you want your website to feel like.
-        </p>
-
-        <form id="quote-form">
-            <div class="form-group">
-                <label for="quote-name">Full Name</label>
-                <input
-                    type="text"
-                    id="quote-name"
-                    name="name"
-                    placeholder="Enter your full name"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="quote-email">Email Address</label>
-                <input
-                    type="email"
-                    id="quote-email"
-                    name="email"
-                    placeholder="Enter your email address"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="business-name">Business Name</label>
-                <input
-                    type="text"
-                    id="business-name"
-                    name="businessName"
-                    placeholder="Enter your business name"
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Enter your phone number"
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="service">Service Required</label>
-                <select id="service" name="service" required>
-                    <option value="">Select a service</option>
-                    <option value="web-design">Web Design</option>
-                    <option value="seo">SEO</option>
-                    <option value="maintenance">Website Maintenance</option>
-                    <option value="support">Technical Support</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="budget">Estimated Budget</label>
-                <select id="budget" name="budget">
-                    <option value="">Select a budget</option>
-            <option value="under-1000">Under $1,000</option>
-            <option value="1000-2500">$1,000-$2,500</option>
-            <option value="2500-5000">$2,500-$5,000</option>
-            <option value="over-5000">Over $5,000</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="project-details">Project Details</label>
-                <textarea
-                    id="project-details"
-                    name="projectDetails"
-                    rows="5"
-                    placeholder="Tell us about your website project"
-                    required
-                ></textarea>
-            </div>
-
-            <button type="submit" class="submit-button">
-                Submit Quote Request
-            </button>
-
-            <p class="form-message" id="quote-message"></p>
-        </form>
-    </div>
-</div>
-
-<div
-    class="modal"
-    id="portfolio-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="portfolio-modal-title"
->
-    <div class="modal-content portfolio-modal-content">
-        <button
-            type="button"
-            class="close-button"
-            data-close="portfolio-modal"
-            aria-label="Close portfolio"
-        >
-            &times;
-        </button>
-
-        <h2 id="portfolio-modal-title">Custom Website Portfolio</h2>
-
-        <p class="form-introduction">
-            A selection of website examples shaped around different business needs.
-        </p>
-
-        <div class="portfolio-grid">
-            <article class="portfolio-item">
-
-                <img
-                    src="Images/localtrade.jpg"
-                    alt="Local trade website"
-                    class="portfolio-image"
-                >
-                <h3>Local Trade Website</h3>
-                <p>
-                    Challenge: The business needed a stronger first impression.
-                    Design approach: A clear service website with mobile quote actions.
-                    Outcome: Customers can understand the offer and enquire faster.
-                </p>
-
-                <button type="button" class="portfolio-view">
-                    View Project →
-                </button>
-
-            </article>
-
-            <article class="portfolio-item">
-                <img
-                    src="Images/smallbuisness.jpg"
-                    alt="Small busisness website"
-                    class="portfolio-image"
-                >
-                <h3>Custom Small Business Website</h3>
-                <p>
-                    Challenge: The business looked outdated online.
-                    Design approach: A responsive site with stronger trust signals.
-                    Outcome: A more professional presence for new visitors.
-                </p>
-                <button type="button" class="portfolio-view">
-                    View Project →
-                </button>
-
-            </article>
-
-            <article class="portfolio-item">
-                <img
-                    src="Images/serviceprovider.jpg"
-                    alt="Service provider website"
-                    class="portfolio-image"
-                >
-                <h3>Service Provider Website</h3>
-                <p>
-                    Challenge: Customers needed a simple path to ask for help.
-                    Design approach: Service cards, quote buttons and clear contact options.
-                    Outcome: A smoother journey from browsing to enquiry.
-                </p>
-                <button type="button" class="portfolio-view">
-                    View Project →
-                </button>
-
-            </article>
-        </div>
-    </div>
-</div>
-
-<div
-    class="modal"
-    id="contact-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="contact-modal-title"
->
-    <div class="modal-content">
-        <button
-            type="button"
-            class="close-button"
-            data-close="contact-modal"
-            aria-label="Close contact form"
-        >
-            &times;
-        </button>
-
-        <h2 id="contact-modal-title">Contact Us</h2>
-
-        <p class="form-introduction">
-            Send us a message and we will get back to you.
-        </p>
-
-        <form id="contact-form">
-            <div class="form-group">
-                <label for="contact-name">Full Name</label>
-                <input
-                    type="text"
-                    id="contact-name"
-                    name="name"
-                    placeholder="Enter your full name"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="contact-email">Email Address</label>
-                <input
-                    type="email"
-                    id="contact-email"
-                    name="email"
-                    placeholder="Enter your email address"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="contact-message">Message</label>
-                <textarea
-                    id="contact-message"
-                    name="message"
-                    rows="5"
-                    placeholder="How can we help?"
-                    required
-                ></textarea>
-            </div>
-
-            <button type="submit" class="submit-button">
-                Send Message
-            </button>
-
-            <p class="form-message" id="contact-message-result"></p>
-        </form>
-    </div>
-</div>
-
-<section class="services" id="services">
-
-    <p class="section-label">What we do</p>
-    <h2>Custom Website Support</h2>
-    <p class="section-intro">
-        Flexible website design and support for small businesses that want to look trustworthy without looking like everyone else.
-    </p>
-
-    <div class="service-container">
-
-        <div class="service-item">
-            <button
-                type="button"
-                class="card web-design"
-                data-service="Web Design"
-            >
-
-              <h3>Custom Web Design</h3>
-
-              <p>
-                Responsive websites shaped around your brand, message and customer journey.
-              </p>      
-            
-            </button>
-        </div>
-
-        <div class="service-item">
-            <button
-                type="button"
-                class="card seo"
-                data-service="SEO"
-            >
-
-                <h3>SEO Foundations</h3>
-                <p>
-                    Clean page structure, headings and content guidance so customers can find and understand you.
-                </p>
-
-            </button>
-        </div>
-
-        <div class="service-item">
-            <button
-                type="button"
-                class="card maintenence"
-                data-service="Website Maintenance"
-            >
-
-                <h3>Website Refinement</h3>
-                <p>
-                    Adjustments, section changes and content updates as your business grows.
-                </p>
-
-            </button>
-        </div>
-
-        <div class="service-item">
-            <button
-                type="button"
-                class="card Ongoing-Technical-Support"
-                data-service="Ongoing Technical Support"
-            >
-
-                <h3>Ongoing Support</h3>
-                <p>
-                    Plain-English help after launch so your website keeps feeling current and useful.
-                </p>
-
-            </button>
-        </div>
-
-    </div>
-
-     <p id="service-message"></p>
-   
-</section>
-
-<section class="custom-difference" id="custom-difference">
-    <p class="section-label">Not one size fits all</p>
-    <h2>Your Website Should Feel Like Your Business</h2>
-    <p class="section-intro">
-        A.W Web Designs does not treat every business like it needs the same layout,
-        same wording and same customer journey. The goal is to shape a website around
-        what makes your business feel trustworthy, useful and different.
-    </p>
-
-    <div class="difference-grid">
-        <article class="difference-card">
-            <h3>Built around your business</h3>
-            <p>
-                Your pages, sections and calls to action are planned around what your customers need to understand.
-            </p>
-        </article>
-
-        <article class="difference-card">
-            <h3>Designed for your customers</h3>
-            <p>
-                The layout guides visitors from first impression to enquiry without unnecessary confusion.
-            </p>
-        </article>
-
-        <article class="difference-card">
-            <h3>Flexible as you grow</h3>
-            <p>
-                Your website can start simple and expand with extra pages, forms, galleries or content later.
-            </p>
-        </article>
-    </div>
-</section>
-
-<section class="process-section" id="process">
-    <p class="section-label">How custom websites are built</p>
-    <h2>A Clear Process Without the Overwhelm</h2>
-
-    <div class="process-grid">
-        <article class="process-card">
-            <span>01</span>
-            <h3>Understand Your Business</h3>
-            <p>
-                We talk through your services, customers, goals and the trust signals your website needs.
-            </p>
-        </article>
-
-        <article class="process-card">
-            <span>02</span>
-            <h3>Shape the Message</h3>
-            <p>
-                The page structure, wording and visual direction are planned around your business rather than copied from a generic layout.
-            </p>
-        </article>
-
-        <article class="process-card">
-            <span>03</span>
-            <h3>Build and Refine</h3>
-            <p>
-                Your website is built, reviewed, adjusted and supported so it feels clear before it goes live.
-            </p>
-        </article>
-    </div>
-</section>
-
-<section class="comparison-section">
-    <p class="section-label">The difference</p>
-    <h2>Generic Website vs A.W Custom Website</h2>
-
-    <div class="comparison-grid">
-        <article class="comparison-card muted-comparison">
-            <h3>Generic Website</h3>
-            <ul>
-                <li>Same structure as every other business</li>
-                <li>Basic wording with limited personality</li>
-                <li>Harder to adjust around your goals</li>
-                <li>Less focus on the real customer journey</li>
-            </ul>
-        </article>
-
-        <article class="comparison-card featured-comparison">
-            <h3>A.W Custom Website</h3>
-            <ul>
-                <li>Designed around your business and services</li>
-                <li>Clear messaging shaped for your customers</li>
-                <li>Flexible sections that can grow over time</li>
-                <li>Support that continues after launch</li>
-            </ul>
-        </article>
-    </div>
-</section>
-
-<section class="why-choose-us" id="why-choose-us">
-    <p class="section-label">Why choose us</p>
-    <h2>Built for Small Businesses That Want to Feel Different Online</h2>
-
-    <div class="benefit-grid">
-        <article class="benefit-item">
-            <h3>Mobile-first design</h3>
-            <p>
-                Your site is designed for the phones your customers are already using.
-            </p>
-        </article>
-
-        <article class="benefit-item">
-            <h3>Clear communication</h3>
-            <p>
-                Simple updates, plain-English explanations and a clear project path.
-            </p>
-        </article>
-
-        <article class="benefit-item">
-            <h3>Personal design direction</h3>
-            <p>
-                Colours, sections and content are shaped to suit your business, not a copied layout.
-            </p>
-        </article>
-
-        <article class="benefit-item">
-            <h3>Ongoing support</h3>
-            <p>
-                Help with updates, fixes and improvements after your website goes live.
-            </p>
-        </article>
-    </div>
-</section>
-
-<section class="packages" id="packages">
-    <p class="section-label">Packages</p>
-    <h2>Customisable Website Starting Points</h2>
-    <p class="section-intro">
-        Choose a starting point, then shape the pages, content and features around your business.
-    </p>
-
-    <div class="package-grid">
-        <article class="package-card">
-            <p class="package-label">Starter</p>
-            <h3>Starter Presence</h3>
-            <p class="package-price">$900-$1,400</p>
-            <p>
-                Best for small businesses that need a clear, professional first version online.
-            </p>
-            <ul>
-                <li>1-3 pages</li>
-                <li>Mobile design</li>
-                <li>Enquiry form</li>
-                <li>Custom homepage flow</li>
-                <li>Basic SEO setup</li>
-            </ul>
-            <button type="button" class="package-button" data-package="Starter Presence">
-                Ask About Starter
-            </button>
-        </article>
-
-        <article class="package-card featured-package">
-            <p class="package-label">Popular</p>
-            <h3>Custom Business Site</h3>
-            <p class="package-price">$1,500-$2,500</p>
-            <p>
-                Best for businesses that need stronger trust, clearer information and more enquiry paths.
-            </p>
-            <ul>
-                <li>Up to 5 pages</li>
-                <li>Contact form</li>
-                <li>Portfolio or gallery</li>
-                <li>Custom service sections</li>
-                <li>Google Maps or extra trust sections</li>
-            </ul>
-            <button type="button" class="package-button" data-package="Custom Business Site">
-                Ask About Business
-            </button>
-        </article>
-
-        <article class="package-card">
-            <p class="package-label">Advanced</p>
-            <h3>Growth Website</h3>
-            <p class="package-price">$2,500-$4,000</p>
-            <p>
-                Best for businesses that need more pages, more guidance and room to grow.
-            </p>
-            <ul>
-                <li>Up to 8 pages</li>
-                <li>Additional forms</li>
-                <li>Blog setup</li>
-                <li>More content assistance</li>
-                <li>Integrations</li>
-            </ul>
-            <button type="button" class="package-button" data-package="Growth Website">
-                Ask About Plus
-            </button>
-        </article>
-    </div>
-
-    <p class="package-note">
-        Every package can be adjusted around your goals, content and customer journey.
-    </p>
-</section>
-
-<section class="audience-section">
-    <p class="section-label">Who I help</p>
-    <h2>Websites for Small Businesses With Real Personality</h2>
-
-    <div class="audience-grid">
-        <article>
-            <h3>Local trades</h3>
-            <p>Clear service pages, quote pathways and trust-building details.</p>
-        </article>
-
-        <article>
-            <h3>Service businesses</h3>
-            <p>Simple customer journeys that explain what you do and how to enquire.</p>
-        </article>
-
-        <article>
-            <h3>Solo business owners</h3>
-            <p>A professional presence that still feels personal and approachable.</p>
-        </article>
-
-        <article>
-            <h3>Health and wellness providers</h3>
-            <p>Warm, reassuring websites built around programs, bookings and trust.</p>
-        </article>
-    </div>
-</section>
-
-<section class="testimonials" id="testimonials">
-    <p class="section-label">Reviews</p>
-    <h2>What Clients Say</h2>
-
-    <div class="testimonial-grid">
-        <article class="testimonial-card">
-            <p class="testimonial-rating">★★★★★</p>
-            <p class="testimonial-quote">
-                "The website finally explains what we do clearly and looks professional on mobile."
-            </p>
-            <div class="testimonial-author">
-                <span class="testimonial-avatar">LT</span>
-                <div>
-                    <h3>Local Trade Client</h3>
-                    <p>Service business website</p>
+        <div class="modal" id="portfolio-modal" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" tabindex="-1" hidden="hidden">
+            <div class="modal-content portfolio-modal-content">
+                <button type="button" class="close-button icon-button" data-close="portfolio-modal" aria-label="Close portfolio"><i data-lucide="x" aria-hidden="true"></i></button>
+                <p class="section-label">Selected concepts</p>
+                <h2 id="portfolio-modal-title">Custom website portfolio.</h2>
+                <p class="form-introduction">A selection of concepts for different business needs. Explore an example or start a similar project.</p>
+                <div class="portfolio-grid compact-projects">
+                    <article class="portfolio-item" data-reveal="data-reveal">
+                        <a class="project-image-link" href="Templates/advanced-carpentry-template/index.html" aria-label="Explore Local Trade Website example">
+                            <img src="Images/portfolio-trade.jpg" alt="Construction cranes at sunset" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                            <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
+                        <div class="project-meta"><span>Local trades</span><span>Website concept / 01</span></div>
+                        <h3>Local Trade Website</h3>
+                        <p>A clear service website with mobile quote actions. Customers can understand the offer and enquire faster.</p>
+                        <div class="project-actions">
+                            <a class="text-link portfolio-view" href="Templates/advanced-carpentry-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    <article class="portfolio-item" data-reveal="data-reveal">
+                        <a class="project-image-link" href="Templates/3-page-template/index.html" aria-label="Explore Custom Small Business Website example">
+                            <img src="Images/portfolio-business.jpg" alt="Support small businesses sign" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                            <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
+                        <div class="project-meta"><span>Small business</span><span>Website concept / 02</span></div>
+                        <h3>Custom Small Business Website</h3>
+                        <p>A responsive website with a stronger first impression and useful trust signals.</p>
+                        <div class="project-actions">
+                            <a class="text-link portfolio-view" href="Templates/3-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    <article class="portfolio-item" data-reveal="data-reveal">
+                        <a class="project-image-link" href="Templates/8-page-template/index.html" aria-label="Explore Service Provider Website example">
+                            <img src="Images/portfolio-service.jpg" alt="Service technician at work" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                            <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
+                        <div class="project-meta"><span>Service businesses</span><span>Website concept / 03</span></div>
+                        <h3>Service Provider Website</h3>
+                        <p>Services, clear contact options and a smoother journey from browsing to enquiry.</p>
+                        <div class="project-actions">
+                            <a class="text-link portfolio-view" href="Templates/8-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </article>
-
-        <article class="testimonial-card">
-            <p class="testimonial-rating">★★★★★</p>
-            <p class="testimonial-quote">
-                "The process was simple, the communication was clear and the finished site feels trustworthy."
-            </p>
-            <div class="testimonial-author">
-                <span class="testimonial-avatar">SB</span>
-                <div>
-                    <h3>Small Business Owner</h3>
-                    <p>Business website refresh</p>
-                </div>
+        </div>
+        <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" tabindex="-1" hidden="hidden">
+            <div class="modal-content ">
+                <button type="button" class="close-button icon-button" data-close="contact-modal" aria-label="Close contact"><i data-lucide="x" aria-hidden="true"></i></button>
+                <p class="section-label">Let's talk</p>
+                <h2 id="contact-modal-title">Let's talk through your idea.</h2>
+                <p class="form-introduction">For general questions, send a quick message below.</p>
+                <form id="contact-form" action="/api/contact" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Full name <span>(required)</span></label>
+                            <input type="text" id="contact-name" name="name" autocomplete="name" minlength="2" maxlength="80" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email address <span>(required)</span></label>
+                            <input type="email" id="contact-email" name="email" autocomplete="email" maxlength="254" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Your message <span>(required)</span></label>
+                        <textarea id="contact-message" name="message" rows="5" minlength="10" maxlength="2000" placeholder="What would you like to know?" required="required"></textarea>
+                    </div>
+                    <button type="submit" class="button button-primary submit-button">Send Message <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+                    <p class="form-message" id="contact-message-result" role="status" aria-live="polite" aria-atomic="true"></p>
+                </form>
             </div>
-        </article>
-
-        <article class="testimonial-card">
-            <p class="testimonial-rating">★★★★★</p>
-            <p class="testimonial-quote">
-                "We needed a clean site customers could understand quickly, and that is exactly what we got."
-            </p>
-            <div class="testimonial-author">
-                <span class="testimonial-avatar">SP</span>
-                <div>
-                    <h3>Service Provider</h3>
-                    <p>Lead-generation landing page</p>
-                </div>
+        </div>
+        <footer class="site-footer">
+            <div class="footer-top">
+                <a href="index.html" class="site-logo"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+                <p>Thoughtful websites. Personal support.<br>A little more you.</p>
+                <a class="footer-email" href="mailto:aw@gmail.com.au">aw@gmail.com.au <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
             </div>
-        </article>
-    </div>
-</section>
-
-<section class="founder-section">
-    <div>
-        <p class="section-label">Personal support</p>
-        <h2>Designed With Patience, Clarity and Care</h2>
-    </div>
-
-    <p>
-        A.W Web Designs is built for small business owners who want a website that feels
-        professional without feeling overwhelming. You get clear communication, practical
-        guidance and a website shaped around what your customers need to see.
-    </p>
-
-    <button type="button" class="final-cta-button" id="founder-quote-button">
-        Talk Through My Website
-    </button>
-</section>
-
-<section class="final-cta">
-    <h2>Ready for a Website That Feels Like Your Business?</h2>
-    <p>
-        Tell us what you do, who you help and what you want your website to communicate.
-    </p>
-    <button type="button" class="final-cta-button" id="footer-quote-button">
-        Start a Custom Website
-    </button>
-</section>
-
-<footer class="site-footer">
-    <div>
-        <h2>A.W Web Designs</h2>
-        <p>Custom website design and support for small businesses that want to feel different online.</p>
-    </div>
-
-    <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <p class="footer-meta">
-        © 2026 A.W Web Designs. Based in Australia.
-    </p>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
+            <div class="footer-bottom">
+                <p>&copy; 2026 A.W Web Designs. Based in Australia.</p>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <a href="#main-content" class="back-top">Back to top <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </footer>
+    </body>
 </html>

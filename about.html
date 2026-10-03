@@ -1,144 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | A.W Web Designs</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <header class="site-header">
-        <a href="index.html" class="site-logo">A.W Web Designs</a>
-
-        <nav class="site-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active-page">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-hero">
-            <p class="section-label">About us</p>
-            <h1>Custom Website Design Built Around Small Business Trust</h1>
-            <p>
-                A.W Web Designs helps small businesses create mobile-friendly websites
-                that feel personal, trustworthy and shaped around how their customers make decisions.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <div class="page-content">
-                <p class="page-copy">
-                    The goal is simple: make your business look professional online without
-                    forcing it into a generic layout. Every website is planned around clear messaging,
-                    simple navigation, useful contact points and a design direction that suits the business.
-                </p>
-            </div>
-        </section>
-
-        <section class="why-choose-us" id="why-choose-us">
-            <p class="section-label">Why choose us</p>
-            <h2>Built for Businesses That Want to Feel Different Online</h2>
-
-            <div class="benefit-grid">
-                <article class="benefit-item">
-                    <h3>Mobile-first design</h3>
-                    <p>Your site is designed for the phones your customers are already using.</p>
-                </article>
-
-                <article class="benefit-item">
-                    <h3>Clear communication</h3>
-                    <p>Simple updates, plain-English explanations and a clear project path.</p>
-                </article>
-
-                <article class="benefit-item">
-                    <h3>Personal design direction</h3>
-                    <p>Focused pages, practical layouts and styling choices that suit your business.</p>
-                </article>
-
-                <article class="benefit-item">
-                    <h3>Ongoing support</h3>
-                    <p>Help with updates, fixes and improvements after your website goes live.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="testimonials" id="testimonials">
-            <p class="section-label">Reviews</p>
-            <h2>What Clients Say</h2>
-
-            <div class="testimonial-grid">
-                <article class="testimonial-card">
-                    <p class="testimonial-rating">★★★★★</p>
-                    <p class="testimonial-quote">
-                        "The website finally explains what we do clearly and looks professional on mobile."
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="testimonial-avatar">LT</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Personal website design and clear support for small business owners. Learn how A.W Web Designs shapes each website around your customers.">
+        <meta name="theme-color" content="#111818">
+        <title>About | A.W Web Designs</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <header class="site-header">
+            <a href="index.html" class="site-logo" aria-label="A.W Web Designs home"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+            <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+            <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header-cta" href="contact.html#quote-form">Let's talk <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </header>
+        <main id="main-content">
+            <section class="page-hero section">
+                <div class="section-inner">
+                    <p class="section-label">The studio</p>
+                    <h1>Thoughtful by nature.<br><em>Personal by design.</em></h1>
+                    <p>A.W Web Designs helps small businesses create mobile-friendly websites that feel personal, trustworthy and shaped around how their customers make decisions.</p>
+                </div>
+            </section>
+            <section class="section about-intro section-light">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Our approach</p>
+                        <h2>A little more you.<br>A lot more considered.</h2>
+                    </div>
+                    <div class="difference-layout">
+                        <p class="large-copy">Professional online.<br>Personal at heart.</p>
                         <div>
-                            <h3>Local Trade Client</h3>
-                            <p>Service business website</p>
+                            <p>The goal is simple: make your business look professional online without forcing it into a generic layout.</p>
+                            <p>Every website is planned around clear messaging, simple navigation, useful contact points and a design direction that suits the business.</p>
+                            <a class="text-link" href="contact.html#quote-form">Tell us about your business <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <p class="testimonial-rating">★★★★★</p>
-                    <p class="testimonial-quote">
-                        "The process was simple, the communication was clear and the finished site feels trustworthy."
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="testimonial-avatar">SB</span>
-                        <div>
-                            <h3>Small Business Owner</h3>
-                            <p>Business website refresh</p>
-                        </div>
+                </div>
+            </section>
+            <section class="section why-choose-us " id="why-choose-us">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Why choose us</p>
+                        <h2>Built around small<br><em>business trust.</em></h2>
                     </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <p class="testimonial-rating">★★★★★</p>
-                    <p class="testimonial-quote">
-                        "We needed a clean site customers could understand quickly, and that is exactly what we got."
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="testimonial-avatar">SP</span>
-                        <div>
-                            <h3>Service Provider</h3>
-                            <p>Lead-generation landing page</p>
-                        </div>
+                    <div class="benefit-grid">
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="smartphone" aria-hidden="true"></i>
+                            <h3>Mobile-first design</h3>
+                            <p>Your site is designed for the phones your customers are already using.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="messages-square" aria-hidden="true"></i>
+                            <h3>Clear communication</h3>
+                            <p>Simple updates, plain-English explanations and a clear project path.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="pen-tool" aria-hidden="true"></i>
+                            <h3>Personal design direction</h3>
+                            <p>Colours, sections and content shaped to suit your business.</p>
+                        </article>
+                        <article class="benefit-item" data-reveal="data-reveal">
+                            <i data-lucide="life-buoy" aria-hidden="true"></i>
+                            <h3>Ongoing support</h3>
+                            <p>Help with updates, fixes and improvements after your website goes live.</p>
+                        </article>
                     </div>
-                </article>
+                </div>
+            </section>
+            <section class="section process-section section-light" id="process">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">The process</p>
+                        <h2>From a conversation<br>to a confident launch.</h2>
+                    </div>
+                    <div class="process-grid">
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>01</span>
+                            <h3>Understand</h3>
+                            <p>We talk through your services, customers, goals and the trust signals your website needs.</p>
+                        </article>
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>02</span>
+                            <h3>Shape</h3>
+                            <p>The page structure, wording and visual direction are planned around your business.</p>
+                        </article>
+                        <article class="process-card" data-reveal="data-reveal">
+                            <span>03</span>
+                            <h3>Build &amp; refine</h3>
+                            <p>Your website is built, reviewed, adjusted and supported so it feels clear before it goes live.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section audience-section ">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Who we help</p>
+                        <h2>Real businesses.<br><em>Real personality.</em></h2>
+                    </div>
+                    <div class="audience-grid">
+                        <article>
+                            <h3>Local trades</h3>
+                            <p>Clear service pages, quote pathways and trust-building details.</p>
+                        </article>
+                        <article>
+                            <h3>Service businesses</h3>
+                            <p>Simple customer journeys that explain what you do and how to enquire.</p>
+                        </article>
+                        <article>
+                            <h3>Solo business owners</h3>
+                            <p>A professional presence that still feels personal and approachable.</p>
+                        </article>
+                        <article>
+                            <h3>Health &amp; wellness</h3>
+                            <p>Warm, reassuring websites built around programs, bookings and trust.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section testimonials section-light" id="testimonials">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">Client perspectives</p>
+                        <h2>What clients say.</h2>
+                    </div>
+                    <div class="testimonial-grid">
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>The website finally explains what we do clearly and looks professional on mobile.</blockquote>
+                            <figcaption><strong>Local Trade Client</strong><span>Service business website</span></figcaption>
+                        </figure>
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>The process was simple, the communication was clear and the finished site feels trustworthy.</blockquote>
+                            <figcaption><strong>Small Business Owner</strong><span>Business website refresh</span></figcaption>
+                        </figure>
+                        <figure class="testimonial-card" data-reveal="data-reveal">
+                            <span class="quote-mark" aria-hidden="true">“</span>
+                            <blockquote>We needed a clean site customers could understand quickly, and that is exactly what we got.</blockquote>
+                            <figcaption><strong>Service Provider</strong><span>Lead-generation landing page</span></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section class="final-cta section">
+                <div class="section-inner">
+                    <p class="section-label">Your next chapter</p>
+                    <h2>Let's make something<br>that feels like <em>you.</em></h2>
+                    <p>Tell us what you do, who you help and what you want your website to communicate.</p>
+                    <a class="button button-light" href="contact.html#quote-form">Get a Quote <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-top">
+                <a href="index.html" class="site-logo"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+                <p>Thoughtful websites. Personal support.<br>A little more you.</p>
+                <a class="footer-email" href="mailto:aw@gmail.com.au">aw@gmail.com.au <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
             </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div>
-            <h2>A.W Web Designs</h2>
-            <p>Modern website design and support for small businesses.</p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <p class="footer-meta">
-            © 2026 A.W Web Designs. Based in Australia.
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+            <div class="footer-bottom">
+                <p>&copy; 2026 A.W Web Designs. Based in Australia.</p>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <a href="#main-content" class="back-top">Back to top <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </footer>
+    </body>
 </html>

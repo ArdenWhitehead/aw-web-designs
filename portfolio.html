@@ -1,107 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | A.W Web Designs</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <header class="site-header">
-        <a href="index.html" class="site-logo">A.W Web Designs</a>
-
-        <nav class="site-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html" class="active-page">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-hero">
-            <p class="section-label">Portfolio</p>
-            <h1>Custom Website Project Examples</h1>
-            <p>
-                A small collection of project styles showing how different businesses
-                can use clear layouts, trust signals and practical enquiry paths.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <div class="portfolio-grid portfolio-page-grid">
-                <article class="portfolio-item">
-                    <img
-                        src="Images/localtrade.jpg"
-                        alt="Local trade website"
-                        class="portfolio-image"
-                    >
-                    <h3>Local Trade Website</h3>
-                    <p>
-                        Challenge: The business needed a stronger first impression.
-                        Design approach: A clear service website with mobile quote actions.
-                        Outcome: Customers can understand the offer and enquire faster.
-                    </p>
-                    <a href="contact.html" class="portfolio-view">Start Similar Project</a>
-                </article>
-
-                <article class="portfolio-item">
-                    <img
-                        src="Images/smallbuisness.jpg"
-                        alt="Small business website"
-                        class="portfolio-image"
-                    >
-                    <h3>Custom Small Business Website</h3>
-                    <p>
-                        Challenge: The business looked outdated online.
-                        Design approach: A responsive site with stronger trust signals.
-                        Outcome: A more professional presence for new visitors.
-                    </p>
-                    <a href="contact.html" class="portfolio-view">Start Similar Project</a>
-                </article>
-
-                <article class="portfolio-item">
-                    <img
-                        src="Images/serviceprovider.jpg"
-                        alt="Service provider website"
-                        class="portfolio-image"
-                    >
-                    <h3>Service Provider Website</h3>
-                    <p>
-                        Challenge: Customers needed a simple path to ask for help.
-                        Design approach: Service cards, quote buttons and clear contact options.
-                        Outcome: A smoother journey from browsing to enquiry.
-                    </p>
-                    <a href="contact.html" class="portfolio-view">Start Similar Project</a>
-                </article>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Explore custom website examples for local trades, small businesses and service providers. Find a direction that feels like your business.">
+        <meta name="theme-color" content="#111818">
+        <title>Portfolio | A.W Web Designs</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <header class="site-header">
+            <a href="index.html" class="site-logo" aria-label="A.W Web Designs home"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+            <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+            <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html" aria-current="page">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a class="header-cta" href="contact.html#quote-form">Let's talk <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </header>
+        <main id="main-content">
+            <section class="page-hero section">
+                <div class="section-inner">
+                    <p class="section-label">Project examples</p>
+                    <h1>A different direction.<br><em>For every business.</em></h1>
+                    <p>A small collection of website concepts showing how clear layouts, useful trust signals and practical enquiry paths can work for different businesses.</p>
+                </div>
+            </section>
+            <section class="section selected-work section-light" id="work">
+                <div class="section-inner">
+                    <div class="section-heading" data-reveal="data-reveal">
+                        <p class="section-label">The possibilities</p>
+                        <h2>Custom website examples.</h2>
+                    </div>
+                    <div class="portfolio-grid">
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/advanced-carpentry-template/index.html" aria-label="Explore Local Trade Website example">
+                                <img src="Images/portfolio-trade.jpg" alt="Construction cranes at sunset" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Local trades</span><span>Website concept / 01</span></div>
+                            <h3>Local Trade Website</h3>
+                            <p>A clear service website with mobile quote actions. Customers can understand the offer and enquire faster.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/advanced-carpentry-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/3-page-template/index.html" aria-label="Explore Custom Small Business Website example">
+                                <img src="Images/portfolio-business.jpg" alt="Support small businesses sign" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Small business</span><span>Website concept / 02</span></div>
+                            <h3>Custom Small Business Website</h3>
+                            <p>A responsive website with a stronger first impression and useful trust signals.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/3-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="portfolio-item" data-reveal="data-reveal">
+                            <a class="project-image-link" href="Templates/8-page-template/index.html" aria-label="Explore Service Provider Website example">
+                                <img src="Images/portfolio-service.jpg" alt="Service technician at work" class="portfolio-image" width="960" height="640" loading="lazy" decoding="async">
+                                <span class="project-open"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                            </a>
+                            <div class="project-meta"><span>Service businesses</span><span>Website concept / 03</span></div>
+                            <h3>Service Provider Website</h3>
+                            <p>Services, clear contact options and a smoother journey from browsing to enquiry.</p>
+                            <div class="project-actions">
+                                <a class="text-link portfolio-view" href="Templates/8-page-template/index.html">Explore example <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                                <a class="text-link" href="contact.html#quote-form">Start similar project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="final-cta section">
+                <div class="section-inner">
+                    <p class="section-label">Your next chapter</p>
+                    <h2>Let's make something<br>that feels like <em>you.</em></h2>
+                    <p>Tell us what you do, who you help and what you want your website to communicate.</p>
+                    <a class="button button-light" href="contact.html#quote-form">Get a Quote <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-top">
+                <a href="index.html" class="site-logo"><span class="brand-mark" aria-hidden="true">aw.</span><span>A.W Web Designs</span></a>
+                <p>Thoughtful websites. Personal support.<br>A little more you.</p>
+                <a class="footer-email" href="mailto:aw@gmail.com.au">aw@gmail.com.au <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
             </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div>
-            <h2>A.W Web Designs</h2>
-            <p>Modern website design and support for small businesses.</p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <p class="footer-meta">
-            © 2026 A.W Web Designs. Based in Australia.
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+            <div class="footer-bottom">
+                <p>&copy; 2026 A.W Web Designs. Based in Australia.</p>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <a href="#main-content" class="back-top">Back to top <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </footer>
+    </body>
 </html>
