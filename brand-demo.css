@@ -8,8 +8,21 @@
     color: #252e2c;
 }
 .brand-sticky { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 650px); gap: 56px; align-items: center; max-width: 1400px; margin: auto; padding: 54px var(--gutter); }
-.brand-hero.is-pinned { height: calc(100svh - 100px + 640px); }
-.is-pinned .brand-sticky { position: sticky; top: 100px; height: calc(100svh - 100px); padding-top: 24px; padding-bottom: 24px; }
+.brand-visual { min-width: 0; }
+.brand-image-stage { position: relative; aspect-ratio: 16 / 9; background: #f4f1e9; overflow: hidden; }
+.brand-hero-image { display: block; width: 100%; height: 100%; object-fit: contain; transform: translate3d(0, var(--image-y, 0%), 0) scale(var(--image-scale, 1)); transform-origin: center; }
+.brand-image-stage.has-motion .brand-hero-image { will-change: transform; }
+.brand-image figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; color: #58625e; font-size: 11px; line-height: 1.5; }
+.brand-motion-toggle { flex-shrink: 0; width: 44px; height: 44px; border-radius: 3px; border-color: #a7b5ad; color: #24675f; }
+.brand-motion-toggle:hover { background: #edf3ef; }
+.brand-motion-toggle span { display: inline-flex; }
+.brand-motion-toggle[hidden], .brand-motion-toggle span[hidden] { display: none; }
+.brand-sample { border-top: 1px solid #dbe1d8; margin-top: 8px; }
+.brand-sample summary { display: flex; align-items: center; justify-content: space-between; min-height: 52px; gap: 12px; font-size: 13px; font-weight: 500; color: #24675f; list-style: none; cursor: pointer; }
+.brand-sample summary::-webkit-details-marker { display: none; }
+.brand-sample summary svg { width: 18px; height: 18px; }
+.brand-sample[open] summary svg { transform: rotate(180deg); }
+.sample-separation { font-size: 11px; line-height: 1.5; color: #58625e; margin-bottom: 20px; }
 .brand-copy { min-width: 0; }
 .brand-kicker { display: flex; align-items: center; gap: 12px; color: #24675f; font-size: 12px; margin-bottom: 28px; }
 .brand-kicker > span { width: 22px; height: 2px; background: currentColor; }
@@ -29,7 +42,6 @@
 .example-caption-mark { font-size: 12px; font-weight: 700; color: var(--demo-accent); }
 .example-format { margin-left: auto; font-size: 10px; color: #64716b; }
 .brand-canvas { position: relative; width: 100%; overflow: clip; }
-.is-pinned .brand-canvas { width: min(100%, calc((100svh - 340px) * 1.25)); margin-inline: auto; }
 .brand-art { position: relative; color: #25322f; }
 .is-enhanced .brand-canvas { aspect-ratio: 800 / 640; }
 .is-enhanced .brand-art { position: absolute; width: 800px; height: 640px; transform: scale(var(--stage-scale, 0.8)); transform-origin: 0 0; }
@@ -37,7 +49,7 @@
 
 /* These are original, fixed-format mockups, not interactive publishing widgets. */
 .design-browser { position: relative; background: #fff; border: 1px solid #cfd8d1; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 48px -28px rgba(30, 55, 46, .4); }
-.is-enhanced .design-browser { position: absolute; left: 60px; top: 100px; width: 680px; transform: translateY(-85px) scale(.84); transform-origin: 50% 0; will-change: transform; }
+.is-enhanced .design-browser { position: absolute; left: 60px; top: 100px; width: 680px; transform: translateY(-85px) scale(.84); transform-origin: 50% 0; }
 .browser-chrome { display: flex; align-items: center; gap: 5px; padding: 9px 12px; background: #f0f2ee; border-bottom: 1px solid #dce1db; height: 29px; }
 .browser-chrome > span { width: 5px; height: 5px; border-radius: 50%; background: #aab8ad; }
 .browser-chrome small { font-size: 8px; margin: auto; color: #66736b; }
@@ -63,7 +75,7 @@
 .browser-services p { font-size: 8px; color: #66736b; line-height: 1.5; }
 
 .social-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
-.is-enhanced .social-posts { position: absolute; left: 12px; top: 340px; width: 776px; margin: 0; opacity: var(--posts-opacity, 1); transform: translateY(var(--posts-y, 0px)); will-change: transform, opacity; }
+.is-enhanced .social-posts { position: absolute; left: 12px; top: 340px; width: 776px; margin: 0; }
 .social-post { min-width: 0; position: relative; padding: 19px 18px; background: #fff; border: 1px solid #d7dfd6; border-radius: 5px; box-shadow: 0 14px 28px -23px rgba(30, 55, 46, .5); height: 278px; overflow: hidden; }
 .social-post .studio-logo { font-size: 10px; gap: 6px; }
 .social-post .studio-logo svg { width: 15px; height: 15px; }
@@ -86,18 +98,6 @@
 .quote-symbol { width: 30px; height: 30px; color: var(--demo-accent); display: block; margin-top: 15px; }
 .testimonial-post blockquote { margin: 13px 0 0; font-family: var(--font-display); font-size: 22px; line-height: 1.23; font-weight: 500; }
 .sample-disclaimer { position: absolute; bottom: 16px; font-size: 8px; line-height: 1.5; color: #59675f; }
-.brand-art [data-source] { opacity: var(--source-opacity, 1); }
-.brand-art [data-target] { opacity: var(--target-opacity, 1); }
-.brand-flight { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
-.flight-element { position: absolute; top: 0; left: 0; transform-origin: 0 0; pointer-events: none; opacity: 0; will-change: transform, opacity; }
-.flight-element > * { margin: 0; width: 100%; height: 100%; }
-.flight-element > svg { width: 100%; height: 100%; color: var(--demo-accent); }
-.flight-element h3 { overflow-wrap: anywhere; }
-.flight-element .studio-art { width: 100%; height: 100%; }
-
-.brand-story-steps { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; color: #78837b; margin-top: 2px; border-bottom: 1px solid #dbe1d8; padding-bottom: 14px; }
-.brand-story-steps span { transition: color 150ms ease; }
-.brand-story-steps .is-current { color: #24675f; }
 .brand-controls { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 20px; row-gap: 12px; padding-top: 16px; }
 .demo-controls-heading { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .demo-controls-heading h2 { font-family: var(--font-body); font-size: 12px; line-height: 1.4; font-weight: 600; }
@@ -112,8 +112,8 @@
 .demo-headline-field input { width: 100%; min-height: 44px; padding: 9px 11px; border: 1px solid #b9c5b9; border-radius: 3px; background: #fff; color: #25322f; font-size: 12px; line-height: 1.4; }
 
 /* The non-scripted composition is complete and uses normal document flow. */
-.brand-hero:not(.is-enhanced) .brand-story-steps { margin-top: 18px; }
-.brand-hero:not(.is-enhanced) .social-post { height: 278px; }
+.brand-example:not(.is-enhanced) .social-post { height: 278px; }
+.brand-example:not(.is-enhanced) .browser-message h3 { height: auto; }
 html:not(.js-enabled) .brand-controls { display: none; }
 @media (max-width: 1200px) {
     .brand-sticky { gap: 30px; grid-template-columns: minmax(0, 1fr) minmax(0, 56%); }
@@ -142,7 +142,6 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .brand-signoff { font-size: 10px; margin-top: 24px; }
     .brand-example figcaption { font-size: 10px; }
     .example-format { display: none; }
-    .brand-story-steps { font-size: 9px; gap: 5px; margin-top: 7px; }
     .brand-controls { grid-template-columns: 1fr; gap: 13px; }
     .demo-controls-heading { display: block; }
     .demo-controls-heading h2 { font-size: 13px; }
@@ -150,10 +149,10 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .accent-controls button { flex: 1; justify-content: flex-start; gap: 8px; font-size: 12px; padding: 0 10px; }
     .accent-controls button > span { width: 17px; height: 17px; }
     .demo-headline-field input { font-size: 16px; }
-    .brand-hero:not(.is-enhanced) .social-posts { grid-template-columns: 1fr; }
-    .brand-hero:not(.is-enhanced) .browser-home { grid-template-columns: 1fr; }
-    .brand-hero:not(.is-enhanced) .mock-nav { display: none; }
+    .brand-example:not(.is-enhanced) .social-posts { grid-template-columns: 1fr; }
+    .brand-example:not(.is-enhanced) .browser-home { grid-template-columns: 1fr; }
+    .brand-example:not(.is-enhanced) .mock-nav { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .brand-story-steps span { transition: none; }
+    .brand-hero-image { transform: none; }
 }
