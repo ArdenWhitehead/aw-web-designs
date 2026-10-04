@@ -3,16 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Custom, mobile-friendly websites shaped around your small business. Web design, SEO foundations and personal support from A.W Web Designs.">
+        <meta name="description" content="Custom websites, branded social media designs and editable templates for small businesses. One consistent brand, shaped around you by A.W Web Designs.">
         <meta name="theme-color" content="#111818">
-        <title>Custom Website Design | A.W Web Designs</title>
+        <title>Websites &amp; Social Design | A.W Web Designs</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="brand-demo.css">
         <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
         <script defer src="script.js"></script>
-        <script type="module" src="hero-scene.js"></script>
+        <script defer src="brand-demo.js"></script>
     </head>
     <body class="home-page">
         <a class="skip-link" href="#main-content">Skip to content</a>
@@ -29,45 +30,117 @@
             <a class="header-cta" href="contact.html#quote-form">Let's talk <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </header>
         <main id="main-content">
-            <section class="hero" aria-labelledby="hero-title">
-                <div class="hero-scene" id="hero-scene" aria-hidden="true">
-                    <div class="terrain-fallback"></div>
-                    <canvas id="terrain-canvas" tabindex="-1"></canvas>
-                </div>
-                <div class="hero-inner">
-                    <p class="hero-eyebrow"><span class="small-rule"></span>Independent web design &amp; support</p>
-                    <h1 id="hero-title">A.W<br>Web Designs<span class="gold-dot">.</span></h1>
-                    <p class="hero-tagline">Distinct by design.<br>Built around <em>you.</em></p>
-                    <p class="hero-description">Thoughtful, mobile-friendly websites shaped around your business, your customers and the trust you want to build online.</p>
-                    <div class="hero-buttons">
-                        <button type="button" class="button button-primary hero-button" id="quote-button" data-open="quote-modal">Get a Quote <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
-                        <button type="button" class="button button-ghost hero-button" id="portfolio-button" data-open="portfolio-modal">View Our Work <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+            <section class="brand-hero" id="brand-hero" aria-labelledby="hero-title">
+                <div class="brand-sticky">
+                    <div class="brand-copy">
+                        <p class="brand-kicker"><span></span>One brand, many formats.</p>
+                        <h1 id="hero-title">Your website.<br>Your content.<br><span>One consistent brand.</span></h1>
+                        <p class="brand-description">Custom websites and social media designs that help your business look professional wherever customers find you.</p>
+                        <div class="brand-actions">
+                            <a href="contact.html#quote-form" class="button brand-primary" id="quote-button" data-open="quote-modal">Discuss Your Project <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            <a href="#services" class="button brand-secondary">Explore Our Services <i data-lucide="arrow-down" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="brand-signoff"><span>Thoughtfully designed. Personally supported.</span><a href="mailto:aw@gmail.com.au">aw@gmail.com.au</a></div>
                     </div>
-                </div>
-                <div class="hero-bottom">
-                    <a href="#services" class="scroll-cue"><i data-lucide="arrow-down" aria-hidden="true"></i><span>Discover the difference</span></a>
-                    <div class="hero-contact-details">
-                        <span>Based in Australia. Built for your business.</span>
-                        <a href="mailto:aw@gmail.com.au">aw@gmail.com.au</a>
-                    </div>
-                    <button type="button" class="scene-toggle icon-button" id="scene-toggle" aria-label="Pause background animation" aria-pressed="false" title="Pause background animation" hidden="hidden"><i data-lucide="pause" aria-hidden="true"></i></button>
+                    <figure class="brand-example" aria-labelledby="example-caption">
+                        <figcaption id="example-caption"><span class="example-caption-mark">es</span><span>Example Studio &mdash; demonstration</span><span class="example-format">Website + social</span></figcaption>
+                        <div class="brand-canvas">
+                            <div class="brand-art">
+                                <svg class="brand-art-defs" aria-hidden="true" focusable="false">
+                                    <defs>
+                                        <symbol id="studio-illustration" viewBox="0 0 360 270">
+                                            <rect width="360" height="270" fill="#eef0ea"/>
+                                            <path d="M0 220H360V270H0Z" fill="#dddcd1"/>
+                                            <path d="M38 220V83A66 66 0 0 1 170 83V220Z" fill="currentColor" opacity=".13"/>
+                                            <path d="M48 220V87A56 56 0 0 1 160 87V220M104 32V220M48 118H160" fill="none" stroke="currentColor" stroke-width="4"/>
+                                            <path d="M61 202L142 147L160 220H48Z" fill="#ffffff" opacity=".55"/>
+                                            <circle cx="133" cy="81" r="18" fill="#d5b774"/>
+                                            <path d="M227 31V67M207 68Q227 38 247 68Z" fill="currentColor" stroke="currentColor" stroke-width="3"/>
+                                            <path d="M203 106H323M203 166H323" stroke="#293735" stroke-width="4"/>
+                                            <path d="M219 106V84H235V106M245 106V75H253V106M261 106V89H278V106" fill="currentColor"/>
+                                            <path d="M293 106Q276 83 301 83Q326 83 309 106Z" fill="#d5b774"/>
+                                            <path d="M234 164Q220 139 245 135Q274 135 258 164Z" fill="currentColor" opacity=".65"/>
+                                            <rect x="279" y="137" width="29" height="27" rx="2" fill="#faf9f4" stroke="#293735" stroke-width="2"/>
+                                            <ellipse cx="171" cy="204" rx="70" ry="17" fill="#faf9f4" stroke="#293735" stroke-width="2"/>
+                                            <path d="M125 208L118 254M217 208L224 254" stroke="#293735" stroke-width="5"/>
+                                            <path d="M163 199V176H179V199Z" fill="currentColor"/>
+                                            <path d="M171 178V152M171 167Q146 150 156 139Q174 142 171 167M171 160Q194 142 191 130Q172 138 171 160" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M300 213V180M300 199Q269 180 276 162Q304 173 300 199M300 190Q329 165 323 150Q298 163 300 190" fill="currentColor" stroke="currentColor" stroke-width="3"/>
+                                            <path d="M284 211H317L311 249H290Z" fill="#faf9f4" stroke="#293735" stroke-width="2"/>
+                                        </symbol>
+                                        <symbol id="studio-mark" viewBox="0 0 32 32"><path d="M3 29V15H9V29ZM13 29V3H19V29ZM23 29V10H29V29Z" fill="currentColor"/></symbol>
+                                    </defs>
+                                </svg>
+                                <div class="design-browser">
+                                    <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span><small>examplestudio.example</small><i data-lucide="lock-keyhole"></i></div>
+                                    <div class="browser-brand"><span class="studio-logo"><svg data-source="accent" viewBox="0 0 32 32" aria-hidden="true"><use href="#studio-mark"/></svg>Example Studio</span><span class="mock-nav">Studio &nbsp; Objects &nbsp; Visit</span></div>
+                                    <div class="browser-home">
+                                        <div class="browser-message"><p class="mock-eyebrow">A little local inspiration.</p><h3 data-source="headline" data-demo-headline="website">Make room for something good.</h3><p class="mock-copy">Thoughtful objects and creative moments, made local.</p><span class="mock-enquiry">Enquire with us <i data-lucide="arrow-up-right" aria-hidden="true"></i></span></div>
+                                        <!-- Replace this SVG and the promotional SVG with the same licensed photograph when customising. -->
+                                        <div class="browser-art" data-source="image"><svg class="studio-art" viewBox="0 0 360 270" role="img" aria-label="Original illustration of a sunlit studio with shelves, a table and plants"><use href="#studio-illustration"/></svg></div>
+                                    </div>
+                                    <div class="browser-services"><div><span>01</span><strong>Everyday objects</strong><p>Considered pieces for your space.</p></div><div><span>02</span><strong>Creative moments</strong><p>A place to make something yours.</p></div></div>
+                                </div>
+                                <div class="social-posts">
+                                    <article class="social-post promotion-post" aria-label="Example Studio promotional design">
+                                        <span class="studio-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#studio-mark"/></svg>Example Studio</span>
+                                        <p class="post-eyebrow">New at the studio</p>
+                                        <h3 data-target="headline" data-demo-headline="promotion">Make room for something good.</h3>
+                                        <div class="promo-art" data-target="image"><svg class="studio-art" viewBox="0 0 360 270" aria-hidden="true"><use href="#studio-illustration"/></svg></div>
+                                        <span class="post-footer">Find your next little inspiration. <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                                    </article>
+                                    <article class="social-post tip-post" aria-label="Example Studio educational design">
+                                        <span class="studio-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#studio-mark"/></svg>Example Studio</span>
+                                        <p class="post-eyebrow">A small design tip</p>
+                                        <h3>Give your message room to breathe.</h3>
+                                        <p class="tip-copy">One clear idea.<br>A little white space.<br>A stronger first impression.</p>
+                                        <div class="tip-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                                        <span class="post-footer">Keep it considered.</span>
+                                    </article>
+                                    <article class="social-post testimonial-post" aria-label="Sample testimonial layout, not a real customer review">
+                                        <span class="studio-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#studio-mark"/></svg>Example Studio</span>
+                                        <p class="post-eyebrow">Sample testimonial</p>
+                                        <svg class="quote-symbol" data-target="accent" viewBox="0 0 32 32" aria-hidden="true"><use href="#studio-mark"/></svg>
+                                        <blockquote>Your customer's words could appear here.</blockquote>
+                                        <p class="sample-disclaimer">Placeholder only.<br>Not a customer review.</p>
+                                    </article>
+                                </div>
+                                <div class="brand-flight" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                        <div class="brand-story-steps" aria-hidden="true"><span data-story-step="0">01 &nbsp; Website</span><span data-story-step="1">02 &nbsp; Social designs</span><span data-story-step="2">03 &nbsp; One brand</span></div>
+                        <div class="brand-controls" id="brand-demo-controls">
+                            <div class="demo-controls-heading"><h2>Try a sample design</h2><p>Design demonstration only. Not connected to social publishing.</p></div>
+                            <fieldset class="accent-controls"><legend>Accent colour</legend><button type="button" data-demo-colour="teal" aria-pressed="true"><span style="--swatch: #24675f"></span>Teal</button><button type="button" data-demo-colour="clay" aria-pressed="false"><span style="--swatch: #934f3e"></span>Clay</button><button type="button" data-demo-colour="ink" aria-pressed="false"><span style="--swatch: #4e5875"></span>Ink</button></fieldset>
+                            <div class="demo-headline-field"><label for="demo-headline">Promotional headline</label><input id="demo-headline" type="text" value="Make room for something good." maxlength="40" autocomplete="off" spellcheck="false" aria-describedby="demo-input-note"><span class="sr-only" id="demo-input-note">Up to 40 characters. Changes stay in this page and are not saved or sent.</span></div>
+                            <p class="sr-only" id="demo-status" role="status" aria-live="polite"></p>
+                        </div>
+                    </figure>
                 </div>
             </section>
-            <div class="principle-strip"><span>Custom page structure</span><span>Personal visual direction</span><span>Support after launch</span></div>
+            <div class="principle-strip"><span>Custom website development</span><span>Branded social designs</span><span>Editable templates</span></div>
             <section class="section services " id="services">
                 <div class="section-inner">
                     <div class="section-heading" data-reveal="data-reveal">
                         <p class="section-label">What we do</p>
                         <h2>Good design.<br><em>Better connections.</em></h2>
                     </div>
-                    <p class="section-intro">Flexible website design and support for small businesses that want to look trustworthy without looking like everyone else.</p>
+                    <p class="section-intro">A consistent presence, from your website to your social feed. Custom development, branded post designs and editable templates shaped around your business.</p>
                     <div class="service-container">
                         <div class="service-item">
-                            <button type="button" class="card" data-service="Web Design" data-service-value="web-design" aria-expanded="false" aria-controls="service-detail-1"><span class="service-icon"><i data-lucide="panels-top-left" aria-hidden="true"></i></span><span class="service-title">Custom web design</span><span class="service-description">Responsive websites shaped around your brand, message and customer journey.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <button type="button" class="card" data-service="Web Design" data-service-value="web-design" aria-expanded="false" aria-controls="service-detail-1"><span class="service-icon"><i data-lucide="panels-top-left" aria-hidden="true"></i></span><span class="service-title">Custom website development</span><span class="service-description">Responsive websites shaped around your brand, message and customer journey.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
                             <div class="service-detail" id="service-detail-1" hidden="hidden">
                                 <p>Your pages, visual direction and calls to action are planned around what your customers need to understand.</p>
                                 <a class="text-link" href="contact.html?service=web-design#quote-form">Discuss this service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
                             </div>
+                        </div>
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="Social media design" data-service-value="social-design" aria-expanded="false" aria-controls="service-detail-5"><span class="service-icon"><i data-lucide="images" aria-hidden="true"></i></span><span class="service-title">Branded social media designs</span><span class="service-description">Promotions, useful tips and customer stories with a consistent visual identity.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-5" hidden><p>Customisable post designs that carry your business's colours, imagery and message into your social content. Design assets, not a social publishing service.</p><a class="text-link" href="contact.html?service=social-design#quote-form">Discuss social design <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+                        </div>
+                        <div class="service-item">
+                            <button type="button" class="card" data-service="Editable templates" data-service-value="editable-templates" aria-expanded="false" aria-controls="service-detail-6"><span class="service-icon"><i data-lucide="layout-template" aria-hidden="true"></i></span><span class="service-title">Editable brand templates</span><span class="service-description">Reusable designs tailored to your colours, imagery and everyday messaging.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
+                            <div class="service-detail" id="service-detail-6" hidden><p>A considered starting point for changing headlines, images and content while keeping your brand recognisable. We discuss the format and editing requirements together before the project begins.</p><a class="text-link" href="contact.html?service=editable-templates#quote-form">Discuss editable templates <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
                         </div>
                         <div class="service-item">
                             <button type="button" class="card" data-service="SEO" data-service-value="seo" aria-expanded="false" aria-controls="service-detail-2"><span class="service-icon"><i data-lucide="search" aria-hidden="true"></i></span><span class="service-title">SEO foundations</span><span class="service-description">Clean page structure, headings and content guidance so customers can find and understand you.</span><span class="service-plus"><i data-lucide="plus" aria-hidden="true"></i></span></button>
@@ -128,7 +201,7 @@
                     </div>
                     <div class="section-lead">
                         <p>Website examples shaped around different business needs, with clear layouts, trust signals and practical enquiry paths.</p>
-                        <a class="text-link" href="portfolio.html">All project examples <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                        <div class="project-actions"><a class="text-link" href="portfolio.html">All project examples <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" class="text-link" id="portfolio-button" data-open="portfolio-modal">Quick portfolio view <i data-lucide="panels-top-left" aria-hidden="true"></i></button></div>
                     </div>
                     <div class="portfolio-grid">
                         <article class="portfolio-item" data-reveal="data-reveal">
@@ -333,8 +406,8 @@
             <div class="modal-content ">
                 <button type="button" class="close-button icon-button" data-close="quote-modal" aria-label="Close quote"><i data-lucide="x" aria-hidden="true"></i></button>
                 <p class="section-label">Let's talk</p>
-                <h2 id="quote-modal-title">Start a custom website.</h2>
-                <p class="form-introduction">Tell us about your business, your goals and what you want your website to feel like.</p>
+                <h2 id="quote-modal-title">Discuss your project.</h2>
+                <p class="form-introduction">Tell us about your business, your goals and the website or social designs you have in mind.</p>
                 <form id="quote-form" action="/api/contact" method="post">
                     <div class="form-row">
                         <div class="form-group">
@@ -361,7 +434,10 @@
                             <label for="service">Service required <span>(required)</span></label>
                             <select id="service" name="service" required="required">
                                 <option value="">Choose a service</option>
-                                <option value="web-design">Web Design</option>
+                                            <option value="web-design">Web Design</option>
+                                            <option value="social-design">Social Media Post Design</option>
+                                            <option value="editable-templates">Editable Brand Templates</option>
+                                            <option value="website-and-social">Website and Social Design</option>
                                 <option value="seo">SEO</option>
                                 <option value="maintenance">Website Maintenance</option>
                                 <option value="support">Technical Support</option>

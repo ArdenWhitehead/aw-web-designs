@@ -56,7 +56,11 @@
         (modal.querySelector(focusSelector) || modal).focus({ preventScroll: true });
     }
     document.querySelectorAll("[data-open]").forEach(button => {
-        button.addEventListener("click", () => openModal(button.dataset.open, button));
+        button.addEventListener("click", event => {
+            if (!document.getElementById(button.dataset.open)) return;
+            event.preventDefault();
+            openModal(button.dataset.open, button);
+        });
     });
     document.querySelectorAll("[data-close]").forEach(button => button.addEventListener("click", closeModal));
     document.querySelectorAll(".modal").forEach(modal => modal.addEventListener("click", event => {
@@ -133,7 +137,7 @@
                 return;
             }
             const message = quote ? [
-                "Custom website quote request",
+                "Website and social design enquiry",
                 "Business: " + (String(data.get("businessName") || "").trim() || "Not provided"),
                 "Phone: " + (String(data.get("phone") || "").trim() || "Not provided"),
                 "Service: " + form.querySelector("#service").selectedOptions[0].textContent,

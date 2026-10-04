@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Tell A.W Web Designs about your website project. Request a custom quote or ask a question about web design and support.">
+        <meta name="description" content="Discuss your custom website, social media designs or editable brand templates with A.W Web Designs. Request a quote or ask a question.">
         <meta name="theme-color" content="#111818">
         <title>Contact | A.W Web Designs</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
                 <div class="section-inner">
                     <p class="section-label">Let's make it happen</p>
                     <h1>Your ideas.<br><em>Our starting point.</em></h1>
-                    <p>Send a message or request a quote. We will help you choose the right next step for a website shaped around your business.</p>
+                    <p>Send a message or request a quote. We will help you shape a custom website, branded social designs or editable templates around your business.</p>
                 </div>
             </section>
             <section class="section contact-section section-light">
@@ -40,7 +40,7 @@
                     <aside class="contact-aside">
                         <p class="section-label">Start a conversation</p>
                         <h2>Good websites<br>start with<br><em>good questions.</em></h2>
-                        <p>Tell us about your business, your goals and what you want your website to communicate.</p>
+                        <p>Tell us about your business, your goals and what you want your website and social content to communicate.</p>
                         <a class="text-link contact-email" href="mailto:aw@gmail.com.au">aw@gmail.com.au <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
                         <dl class="contact-facts">
                             <div>
@@ -56,7 +56,7 @@
                     <div class="contact-forms">
                         <article class="form-panel">
                             <p class="section-label">Project enquiry</p>
-                            <h2>Start a custom website.</h2>
+                            <h2>Discuss your project.</h2>
                             <p class="form-introduction">A few details to help us understand what you need.</p>
                             <form id="quote-form" action="/api/contact" method="post">
                                 <div class="form-row">
@@ -85,6 +85,9 @@
                                         <select id="service" name="service" required="required">
                                             <option value="">Choose a service</option>
                                             <option value="web-design">Web Design</option>
+                                            <option value="social-design">Social Media Post Design</option>
+                                            <option value="editable-templates">Editable Brand Templates</option>
+                                            <option value="website-and-social">Website and Social Design</option>
                                             <option value="seo">SEO</option>
                                             <option value="maintenance">Website Maintenance</option>
                                             <option value="support">Technical Support</option>
@@ -103,7 +106,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="project-details">Tell us about your project <span>(required)</span></label>
-                                    <textarea id="project-details" name="projectDetails" rows="4" minlength="10" maxlength="1400" placeholder="Your business, your ideas, and what you would like your website to do." required="required"></textarea>
+                                    <textarea id="project-details" name="projectDetails" rows="4" minlength="10" maxlength="1400" placeholder="Your business, your ideas, and what you need from your website or social designs." required="required"></textarea>
                                 </div>
                                 <button type="submit" class="button button-primary submit-button">Submit Quote Request <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
                                 <p class="form-message" id="quote-message" role="status" aria-live="polite" aria-atomic="true"></p>
