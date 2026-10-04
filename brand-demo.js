@@ -31,11 +31,6 @@
     function schedule() {
         if (!frame && !document.hidden) frame = requestAnimationFrame(measure);
     }
-    function announceDesign() {
-        hero.dispatchEvent(new CustomEvent("branddesignchange", {
-            detail: { ...colours[colourName], headline: headline.value.trim().slice(0, 40) || "Make room for something good." }
-        }));
-    }
     buttons.forEach(button => button.addEventListener("click", () => {
         if (!colours[button.dataset.demoColour]) return;
         colourName = button.dataset.demoColour;
@@ -43,16 +38,15 @@
         hero.style.setProperty("--demo-accent", colour.accent);
         hero.style.setProperty("--demo-tint", colour.tint);
         buttons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
-        status.textContent = colour.label + " applied to the Example Studio demonstration. The fallback photograph is unchanged.";
-        announceDesign();
+        status.textContent = colour.label + " applied to the editable HTML sample. Your supplied hero artwork is unchanged.";
     }));
     headline.addEventListener("input", () => {
         const text = headline.value.trim().slice(0, 40) || "Make room for something good.";
         sample.querySelectorAll("[data-demo-headline]").forEach(node => { node.textContent = text; });
-        announceDesign(); schedule();
+        schedule();
     });
     headline.addEventListener("change", () => {
-        status.textContent = "Example Studio headline updated. Nothing was saved or sent. The fallback photograph is unchanged.";
+        status.textContent = "Example Studio headline updated. Nothing was saved or sent. Your supplied hero artwork is unchanged.";
     });
     details.addEventListener("toggle", schedule);
     const resize = "ResizeObserver" in window ? new ResizeObserver(schedule) : null;

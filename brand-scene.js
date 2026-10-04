@@ -9,7 +9,28 @@
     function scrollSequence(heroTop, headerHeight, viewportHeight) {
         return clamp((headerHeight - heroTop) / Math.max(160, Math.min(260, viewportHeight * 0.26)));
     }
-    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence };
+    // Visible regions in the user's 1600 x 900 artwork, ordered top-left clockwise.
+    const artworkQuads = {
+        website: [[430, 232], [835, 201], [869, 557], [478, 609]],
+        postOne: [[906, 110], [1099, 65], [1084, 394], [877, 435]],
+        postTwo: [[1134, 198], [1350, 158], [1319, 446], [1103, 465]],
+        postThree: [[1367, 338], [1582, 360], [1538, 626], [1320, 597]]
+    };
+    function artworkUV(kind, u, v) {
+        const quad = artworkQuads[kind];
+        if (!quad) throw new RangeError("Unknown artwork surface");
+        const [[x0, y0], [x1, y1], [x2, y2], [x3, y3]] = quad;
+        const dx1 = x1 - x2, dx2 = x3 - x2, dx3 = x0 - x1 + x2 - x3;
+        const dy1 = y1 - y2, dy2 = y3 - y2, dy3 = y0 - y1 + y2 - y3;
+        const determinant = dx1 * dy2 - dx2 * dy1;
+        const g = (dx3 * dy2 - dx2 * dy3) / determinant;
+        const h = (dx1 * dy3 - dx3 * dy1) / determinant;
+        const denominator = g * u + h * v + 1;
+        const x = ((x1 - x0 + g * x1) * u + (x3 - x0 + h * x3) * v + x0) / denominator;
+        const y = ((y1 - y0 + g * y1) * u + (y3 - y0 + h * y3) * v + y0) / denominator;
+        return { u: x / 1600, v: 1 - y / 900 };
+    }
+    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV };
     if (typeof document === "undefined") return;
     const hero = document.getElementById("brand-hero");
     const stage = document.getElementById("brand-scene-stage");
@@ -26,10 +47,6 @@
     let frame = 0, inView = true, disposed = false, failed = false, started = false;
     let introStart = null, replayStart = null, heldProgress = null, progress = 0;
     let pointerX = 0, pointerY = 0, currentX = 0, currentY = 0;
-    let themeStart = null, lastTextureDraw = 0, texturesDirty = true;
-    let design = { accent: "#24675f", tint: "#edf3ef", headline: "Make room for something good." };
-    let previousAccent = design.accent, previousTint = design.tint;
-    const surfaces = [];
     const own = resource => { resources.add(resource); return resource; };
     function stop() { cancelAnimationFrame(frame); frame = 0; }
     function fallback() {
@@ -46,123 +63,18 @@
     function schedule() {
         if (!frame && renderer && !disposed && !failed && !document.hidden && inView && !reduced.matches) frame = requestAnimationFrame(draw);
     }
-    function mixHex(first, second, progress) {
-        const a = parseInt(first.slice(1), 16), b = parseInt(second.slice(1), 16);
-        return "#" + [16, 8, 0].map(shift => Math.round(((a >> shift) & 255) * (1 - progress) + ((b >> shift) & 255) * progress).toString(16).padStart(2, "0")).join("");
-    }
-    function wrap(ctx, text, x, y, width, size, maxLines = 3, colour = "#25322f") {
-        ctx.fillStyle = colour;
-        const value = String(text).slice(0, 80);
-        for (let fontSize = size; fontSize >= 14; fontSize--) {
-            ctx.font = "500 " + fontSize + "px 'DM Sans', sans-serif";
-            const lines = []; let line = "";
-            for (const word of value.split(/\s+/)) {
-                if (ctx.measureText(word).width > width) {
-                    if (line) { lines.push(line); line = ""; }
-                    for (const character of word) {
-                        if (line && ctx.measureText(line + character).width > width) { lines.push(line); line = ""; }
-                        line += character;
-                    }
-                    continue;
-                }
-                const candidate = line ? line + " " + word : word;
-                if (line && ctx.measureText(candidate).width > width) { lines.push(line); line = word; }
-                else line = candidate;
-            }
-            if (line) lines.push(line.trim());
-            if (lines.length > maxLines && fontSize > 14) continue;
-            lines.slice(0, maxLines).forEach((part, index) => ctx.fillText(part, x, y + index * fontSize * 1.15));
-            return;
-        }
-    }
-    function mark(ctx, x, y, colour, scale = 1) {
-        ctx.fillStyle = colour;
-        ctx.fillRect(x, y + 10 * scale, 5 * scale, 16 * scale);
-        ctx.fillRect(x + 9 * scale, y, 5 * scale, 26 * scale);
-        ctx.fillRect(x + 18 * scale, y + 6 * scale, 5 * scale, 20 * scale);
-    }
-    // Original studio artwork is drawn locally; no client images or testimonials are fetched.
-    function studio(ctx, x, y, width, height, accent, tint) {
-        ctx.save(); ctx.translate(x, y); ctx.scale(width / 360, height / 270);
-        ctx.fillStyle = tint; ctx.fillRect(0, 0, 360, 270);
-        ctx.fillStyle = "#d9ded5"; ctx.fillRect(0, 222, 360, 48);
-        ctx.fillStyle = "#fafaf7";
-        ctx.beginPath(); ctx.moveTo(38, 222); ctx.lineTo(38, 95); ctx.arc(106, 95, 68, Math.PI, 0); ctx.lineTo(174, 222); ctx.fill();
-        ctx.strokeStyle = accent; ctx.lineWidth = 3; ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(106, 28); ctx.lineTo(106, 222); ctx.moveTo(38, 125); ctx.lineTo(174, 125); ctx.stroke();
-        ctx.fillStyle = "#d5b774"; ctx.beginPath(); ctx.arc(141, 86, 17, 0, Math.PI * 2); ctx.fill();
-        ctx.strokeStyle = "#37453e"; ctx.lineWidth = 4;
-        for (const shelf of [104, 160]) { ctx.beginPath(); ctx.moveTo(210, shelf); ctx.lineTo(327, shelf); ctx.stroke(); }
-        ctx.fillStyle = accent;
-        [[219, 73, 13, 30], [240, 66, 10, 37], [260, 83, 18, 20], [227, 133, 26, 26]].forEach(rect => ctx.fillRect(...rect));
-        ctx.fillStyle = "#d5b774"; ctx.beginPath(); ctx.ellipse(302, 94, 15, 10, 0, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = "#fafaf7"; ctx.fillRect(281, 133, 30, 26);
-        ctx.strokeStyle = "#37453e"; ctx.beginPath(); ctx.moveTo(117, 207); ctx.lineTo(111, 257); ctx.moveTo(219, 207); ctx.lineTo(225, 257); ctx.stroke();
-        ctx.fillStyle = "#fafaf7"; ctx.beginPath(); ctx.ellipse(170, 207, 69, 15, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-        ctx.fillStyle = accent; ctx.fillRect(163, 174, 17, 25);
-        for (const [px, py, scale] of [[171, 157, 1], [299, 190, 1.3]]) {
-            ctx.strokeStyle = accent; ctx.beginPath(); ctx.moveTo(px, py + 20); ctx.lineTo(px, py - 18); ctx.stroke();
-            ctx.beginPath(); ctx.ellipse(px - 10 * scale, py - 8, 7 * scale, 17 * scale, -.65, 0, Math.PI * 2); ctx.ellipse(px + 10 * scale, py - 20, 7 * scale, 17 * scale, .65, 0, Math.PI * 2); ctx.fill();
-        }
-        ctx.fillStyle = "#fafaf7"; ctx.fillRect(284, 209, 31, 38); ctx.strokeRect(284, 209, 31, 38);
-        ctx.restore();
-    }
-    function paint(surface, accent, tint) {
-        const { ctx, canvas: image, kind, texture } = surface;
-        ctx.clearRect(0, 0, image.width, image.height);
-        ctx.fillStyle = kind === "tip" ? accent : kind === "testimonial" ? tint : "#fafaf7";
-        ctx.fillRect(0, 0, image.width, image.height);
-        const ink = kind === "tip" ? "#ffffff" : accent;
-        if (kind === "website") {
-            ctx.fillStyle = "#e8ece6"; ctx.fillRect(0, 0, image.width, 32);
-            ctx.fillStyle = "#93a59a";
-            [20, 36, 52].forEach(x => { ctx.beginPath(); ctx.arc(x, 16, 4, 0, Math.PI * 2); ctx.fill(); });
-            ctx.font = "14px 'DM Sans', sans-serif"; ctx.fillText("examplestudio.example", 406, 21);
-            mark(ctx, 45, 53, accent, 1.4);
-            ctx.font = "600 26px 'DM Sans', sans-serif"; ctx.fillStyle = accent; ctx.fillText("Example Studio", 91, 80);
-            ctx.font = "18px 'DM Sans', sans-serif"; ctx.fillStyle = "#57645d"; ctx.fillText("Studio     Objects     Visit", 713, 77);
-            ctx.font = "17px 'DM Sans', sans-serif"; ctx.fillStyle = accent; ctx.fillText("A LITTLE LOCAL INSPIRATION", 46, 143);
-            wrap(ctx, design.headline, 46, 210, 396, 52, 3);
-            ctx.font = "19px 'DM Sans', sans-serif"; ctx.fillStyle = "#57645d"; ctx.fillText("Thoughtful objects. Creative moments.", 46, 379);
-            ctx.fillStyle = accent; ctx.fillRect(46, 409, 190, 43);
-            ctx.font = "18px 'DM Sans', sans-serif"; ctx.fillStyle = "#ffffff"; ctx.fillText("Enquire with us  \u2197", 60, 437);
-            studio(ctx, 496, 122, 482, 348, accent, tint);
-            ctx.fillStyle = "#d8e0d7"; ctx.fillRect(46, 499, 932, 2);
-            ctx.font = "600 20px 'DM Sans', sans-serif"; ctx.fillStyle = "#25322f";
-            ctx.fillText("Everyday objects", 46, 538); ctx.fillText("Creative moments", 520, 538);
-            ctx.font = "16px 'DM Sans', sans-serif"; ctx.fillStyle = "#57645d";
-            ctx.fillText("Considered pieces for your space.", 46, 566); ctx.fillText("Make something yours.", 520, 566);
-            ctx.font = "13px 'DM Sans', sans-serif"; ctx.fillText("DEMONSTRATION ONLY", 46, 608);
-        } else {
-            mark(ctx, 34, 30, ink);
-            ctx.font = "600 22px 'DM Sans', sans-serif"; ctx.fillStyle = ink; ctx.fillText("Example Studio", 73, 52);
-            ctx.font = "14px 'DM Sans', sans-serif";
-            ctx.fillText(kind === "promotion" ? "NEW AT THE STUDIO" : kind === "tip" ? "A SMALL DESIGN TIP" : "SAMPLE TESTIMONIAL", 34, 105);
-            if (kind === "promotion") {
-                wrap(ctx, design.headline, 34, 162, 444, 43, 3);
-                studio(ctx, 34, 320, 444, 248, accent, tint);
-                ctx.font = "17px 'DM Sans', sans-serif"; ctx.fillStyle = accent; ctx.fillText("Find your next little inspiration.  \u2197", 34, 602);
-            } else if (kind === "tip") {
-                wrap(ctx, "Give your message room to breathe.", 34, 174, 426, 47, 4, "#ffffff");
-                ctx.font = "24px 'DM Sans', sans-serif"; ctx.fillStyle = "#ffffff";
-                ["One clear idea.", "A little white space.", "A stronger first impression."].forEach((line, index) => ctx.fillText(line, 34, 426 + index * 40));
-                mark(ctx, 396, 561, "#ffffff", 2);
-            } else {
-                mark(ctx, 34, 149, accent, 2.5);
-                wrap(ctx, "Your customer's words could appear here.", 34, 298, 426, 44, 4);
-                ctx.font = "19px 'DM Sans', sans-serif"; ctx.fillStyle = "#57645d";
-                ctx.fillText("Placeholder only.", 34, 570); ctx.fillText("Not a customer review.", 34, 602);
-            }
-        }
-        texture.needsUpdate = true;
-    }
     async function start() {
         if (started || disposed || failed || reduced.matches) return;
         started = true;
         try {
             // Reuses the pinned, free Three.js release already used by this project.
             const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js");
+            const artwork = hero.querySelector(".brand-hero-image");
+            await artwork.decode();
             if (disposed) return;
+            const artworkTexture = own(new THREE.Texture(artwork));
+            artworkTexture.colorSpace = THREE.SRGBColorSpace;
+            artworkTexture.needsUpdate = true;
             renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !compact.matches, powerPreference: "low-power" });
             renderer.outputColorSpace = THREE.SRGBColorSpace;
             scene = new THREE.Scene();
@@ -171,20 +83,28 @@
             scene.add(new THREE.HemisphereLight("#ffffff", "#b6c7bb", 2.2));
             const light = new THREE.DirectionalLight("#fff6e7", 2.8); light.position.set(-3, 8, 7); scene.add(light);
             const dark = own(new THREE.MeshStandardMaterial({ color: "#222b29", roughness: .46, metalness: .35 }));
-            const metal = own(new THREE.MeshStandardMaterial({ color: "#aab6af", roughness: .4, metalness: .65 }));
+            const metal = own(new THREE.MeshStandardMaterial({ color: "#b6b0a7", roughness: .4, metalness: .65 }));
             const white = own(new THREE.MeshStandardMaterial({ color: "#fafaf7", roughness: .7 }));
             const keyMaterial = own(new THREE.MeshStandardMaterial({ color: "#26332f", roughness: .7 }));
             function box(width, height, depth, material, parent, x, y, z) {
                 const mesh = new THREE.Mesh(own(new THREE.BoxGeometry(width, height, depth)), material);
                 mesh.position.set(x, y, z); parent.add(mesh); return mesh;
             }
+            artworkTexture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
             function surface(kind, width, height, parent, x, y, z) {
-                const image = document.createElement("canvas"); image.width = kind === "website" ? 1024 : 512; image.height = 640;
-                const texture = own(new THREE.CanvasTexture(image)); texture.colorSpace = THREE.SRGBColorSpace; texture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
-                const material = own(new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true }));
-                const mesh = new THREE.Mesh(own(new THREE.PlaneGeometry(width, height)), material);
+                // Projective UVs flatten the photographed panels without modifying the source image.
+                const segments = compact.matches ? 8 : 24;
+                const geometry = own(new THREE.PlaneGeometry(width, height, segments, segments));
+                const uv = geometry.attributes.uv;
+                for (let index = 0; index < uv.count; index++) {
+                    const point = artworkUV(kind, uv.getX(index), 1 - uv.getY(index));
+                    uv.setXY(index, point.u, point.v);
+                }
+                uv.needsUpdate = true;
+                const material = own(new THREE.MeshBasicMaterial({ map: artworkTexture, side: THREE.DoubleSide, transparent: true }));
+                const mesh = new THREE.Mesh(geometry, material);
                 mesh.position.set(x, y, z); parent.add(mesh);
-                surfaces.push({ canvas: image, ctx: image.getContext("2d"), kind, texture }); return mesh;
+                return mesh;
             }
             laptop = new THREE.Group(); laptop.position.y = -.65; scene.add(laptop);
             box(5.5, .13, 3.05, metal, laptop, 0, 0, 0);
@@ -201,7 +121,7 @@
             box(5.5, 3.55, .115, dark, lid, 0, 1.77, 0);
             surface("website", 5.16, 3.225, lid, 0, 1.77, .061);
             box(.04, .04, .008, metal, lid, 0, 3.46, .063);
-            cards = ["promotion", "tip", "testimonial"].map(kind => {
+            cards = ["postOne", "postTwo", "postThree"].map(kind => {
                 const group = new THREE.Group(); scene.add(group);
                 const bodyMaterial = white.clone(); own(bodyMaterial); bodyMaterial.transparent = true;
                 const body = box(1.87, 2.35, .055, bodyMaterial, group, 0, 0, 0);
@@ -214,16 +134,11 @@
             ctx.fillStyle = gradient; ctx.fillRect(0, 0, 128, 128);
             const shadow = new THREE.Mesh(own(new THREE.PlaneGeometry(8, 5)), own(new THREE.MeshBasicMaterial({ map: own(new THREE.CanvasTexture(shadowCanvas)), transparent: true, depthWrite: false })));
             shadow.rotation.x = -Math.PI / 2; shadow.position.set(-1.2, -.85, .1); scene.add(shadow);
-            const styles = getComputedStyle(hero);
-            design.accent = styles.getPropertyValue("--demo-accent").trim() || design.accent;
-            design.tint = styles.getPropertyValue("--demo-tint").trim() || design.tint;
-            design.headline = document.getElementById("demo-headline").value.trim().slice(0, 40) || design.headline;
-            surfaces.forEach(item => paint(item, design.accent, design.tint));
             resizeScene();
             resize = new ResizeObserver(resizeScene); resize.observe(stage);
             if (reduced.matches) { fallback(); return; }
             stage.classList.add("scene-ready", "is-entered");
-            replay.hidden = false; caption.textContent = "Example Studio \u2014 original 3D design demonstration.";
+            replay.hidden = false; caption.textContent = "Supplied brand artwork \u2014 interactive 3D demonstration.";
             schedule();
         } catch (error) {
             failed = true; dispose();
@@ -268,14 +183,8 @@
             card.group.rotation.set(currentY * .025, [-.2, -.13, .12][index] * p + currentX * .09, [-.065, .055, -.04][index] * p);
             card.face.material.opacity = p; card.body.material.opacity = p; card.group.visible = p > .001;
         });
-        const themeProgress = themeStart === null ? 1 : ease((now - themeStart) / 240);
-        if (texturesDirty || (themeStart !== null && now - lastTextureDraw > 30) || themeProgress === 1 && themeStart !== null) {
-            surfaces.forEach(item => paint(item, mixHex(previousAccent, design.accent, themeProgress), mixHex(previousTint, design.tint, themeProgress)));
-            texturesDirty = false; lastTextureDraw = now;
-            if (themeProgress === 1) themeStart = null;
-        }
         renderer.render(scene, camera); canvas.dataset.progress = progress.toFixed(3);
-        if (intro < 1 || replayStart !== null || themeStart !== null || Math.abs(target - progress) > .001 || Math.abs(currentX - pointerX) > .001 || Math.abs(currentY - pointerY) > .001) schedule();
+        if (intro < 1 || replayStart !== null || Math.abs(target - progress) > .001 || Math.abs(currentX - pointerX) > .001 || Math.abs(currentY - pointerY) > .001) schedule();
     }
     const signal = events.signal;
     window.addEventListener("scroll", () => { heldProgress = null; replayStart = null; schedule(); }, { passive: true, signal });
@@ -287,11 +196,6 @@
         pointerY = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5)); schedule();
     }, { passive: true, signal });
     hero.addEventListener("pointerleave", () => { pointerX = pointerY = 0; schedule(); }, { signal });
-    hero.addEventListener("branddesignchange", event => {
-        previousAccent = design.accent; previousTint = design.tint;
-        design = { accent: event.detail.accent, tint: event.detail.tint, headline: String(event.detail.headline).slice(0, 40) };
-        themeStart = performance.now(); texturesDirty = true; schedule();
-    }, { signal });
     replay.addEventListener("click", () => { replayStart = performance.now(); heldProgress = null; progress = 0; schedule(); }, { signal });
     document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else schedule(); }, { signal });
     reduced.addEventListener("change", () => {
@@ -299,7 +203,7 @@
         if (reduced.matches) fallback();
         else if (renderer && !failed) {
             stage.classList.add("scene-ready"); replay.hidden = false;
-            caption.textContent = "Example Studio \u2014 original 3D design demonstration.";
+            caption.textContent = "Supplied brand artwork \u2014 interactive 3D demonstration.";
             heldProgress = 1; resizeScene();
         } else start();
     }, { signal });
@@ -307,7 +211,6 @@
     canvas.addEventListener("webglcontextlost", event => { event.preventDefault(); failed = true; dispose(); }, { signal });
     window.addEventListener("pagehide", event => { stop(); if (!event.persisted) dispose(); }, { signal });
     window.addEventListener("pageshow", event => { if (event.persisted) { resizeScene(); schedule(); } }, { signal });
-    document.fonts?.ready.then(() => { if (!disposed) { texturesDirty = true; schedule(); } });
     if ("IntersectionObserver" in window) {
         intersection = new IntersectionObserver(entries => {
             inView = entries[0].isIntersecting;
