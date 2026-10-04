@@ -9,6 +9,18 @@
     function scrollSequence(heroTop, headerHeight, viewportHeight) {
         return clamp((headerHeight - heroTop) / Math.max(160, Math.min(260, viewportHeight * 0.26)));
     }
+    async function loadArtworkImage(artwork, ImageType) {
+        await artwork.decode();
+        const image = new ImageType();
+        image.decoding = "async";
+        image.src = artwork.currentSrc || artwork.src;
+        await image.decode();
+        if (!image.naturalWidth || !image.naturalHeight) throw new Error("The hero artwork has no decoded pixels.");
+        // A responsive DOM image has layout dimensions, not reliable GPU texture dimensions.
+        image.width = image.naturalWidth;
+        image.height = image.naturalHeight;
+        return image;
+    }
     // Visible regions in the user's 1600 x 900 artwork, ordered top-left clockwise.
     const artworkQuads = {
         website: [[430, 232], [835, 201], [869, 557], [478, 609]],
@@ -30,7 +42,7 @@
         const y = ((y1 - y0 + g * y1) * u + (y3 - y0 + h * y3) * v + y0) / denominator;
         return { u: x / 1600, v: 1 - y / 900 };
     }
-    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV };
+    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV, loadArtworkImage };
     if (typeof document === "undefined") return;
     const hero = document.getElementById("brand-hero");
     const stage = document.getElementById("brand-scene-stage");
@@ -70,13 +82,19 @@
             // Reuses the pinned, free Three.js release already used by this project.
             const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js");
             const artwork = hero.querySelector(".brand-hero-image");
-            await artwork.decode();
+            const textureImage = await loadArtworkImage(artwork, Image);
             if (disposed) return;
-            const artworkTexture = own(new THREE.Texture(artwork));
+            const artworkTexture = own(new THREE.Texture(textureImage));
             artworkTexture.colorSpace = THREE.SRGBColorSpace;
+            artworkTexture.generateMipmaps = false;
+            artworkTexture.minFilter = THREE.LinearFilter;
             artworkTexture.needsUpdate = true;
             renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !compact.matches, powerPreference: "low-power" });
             renderer.outputColorSpace = THREE.SRGBColorSpace;
+            artworkTexture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
+            renderer.initTexture(artworkTexture);
+            const gl = renderer.getContext();
+            if (gl.getError() !== gl.NO_ERROR) throw new Error("The hero artwork could not be uploaded to WebGL.");
             scene = new THREE.Scene();
             camera = new THREE.OrthographicCamera(-5, 5, 3.5, -3.5, .1, 40);
             camera.position.set(0, 4.4, 12); camera.lookAt(0, .9, 0);
@@ -90,7 +108,6 @@
                 const mesh = new THREE.Mesh(own(new THREE.BoxGeometry(width, height, depth)), material);
                 mesh.position.set(x, y, z); parent.add(mesh); return mesh;
             }
-            artworkTexture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
             function surface(kind, width, height, parent, x, y, z) {
                 // Projective UVs flatten the photographed panels without modifying the source image.
                 const segments = compact.matches ? 8 : 24;
