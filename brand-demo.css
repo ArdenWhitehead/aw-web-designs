@@ -9,18 +9,22 @@
 }
 .brand-sticky { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 650px); gap: 56px; align-items: center; max-width: 1400px; margin: auto; padding: 54px var(--gutter); }
 .brand-visual { min-width: 0; }
-.brand-image-stage { position: relative; aspect-ratio: 16 / 9; background: #f4f1e9; overflow: hidden; }
-.brand-hero-image { display: block; width: 100%; height: 100%; object-fit: contain; transform: translate3d(0, var(--image-y, 0%), 0) scale(var(--image-scale, 1)); transform-origin: center; }
-.brand-image-stage.has-motion .brand-hero-image { will-change: transform; }
+.brand-image-stage { position: relative; aspect-ratio: 16 / 11; overflow: hidden; isolation: isolate; }
+.brand-hero-image { display: block; width: 100%; height: 100%; object-fit: contain; }
+#brand-scene-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity 400ms ease; }
+.scene-ready #brand-scene-canvas { opacity: 1; }
+.scene-ready .brand-hero-image { visibility: hidden; }
+.brand-image-stage.is-entered { animation: brand-arrive 650ms cubic-bezier(.2,.7,.3,1) both; }
+@keyframes brand-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .brand-image figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; color: #58625e; font-size: 11px; line-height: 1.5; }
-.brand-motion-toggle { flex-shrink: 0; width: 44px; height: 44px; border-radius: 3px; border-color: #a7b5ad; color: #24675f; }
-.brand-motion-toggle:hover { background: #edf3ef; }
-.brand-motion-toggle span { display: inline-flex; }
-.brand-motion-toggle[hidden], .brand-motion-toggle span[hidden] { display: none; }
+.brand-scene-replay { flex-shrink: 0; width: 44px; height: 44px; border-radius: 3px; border: 0; color: #24675f; background: transparent; }
+.brand-scene-replay:hover { background: #edf3ef; }
+.brand-scene-replay[hidden] { display: none; }
 .brand-sample { border-top: 1px solid #dbe1d8; margin-top: 8px; }
 .brand-sample summary { display: flex; align-items: center; justify-content: space-between; min-height: 52px; gap: 12px; font-size: 13px; font-weight: 500; color: #24675f; list-style: none; cursor: pointer; }
 .brand-sample summary::-webkit-details-marker { display: none; }
 .brand-sample summary svg { width: 18px; height: 18px; }
+.brand-sample summary svg { transition: transform 200ms ease; }
 .brand-sample[open] summary svg { transform: rotate(180deg); }
 .sample-separation { font-size: 11px; line-height: 1.5; color: #58625e; margin-bottom: 20px; }
 .brand-copy { min-width: 0; }
@@ -110,6 +114,9 @@
 .accent-controls button > span { width: 14px; height: 14px; border-radius: 50%; background: var(--swatch); }
 .demo-headline-field { min-width: 0; }
 .demo-headline-field input { width: 100%; min-height: 44px; padding: 9px 11px; border: 1px solid #b9c5b9; border-radius: 3px; background: #fff; color: #25322f; font-size: 12px; line-height: 1.4; }
+.brand-art .studio-logo, .brand-art .studio-art, .brand-art .mock-eyebrow, .brand-art .post-eyebrow, .brand-art .post-footer, .example-caption-mark { transition: color 240ms ease; }
+.brand-art .browser-art, .brand-art .mock-enquiry, .brand-art .promo-art, .brand-art .social-post { transition: background-color 240ms ease, border-color 240ms ease; }
+.brand-art .studio-art [fill="currentColor"], .brand-art .studio-art [stroke="currentColor"] { transition: fill 240ms ease, stroke 240ms ease; }
 
 /* The non-scripted composition is complete and uses normal document flow. */
 .brand-example:not(.is-enhanced) .social-post { height: 278px; }
@@ -133,6 +140,7 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .brand-example { max-width: none; }
 }
 @media (max-width: 500px) {
+    .brand-image-stage { aspect-ratio: 4 / 3; }
     .brand-sticky { padding-top: 42px; padding-bottom: 40px; gap: 34px; }
     .brand-kicker { margin-bottom: 22px; font-size: 11px; }
     .brand-copy h1 { font-size: 35px; line-height: 1.16; }
@@ -154,5 +162,6 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .brand-example:not(.is-enhanced) .mock-nav { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .brand-hero-image { transform: none; }
+    .brand-image-stage.is-entered { animation: none; }
+    .brand-art *, .brand-sample summary svg { transition: none; }
 }

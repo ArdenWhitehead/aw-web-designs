@@ -14,6 +14,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
         <script defer src="script.js"></script>
         <script defer src="brand-demo.js"></script>
+        <script defer src="brand-scene.js"></script>
     </head>
     <body class="home-page">
         <a class="skip-link" href="#main-content">Skip to content</a>
@@ -44,17 +45,19 @@
                     </div>
                     <div class="brand-visual">
                         <figure class="brand-image" aria-labelledby="brand-image-caption">
-                            <div class="brand-image-stage">
+                            <div class="brand-image-stage" id="brand-scene-stage">
                                 <img class="brand-hero-image" src="Images/aw-brand-laptop-social.jpg" srcset="Images/aw-brand-laptop-social-small.jpg 800w, Images/aw-brand-laptop-social.jpg 1600w" sizes="(max-width: 500px) calc(100vw - 44px), (max-width: 900px) calc(100vw - 48px), (max-width: 1200px) 56vw, 650px" width="1600" height="900" fetchpriority="high" decoding="async" alt="Illustrative laptop website and three coordinated social media cards sharing architectural imagery, teal accents and warm neutral colours">
+                                <canvas id="brand-scene-canvas" aria-hidden="true"></canvas>
+                                <p class="sr-only">The optional 3D demonstration shows an Example Studio website on a laptop becoming three matching social designs: a promotion, an educational tip and a placeholder testimonial. It does not represent a real client or review.</p>
                             </div>
                             <figcaption id="brand-image-caption">
-                                <span>Website + social designs &mdash; illustrative brand concept.</span>
-                                <button type="button" class="brand-motion-toggle icon-button" id="brand-motion-toggle" aria-label="Pause image movement" title="Pause image movement" hidden><span class="motion-pause"><i data-lucide="pause" aria-hidden="true"></i></span><span class="motion-play" hidden><i data-lucide="play" aria-hidden="true"></i></span></button>
+                                <span id="brand-scene-caption">Website + social designs &mdash; illustrative brand concept.</span>
+                                <button type="button" class="brand-scene-replay icon-button" id="brand-scene-replay" aria-label="Replay the 3D website-to-social transformation" title="Replay the 3D transformation" hidden><i data-lucide="rotate-ccw" aria-hidden="true"></i></button>
                             </figcaption>
                         </figure>
                         <details class="brand-sample">
                             <summary>Try a sample design <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-                            <p class="sample-separation">The sample below is separate from the hero artwork.</p>
+                            <p class="sample-separation">Customise Example Studio's 3D design and HTML sample. The fallback photograph is unchanged.</p>
                             <figure class="brand-example" aria-labelledby="example-caption">
                                 <figcaption id="example-caption"><span class="example-caption-mark">es</span><span>Example Studio &mdash; demonstration</span><span class="example-format">Website + social</span></figcaption>
                                 <div class="brand-canvas">

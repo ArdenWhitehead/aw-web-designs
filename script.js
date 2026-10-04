@@ -187,6 +187,12 @@
     connectForm("quote-form", "quote-message", true);
     connectForm("contact-form", "contact-message-result");
 
+    document.querySelectorAll(".service-container, .difference-grid, .package-grid").forEach(group => {
+        [...group.children].forEach((node, index) => {
+            node.setAttribute("data-reveal", "");
+            node.style.setProperty("--reveal-delay", Math.min(index, 2) * 55 + "ms");
+        });
+    });
     const revealNodes = [...document.querySelectorAll("[data-reveal]")];
     let observer;
     if ("IntersectionObserver" in window && !reducedMotion.matches) {
@@ -202,6 +208,11 @@
             if (node.closest(".modal")) continue;
             node.classList.add("reveal-pending");
             observer.observe(node);
+            node.addEventListener("focusin", () => {
+                node.classList.remove("reveal-pending");
+                node.classList.add("is-visible");
+                observer.unobserve(node);
+            }, { once: true });
         }
         reducedMotion.addEventListener("change", event => {
             if (!event.matches) return;
@@ -209,5 +220,8 @@
             revealNodes.forEach(node => node.classList.remove("reveal-pending"));
         });
     }
+    window.addEventListener("pageshow", event => {
+        if (event.persisted) revealNodes.forEach(node => node.classList.remove("reveal-pending"));
+    });
     window.addEventListener("pagehide", closeModal);
 })();
