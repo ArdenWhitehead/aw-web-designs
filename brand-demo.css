@@ -9,7 +9,7 @@
 }
 .brand-sticky { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 650px); gap: 56px; align-items: center; max-width: 1400px; margin: auto; padding: 54px var(--gutter); }
 .brand-visual { min-width: 0; }
-.brand-image-stage { position: relative; aspect-ratio: 16 / 11; overflow: hidden; isolation: isolate; }
+.brand-image-stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; isolation: isolate; }
 .brand-hero-image { display: block; width: 100%; height: 100%; object-fit: contain; }
 #brand-scene-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity 400ms ease; }
 .scene-ready #brand-scene-canvas { opacity: 1; }
@@ -140,7 +140,6 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .brand-example { max-width: none; }
 }
 @media (max-width: 500px) {
-    .brand-image-stage { aspect-ratio: 4 / 3; }
     .brand-sticky { padding-top: 42px; padding-bottom: 40px; gap: 34px; }
     .brand-kicker { margin-bottom: 22px; font-size: 11px; }
     .brand-copy h1 { font-size: 35px; line-height: 1.16; }
