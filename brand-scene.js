@@ -74,12 +74,14 @@
     const caption = document.getElementById("brand-scene-caption");
     if (!hero || !stage || !canvas || !replay) return;
     stage.classList.add("is-entered");
+    // Local file origins cannot reliably upload photographic WebGL textures.
+    if (window.location?.protocol === "file:") { fallback(); return; }
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const compact = window.matchMedia("(max-width: 900px)");
     const resources = new Set();
     const events = new AbortController();
     let renderer, scene, camera, composition, backdrop, laptop, shadow, cards, intersection, resize;
-    let frame = 0, inView = true, disposed = false, failed = false, started = false;
+    let frame = 0, inView = true, disposed = false, failed = false, started = false, hasRendered = false;
     let introStart = null, replayStart = null, heldProgress = null, progress = 0;
     let pointerX = 0, pointerY = 0, currentX = 0, currentY = 0;
     const own = resource => { resources.add(resource); return resource; };
@@ -169,8 +171,6 @@
             resizeScene();
             resize = new ResizeObserver(resizeScene); resize.observe(stage);
             if (reduced.matches) { fallback(); return; }
-            stage.classList.add("scene-ready", "is-entered");
-            replay.hidden = false; caption.textContent = "Your brand in motion \u2014 layered photographic demonstration.";
             schedule();
         } catch (error) {
             failed = true; dispose();
@@ -218,7 +218,21 @@
             card.line.geometry.setDrawRange(0, Math.round(33 * p));
             card.line.visible = p > .01;
         });
-        renderer.render(scene, camera); canvas.dataset.progress = progress.toFixed(3);
+        try {
+            renderer.render(scene, camera);
+            if (!hasRendered) {
+                const gl = renderer.getContext();
+                if (gl.isContextLost() || gl.getError() !== gl.NO_ERROR) throw new Error("The photographic scene could not render.");
+                hasRendered = true;
+                stage.classList.add("scene-ready");
+                replay.hidden = false; caption.textContent = "Your brand in motion \u2014 layered photographic demonstration.";
+            }
+        } catch (error) {
+            failed = true; dispose();
+            console.info("The supplied artwork is being used because the optional 3D scene could not render.");
+            return;
+        }
+        canvas.dataset.progress = progress.toFixed(3);
         if (intro < 1 || replayStart !== null || Math.abs(target - progress) > .001 || Math.abs(currentX - pointerX) > .001 || Math.abs(currentY - pointerY) > .001) schedule();
     }
     const signal = events.signal;
@@ -237,8 +251,10 @@
         stop();
         if (reduced.matches) fallback();
         else if (renderer && !failed) {
-            stage.classList.add("scene-ready"); replay.hidden = false;
-            caption.textContent = "Your brand in motion \u2014 layered photographic demonstration.";
+            if (hasRendered) {
+                stage.classList.add("scene-ready"); replay.hidden = false;
+                caption.textContent = "Your brand in motion \u2014 layered photographic demonstration.";
+            }
             heldProgress = 1; resizeScene();
         } else start();
     }, { signal });
