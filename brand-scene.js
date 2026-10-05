@@ -55,7 +55,17 @@
         const top = Math.max(2.897, 5.15 * height / width), right = top * width / height;
         return { left: -right, right, top, bottom: -top };
     }
-    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV, loadArtworkImage, panelFrame, sceneBounds };
+    function sceneQuality(width, height, displayDensity, isCompact) {
+        if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) throw new RangeError("A scene requires positive dimensions.");
+        const density = Number.isFinite(displayDensity) && displayDensity > 0 ? displayDensity : 1;
+        // Small Retina canvases stay sharp; a total-pixel budget bounds work on larger screens.
+        const pixelRatio = Math.min(density, isCompact ? 3 : 2, (isCompact ? 1400 : 1800) / width, (isCompact ? 900 : 1100) / height, Math.sqrt((isCompact ? 900000 : 1500000) / (width * height)));
+        return {
+            pixelRatio,
+            laptopSrc: !isCompact || pixelRatio > 1.5 ? "Images/aw-brand-scene-laptop.webp" : "Images/aw-brand-scene-laptop-small.webp"
+        };
+    }
+    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV, loadArtworkImage, panelFrame, sceneBounds, sceneQuality };
     if (typeof document === "undefined") return;
     const hero = document.getElementById("brand-hero");
     const stage = document.getElementById("brand-scene-stage");
@@ -95,13 +105,15 @@
             // Reuses the pinned, free Three.js release already used by this project.
             const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js");
             const artwork = hero.querySelector(".brand-hero-image");
+            const { width, height } = stage.getBoundingClientRect();
+            const quality = sceneQuality(width, height, window.devicePixelRatio, compact.matches);
             const [textureImage, laptopImage, backdropImage] = await Promise.all([
                 loadArtworkImage(artwork, Image),
-                loadImage(compact.matches ? "Images/aw-brand-scene-laptop-small.webp" : "Images/aw-brand-scene-laptop.webp", Image),
+                loadImage(quality.laptopSrc, Image),
                 loadImage("Images/aw-brand-scene-backdrop.jpg", Image)
             ]);
             if (disposed) return;
-            renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !compact.matches, powerPreference: "low-power" });
+            renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "low-power" });
             renderer.outputColorSpace = THREE.SRGBColorSpace;
             const gl = renderer.getContext();
             function texture(image) {
@@ -169,7 +181,7 @@
         if (!renderer || disposed) return;
         const { width, height } = stage.getBoundingClientRect();
         if (!width || !height) return;
-        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, compact.matches ? 1 : 1.5, 1800 / width, 1100 / height));
+        renderer.setPixelRatio(sceneQuality(width, height, window.devicePixelRatio, compact.matches).pixelRatio);
         renderer.setSize(width, height, false);
         Object.assign(camera, sceneBounds(width, height));
         camera.updateProjectionMatrix();
