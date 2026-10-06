@@ -9,6 +9,11 @@
     function scrollSequence(heroTop, headerHeight, viewportHeight) {
         return clamp((headerHeight - heroTop) / Math.max(160, Math.min(260, viewportHeight * 0.26)));
     }
+    function mobileScrollSequence(stageTop, stageHeight, viewportHeight) {
+        if (![stageTop, stageHeight, viewportHeight].every(Number.isFinite) || stageHeight <= 0 || viewportHeight <= 0) return 0;
+        const centre = stageTop + stageHeight / 2;
+        return clamp((viewportHeight * .8 - centre) / Math.max(120, Math.min(260, viewportHeight * .3)));
+    }
     async function loadImage(src, ImageType) {
         const image = new ImageType();
         image.decoding = "async";
@@ -65,7 +70,7 @@
             laptopSrc: !isCompact || pixelRatio > 1.5 ? "Images/aw-brand-scene-laptop.webp" : "Images/aw-brand-scene-laptop-small.webp"
         };
     }
-    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, artworkUV, loadArtworkImage, panelFrame, sceneBounds, sceneQuality };
+    if (typeof module === "object" && module.exports) module.exports = { sequenceFrame, scrollSequence, mobileScrollSequence, artworkUV, loadArtworkImage, panelFrame, sceneBounds, sceneQuality };
     if (typeof document === "undefined") return;
     const hero = document.getElementById("brand-hero");
     const stage = document.getElementById("brand-scene-stage");
@@ -83,6 +88,7 @@
     let renderer, scene, camera, composition, backdrop, laptop, shadow, cards, intersection, resize;
     let frame = 0, inView = true, disposed = false, failed = false, started = false, hasRendered = false;
     let introStart = null, replayStart = null, heldProgress = null, progress = 0;
+    let scrollViewportHeight = 0, scrollStageWidth = 0;
     let pointerX = 0, pointerY = 0, currentX = 0, currentY = 0;
     const own = resource => { resources.add(resource); return resource; };
     function stop() { cancelAnimationFrame(frame); frame = 0; }
@@ -181,6 +187,11 @@
         if (!renderer || disposed) return;
         const { width, height } = stage.getBoundingClientRect();
         if (!width || !height) return;
+        // Ignore height-only mobile toolbar changes; reset the scroll range when layout width changes.
+        if (!scrollViewportHeight || Math.abs(width - scrollStageWidth) > 1) {
+            scrollViewportHeight = window.innerHeight;
+            scrollStageWidth = width;
+        }
         renderer.setPixelRatio(sceneQuality(width, height, window.devicePixelRatio, compact.matches).pixelRatio);
         renderer.setSize(width, height, false);
         Object.assign(camera, sceneBounds(width, height));
@@ -192,15 +203,17 @@
         frame = 0;
         if (disposed || failed || document.hidden || !inView || reduced.matches) return;
         if (introStart === null) introStart = now;
-        const intro = ease((now - introStart) / 950);
+        const intro = compact.matches ? 1 : ease((now - introStart) / 950);
         const header = document.querySelector(".site-header").getBoundingClientRect().height;
-        const scroll = scrollSequence(hero.getBoundingClientRect().top, header, innerHeight);
-        let target = heldProgress ?? (compact.matches ? intro : scroll);
+        const stageRect = stage.getBoundingClientRect();
+        const scroll = compact.matches ? mobileScrollSequence(stageRect.top, stageRect.height, scrollViewportHeight) : scrollSequence(hero.getBoundingClientRect().top, header, window.innerHeight);
+        let target = heldProgress ?? scroll;
         if (replayStart !== null) {
             target = ease((now - replayStart) / 1900);
             if (now - replayStart >= 1900) { replayStart = null; heldProgress = 1; }
         }
-        progress += (target - progress) * .12;
+        if (compact.matches || !hasRendered) progress = target;
+        else progress += (target - progress) * .12;
         if (Math.abs(target - progress) < .001) progress = target;
         currentX += (pointerX - currentX) * .09; currentY += (pointerY - currentY) * .09;
         const pose = sequenceFrame(progress);
@@ -249,13 +262,14 @@
     document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else schedule(); }, { signal });
     reduced.addEventListener("change", () => {
         stop();
+        heldProgress = replayStart = null;
         if (reduced.matches) fallback();
         else if (renderer && !failed) {
             if (hasRendered) {
                 stage.classList.add("scene-ready"); replay.hidden = false;
                 caption.textContent = "Your brand in motion \u2014 layered photographic demonstration.";
             }
-            heldProgress = 1; resizeScene();
+            resizeScene();
         } else start();
     }, { signal });
     compact.addEventListener("change", () => { pointerX = pointerY = 0; resizeScene(); }, { signal });

@@ -133,6 +133,8 @@ html:not(.js-enabled) .brand-controls { display: none; }
     .brand-sticky { padding-top: 60px; padding-bottom: 60px; }
 }
 @media (max-width: 900px) {
+    .brand-image-stage.is-entered { animation: none; }
+    #brand-scene-canvas { transition: none; }
     .brand-sticky { grid-template-columns: 1fr; gap: 44px; max-width: 760px; }
     .brand-copy h1 { font-size: 48px; max-width: 640px; }
     .brand-description { max-width: 550px; }
